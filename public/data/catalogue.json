@@ -194,5 +194,67 @@
       ],
       "notes": "UK price displayed on Google's subscriptions page at time of access."
     }
+  ],
+  "apiPricing": [
+    {
+      "id": "deepseek-flash-offpeak",
+      "modelId": "deepseek-v4-flash",
+      "inputPerMillion": 0.15,
+      "outputPerMillion": 0.6,
+      "cachedInputPerMillion": 0.003,
+      "currency": "USD",
+      "tier": "Off-peak",
+      "observedAt": "2026-10-30",
+      "sourceId": "deepseek-api",
+      "notes": "USD per million tokens; off-peak rate. DeepSeek publishes time-dependent peak and off-peak pricing."
+    },
+    {
+      "id": "deepseek-flash-peak",
+      "modelId": "deepseek-v4-flash",
+      "inputPerMillion": 0.3,
+      "outputPerMillion": 1.2,
+      "cachedInputPerMillion": 0.006,
+      "currency": "USD",
+      "tier": "Peak",
+      "observedAt": "2026-10-30",
+      "sourceId": "deepseek-api",
+      "notes": "USD per million tokens; peak rate."
+    },
+    {
+      "id": "deepseek-pro-offpeak",
+      "modelId": "deepseek-v4-pro",
+      "inputPerMillion": 0.66,
+      "outputPerMillion": 1.98,
+      "cachedInputPerMillion": 0.022,
+      "currency": "USD",
+      "tier": "Off-peak",
+      "observedAt": "2026-10-30",
+      "sourceId": "deepseek-api",
+      "notes": "USD per million tokens; off-peak rate."
+    },
+    {
+      "id": "deepseek-pro-peak",
+      "modelId": "deepseek-v4-pro",
+      "inputPerMillion": 1.32,
+      "outputPerMillion": 3.96,
+      "cachedInputPerMillion": 0.044,
+      "currency": "USD",
+      "tier": "Peak",
+      "observedAt": "2026-10-30",
+      "sourceId": "deepseek-api",
+      "notes": "USD per million tokens; peak rate."
+    },
+    {
+      "id": "claude-opus-48-standard",
+      "modelId": "claude-opus-4-8",
+      "inputPerMillion": 5,
+      "outputPerMillion": 25,
+      "cachedInputPerMillion": 0.5,
+      "currency": "USD",
+      "tier": "Standard",
+      "observedAt": "2026-10-30",
+      "sourceId": "claude-api-pricing",
+      "notes": "Standard Global API list price. Cache-hit rate shown as cached input price."
+    }
   ]
 }
