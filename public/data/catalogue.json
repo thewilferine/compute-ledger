@@ -1,8 +1,190 @@
 {
   "schemaVersion": 1,
   "updatedAt": "2026-10-30T00:00:00.000Z",
-  "sources": [],
-  "providers": [],
-  "models": [],
-  "subscriptionPlans": []
+  "sources": [
+    {
+      "id": "openai-plus",
+      "title": "What is ChatGPT Plus?",
+      "publisher": "OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+      "accessedAt": "2026-10-30",
+      "notes": "States ChatGPT Plus is USD $20/month. Local app-store and regional prices may differ."
+    },
+    {
+      "id": "claude-plans",
+      "title": "Choose a Claude plan",
+      "publisher": "Anthropic Support",
+      "url": "https://support.claude.com/en/articles/11049762-choose-a-claude-plan",
+      "accessedAt": "2026-10-30",
+      "notes": "Lists individual Pro at USD $20/month or $200/year. Local pricing may differ."
+    },
+    {
+      "id": "google-ai-pro",
+      "title": "Google AI Pro subscriptions",
+      "publisher": "Google",
+      "url": "https://gemini.google/gi/subscriptions/?hl=en-GB",
+      "accessedAt": "2026-10-30",
+      "notes": "UK pricing page lists Google AI Pro at GBP £15.49/month at time of access."
+    },
+    {
+      "id": "deepseek-api",
+      "title": "Models & Pricing",
+      "publisher": "DeepSeek API Documentation",
+      "url": "https://api-docs.deepseek.com/quick_start/pricing/",
+      "accessedAt": "2026-10-30",
+      "notes": "Official API rate card; prices in USD per million tokens. Time-of-day peak and off-peak pricing applies."
+    },
+    {
+      "id": "openai-api",
+      "title": "Pricing",
+      "publisher": "OpenAI API Documentation",
+      "url": "https://developers.openai.com/api/docs/pricing",
+      "accessedAt": "2026-10-30",
+      "notes": "Official API pricing page. Pricing varies by model, speed tier, context and modality."
+    },
+    {
+      "id": "claude-pro",
+      "title": "What is the Pro plan?",
+      "publisher": "Anthropic Support",
+      "url": "https://support.claude.com/en/articles/8325606-what-is-the-pro-plan",
+      "accessedAt": "2026-10-30",
+      "notes": "Explains Claude Pro pricing is USD $20/month in the US, local prices vary; API usage is separate."
+    }
+  ],
+  "providers": [
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "website": "https://openai.com",
+      "sources": [
+        "openai-plus",
+        "openai-api"
+      ]
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "website": "https://www.anthropic.com",
+      "sources": [
+        "claude-plans",
+        "claude-pro"
+      ]
+    },
+    {
+      "id": "google",
+      "name": "Google",
+      "website": "https://ai.google",
+      "sources": [
+        "google-ai-pro"
+      ]
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "website": "https://www.deepseek.com",
+      "sources": [
+        "deepseek-api"
+      ]
+    },
+    {
+      "id": "xai",
+      "name": "xAI",
+      "website": "https://x.ai",
+      "sources": []
+    }
+  ],
+  "models": [
+    {
+      "id": "deepseek-v4-flash",
+      "providerId": "deepseek",
+      "name": "DeepSeek-V4.1-Flash",
+      "modality": [
+        "text",
+        "image"
+      ],
+      "contextWindowTokens": 1000000,
+      "sources": [
+        "deepseek-api"
+      ]
+    },
+    {
+      "id": "deepseek-v4-pro",
+      "providerId": "deepseek",
+      "name": "DeepSeek-V4-Pro",
+      "modality": [
+        "text"
+      ],
+      "contextWindowTokens": 1000000,
+      "sources": [
+        "deepseek-api"
+      ]
+    },
+    {
+      "id": "gpt-6-astra",
+      "providerId": "openai",
+      "name": "GPT-6 Astra",
+      "modality": [
+        "text"
+      ],
+      "sources": [
+        "openai-api"
+      ]
+    },
+    {
+      "id": "claude-opus-4-8",
+      "providerId": "anthropic",
+      "name": "Claude Opus 4.8",
+      "modality": [
+        "text",
+        "image"
+      ],
+      "sources": [
+        "claude-plans"
+      ]
+    }
+  ],
+  "subscriptionPlans": [
+    {
+      "id": "chatgpt-plus-usd",
+      "providerId": "openai",
+      "name": "ChatGPT Plus",
+      "billingPeriod": "monthly",
+      "price": 20,
+      "currency": "USD",
+      "region": "United States",
+      "observedAt": "2026-10-30",
+      "sources": [
+        "openai-plus"
+      ],
+      "notes": "Web price stated by OpenAI; taxes, local currency and app-store pricing may differ. API usage is billed separately."
+    },
+    {
+      "id": "claude-pro-usd",
+      "providerId": "anthropic",
+      "name": "Claude Pro",
+      "billingPeriod": "monthly",
+      "price": 20,
+      "currency": "USD",
+      "region": "United States",
+      "observedAt": "2026-10-30",
+      "sources": [
+        "claude-pro"
+      ],
+      "notes": "US list price. Local pricing varies. API usage is separate."
+    },
+    {
+      "id": "google-ai-pro-gbp",
+      "providerId": "google",
+      "name": "Google AI Pro",
+      "billingPeriod": "monthly",
+      "price": 15.49,
+      "currency": "GBP",
+      "region": "United Kingdom",
+      "observedAt": "2026-10-30",
+      "sources": [
+        "google-ai-pro"
+      ],
+      "notes": "UK price displayed on Google's subscriptions page at time of access."
+    }
+  ]
 }
