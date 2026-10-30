@@ -52,7 +52,11 @@ npm run preview
 5. Review material data changes through pull requests.
 6. Never describe a modelled estimate as a provider's financial disclosure.
 
-See [the methodology notes](docs/methodology.md) for the initial modelling boundaries.
+See [the methodology notes](docs/methodology.md) for the modelling boundaries, definitions and known omissions.
+
+## Current data coverage
+
+The catalogue currently includes a small, source-backed sample of provider records, consumer subscription observations, and API token rates. API rates are customer-facing list prices, not internal inference costs. The dataset records source URLs and observation dates and is validated at runtime with Zod. Coverage is intentionally incomplete: do not interpret missing providers or models as having no API price or no serving cost.
 
 ## Deployment
 
