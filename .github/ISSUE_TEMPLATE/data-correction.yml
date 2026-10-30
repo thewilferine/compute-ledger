@@ -1,0 +1,25 @@
+name: Suggest a data correction
+description: Report an outdated, incorrect, or incomplete data point.
+title: "[Data correction]: "
+labels: ["data"]
+body:
+  - type: input
+    id: dataset
+    attributes:
+      label: Dataset or provider
+      placeholder: Provider, model, plan, or source
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Supporting source URL
+      placeholder: https://
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: What should change?
+    validations:
+      required: true
