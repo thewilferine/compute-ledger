@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { Activity, ArrowDownRight, ArrowUpRight, BookOpen, ChevronRight, CircleDollarSign, Cpu, Database, Github, Gauge, Layers3, Menu, ShieldCheck, X } from "lucide-react";
 import { estimateInferenceCost } from "./calculations/inference-cost";
 
@@ -75,7 +75,7 @@ function App() {
 }
 
 function Brand({onClick}:{onClick:()=>void}) { return <button onClick={onClick} className="flex items-center gap-3 px-5 pt-6 text-left"><span className="grid size-9 place-items-center rounded-xl bg-teal-300 text-slate-950"><Cpu size={19}/></span><span><span className="block text-sm font-semibold tracking-tight">Compute Ledger</span><span className="mt-0.5 block text-[10px] tracking-[0.16em] text-slate-500 uppercase">AI economics explorer</span></span></button>; }
-function NavButton({active,onClick,children}:{active:boolean;onClick:()=>void;children:React.ReactNode}) { return <button onClick={onClick} className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition ${active?"bg-teal-300/10 text-teal-200":"text-slate-400 hover:bg-white/[0.04] hover:text-white"}`}>{children}</button>; }
+function NavButton({active,onClick,children}:{active:boolean;onClick:()=>void;children:ReactNode}) { return <button onClick={onClick} className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition ${active?"bg-teal-300/10 text-teal-200":"text-slate-400 hover:bg-white/[0.04] hover:text-white"}`}>{children}</button>; }
 function Eyebrow({children}:{children:React.ReactNode}) { return <p className="text-xs font-semibold tracking-[0.16em] text-teal-300 uppercase">{children}</p>; }
 function Heading({eyebrow,title,description}:{eyebrow:string;title:string;description:string}) { return <div className="mb-8"><Eyebrow>{eyebrow}</Eyebrow><h1 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">{title}</h1><p className="mt-3 max-w-3xl text-sm leading-6 text-slate-400">{description}</p></div>; }
 function Panel({children,className=""}:{children:React.ReactNode;className?:string}) { return <section className={`rounded-2xl border border-white/[0.08] bg-white/[0.025] p-5 sm:p-6 ${className}`}>{children}</section>; }
