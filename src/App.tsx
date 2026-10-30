@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
-import { Activity, ArrowDownRight, ArrowUpRight, BookOpen, ChevronRight, CircleDollarSign, Cpu, Database, Github, Gauge, Layers3, Menu, ShieldCheck, X } from "lucide-react";
+import { Activity, ArrowUpRight, BookOpen, ChevronRight, CircleDollarSign, Cpu, Database, Github, Gauge, Layers3, Menu, ShieldCheck, X } from "lucide-react";
 import { estimateInferenceCost } from "./calculations/inference-cost";
 
 type Page = "overview" | "providers" | "models" | "subscriptions" | "calculator" | "methodology";
@@ -21,11 +21,12 @@ const researchQueue = [
 
 function usePage(): [Page, (page: Page) => void] {
   const read = (): Page => {
+    if (typeof window === "undefined") return "overview";
     const key = window.location.hash.replace("#", "") as Page;
     return nav.some((item) => item.id === key) ? key : "overview";
   };
   const [page, setPage] = useState<Page>(read);
-  useMemo(() => {
+  useEffect(() => {
     const onHash = () => setPage(read());
     window.addEventListener("hashchange", onHash);
     return () => window.removeEventListener("hashchange", onHash);
