@@ -49,6 +49,14 @@
       "url": "https://support.claude.com/en/articles/8325606-what-is-the-pro-plan",
       "accessedAt": "2026-10-30",
       "notes": "Explains Claude Pro pricing is USD $20/month in the US, local prices vary; API usage is separate."
+    },
+    {
+      "id": "claude-api-pricing",
+      "title": "Claude Model Pricing — List Prices",
+      "publisher": "Anthropic",
+      "url": "https://www-cdn.anthropic.com/files/4zrzovbb/website/3684c2faafb97418665782cea0001f439f74b1d2.pdf",
+      "accessedAt": "2026-10-30",
+      "notes": "Official price list effective 27 May 2026. Includes Claude Opus 4.8 API prices in USD per million tokens; not consumer subscription pricing."
     }
   ],
   "providers": [
@@ -139,7 +147,7 @@
         "image"
       ],
       "sources": [
-        "claude-plans"
+        "claude-api-pricing"
       ]
     }
   ],
