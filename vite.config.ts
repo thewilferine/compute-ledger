@@ -15,7 +15,7 @@ export default defineConfig({
   },
   // GitHub Pages serves this project from /compute-ledger/.
   // Change to "/" if using a custom domain or username.github.io root site.
-  base: "/compute-ledger/",
+  base: process.env.GITHUB_ACTIONS ? "/compute-ledger/" : "/",
   test: {
     globals: true,
     setupFiles: ["./src/test/setup.ts"],
