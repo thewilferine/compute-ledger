@@ -22,14 +22,14 @@ The first calculator expresses an illustrative output-token workload as an alloc
 - Accelerator cost = (serving seconds ÷ 3,600) × accelerator hourly cost
 - Estimated total = accelerator cost × infrastructure overhead multiplier
 
-This is deliberately a small building block, not a complete inference cost model. It does not yet account for prompt/prefill tokens, batching interactions, KV cache, model parallelism, quantisation, accelerator memory, multi-GPU topology, speculative decoding, multimodal processing, idle capacity allocation, or provider-specific fleet scheduling.
+This is deliberately a small building block, not a complete inference cost model. The calculator's hourly accelerator allocation, throughput, utilisation and overhead are user-editable assumptions; the default values are illustrative rather than sourced provider disclosures. It does not yet account for prompt/prefill tokens, batching interactions, KV cache, model parallelism, quantisation, accelerator memory, multi-GPU topology, speculative decoding, multimodal processing, idle capacity allocation, or provider-specific fleet scheduling.
 
 ## Revenue and subsidy caveats
 
-A consumer subscription price is not equivalent to revenue available for inference. Plans may include multiple products, have variable usage, discounts, taxes, app-store fees, and cross-subsidies. Actual per-user revenue allocation and serving cost are generally not public.
+A consumer subscription price is not equivalent to revenue available for inference. API list prices are also not internal serving costs: they include commercial pricing decisions and may reflect margins, discounts, product strategy and other factors. They can be used as a customer-facing benchmark, but not as a proxy for GPU cost. Plans may include multiple products, have variable usage, discounts, taxes, app-store fees, and cross-subsidies. Actual per-user revenue allocation and serving cost are generally not public.
 
-Any later comparison must therefore be labelled as an illustrative scenario, not a measured loss or profit.
+Any later comparison must therefore be labelled as an illustrative scenario, not a measured loss or profit. A defensible subscriber-level estimate needs workload telemetry (input/output/cache tokens and model mix), regional plan revenue net of taxes and platform fees, and realistic allocated infrastructure costs. Public data alone cannot establish that an individual subscriber is loss-making.
 
 ## Source handling
 
-Every material source-backed record should include a canonical URL, publisher, retrieval date, and notes about what the source does and does not establish. Price records must include currency, region, billing period, and observation date. Material changes should be reviewed before publication.
+Every material source-backed record should include a canonical URL, publisher, retrieval date, and notes about what the source does and does not establish. API pricing records also identify the model, currency, per-million-token input/output rates, cached-input rate where published, and any rate tier such as peak/off-peak. Price records must include currency, region, billing period, and observation date. Material changes should be reviewed before publication.
