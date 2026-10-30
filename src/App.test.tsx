@@ -11,7 +11,6 @@ describe("Compute Ledger app", () => {
     expect(html).toContain("What does AI really cost to serve?");
     expect(html).toContain("Providers");
     expect(html).toContain("Subscriptions");
-    expect(html).toContain("API pricing");
     expect(html).toContain("Methodology");
   });
 
@@ -23,6 +22,7 @@ describe("Compute Ledger app", () => {
     expect(catalogue.providers.length).toBeGreaterThan(0);
     expect(catalogue.models.length).toBeGreaterThan(0);
     expect(catalogue.subscriptionPlans.length).toBeGreaterThan(0);
+    expect(catalogue.apiPricing.length).toBeGreaterThan(0);
     for (const provider of catalogue.providers) {
       for (const sourceId of provider.sources) expect(sourceIds.has(sourceId)).toBe(true);
     }
