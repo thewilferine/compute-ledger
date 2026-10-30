@@ -1,36 +1,64 @@
 # The Compute Ledger
 
-A transparent, source-backed explorer for the economics of AI inference and consumer subscriptions.
+An independent, source-backed explorer for the economics of AI inference and consumer subscriptions.
 
-## Project status
+The project models plausible serving costs from public information and explicit assumptions. It does **not** claim access to providers' internal costs, actual per-user profitability, or proof that a particular user creates a loss.
 
-The project is being established. The initial release will focus on clearly labelled estimates, explicit assumptions, and source provenance. It will not claim access to providers' internal serving costs or per-user profitability.
-
-## Planned stack
+## Stack
 
 - React + TypeScript + Vite
-- Tailwind CSS and shadcn/ui
-- Recharts for visualisation
+- Tailwind CSS v4 + shadcn/ui
+- Recharts + Lucide
 - Zod for runtime data validation
-- Vitest for tests
-- JSON data, validated and maintained with GitHub Actions
-- GitHub Pages hosting; no application backend
+- Vitest for unit tests
+- JSON catalogue committed to Git
+- GitHub Actions for validation and GitHub Pages deployment
 
-## Development
+There is no application backend or database. Calculations run in the browser.
 
-Requirements: Node.js 22 or later and npm.
+## Local development
+
+Requirements: Node.js 22+ and npm.
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Data principles
+Useful commands:
 
-- Attribute every material input to a source and capture date.
-- Distinguish published facts from estimates and assumptions.
-- Prefer human-reviewed data updates over blindly publishing scraped changes.
-- Show ranges and scenarios where exact costs are not publicly knowable.
+```bash
+npm run typecheck
+npm test
+npm run build
+npm run preview
+```
+
+## Repository layout
+
+- `src/calculations/`: deterministic modelling functions, independent of UI.
+- `src/data/`: Zod schemas and catalogue loading.
+- `src/features/`: product features as they are introduced.
+- `src/components/ui/`: shadcn components.
+- `public/data/`: versioned, public JSON datasets.
+- `.github/workflows/`: CI validation and Pages deployment.
+
+## Data quality principles
+
+1. Attribute every material published fact to a source and retrieval date.
+2. Keep source facts separate from assumptions and calculated estimates.
+3. Preserve region, currency, billing period, and observation date for prices.
+4. Prefer ranges and scenario analysis over false precision.
+5. Review material data changes through pull requests.
+6. Never describe a modelled estimate as a provider's financial disclosure.
+
+See [the methodology notes](docs/methodology.md) for the initial modelling boundaries.
+
+## Deployment
+
+The deployment workflow publishes the Vite `dist/` directory to GitHub Pages. In repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**.
+
+The Vite base path is configured for `https://thewilferine.github.io/compute-ledger/` in CI and `/` during local development.
 
 ## Licence
 
