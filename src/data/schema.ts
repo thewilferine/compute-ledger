@@ -38,6 +38,19 @@ export const subscriptionPlanSchema = z.object({
   notes: z.string().optional(),
 });
 
+export const apiPricingSchema = z.object({
+  id: z.string().min(1),
+  modelId: z.string().min(1),
+  inputPerMillion: z.number().nonnegative(),
+  outputPerMillion: z.number().nonnegative(),
+  cachedInputPerMillion: z.number().nonnegative().optional(),
+  currency: z.string().length(3),
+  tier: z.string().min(1),
+  observedAt: z.string().date(),
+  sourceId: z.string().min(1),
+  notes: z.string().optional(),
+});
+
 export const datasetSchema = z.object({
   schemaVersion: z.literal(1),
   updatedAt: z.string().datetime(),
@@ -45,6 +58,7 @@ export const datasetSchema = z.object({
   providers: z.array(providerSchema),
   models: z.array(modelSchema),
   subscriptionPlans: z.array(subscriptionPlanSchema),
+  apiPricing: z.array(apiPricingSchema),
 });
 
 export type Source = z.infer<typeof sourceSchema>;
