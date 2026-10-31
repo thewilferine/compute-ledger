@@ -3,11 +3,14 @@
 ## Unreleased
 
 ### Added
+- Selected-currency subscription comparison with converted monthly prices, original-price disclosure and dated ECB reference rates.
+- Daily GitHub Actions workflow to refresh ECB reference rates through Frankfurter.
 - Value Explorer for comparing consumer plans by currency, monthly-equivalent price, budget and published usage terms.
 - Budget-conscious, everyday and heavy-use guidance profiles.
 - Explicit plan evidence labels without an opaque cross-provider value score.
 
 ### Changed
+- Value Explorer now sorts all subscription plans together by estimated monthly-equivalent price in the selected currency.
 - Repositioned Compute Ledger around helping individuals get more AI capability for their money.
 - Rewrote the project overview, README and methodology around practical plan comparisons.
 - Clarified that provider-relative usage multipliers are not comparable across providers.
