@@ -23,7 +23,14 @@ describe("Compute Ledger app", () => {
     expect(catalogue.providers.some((provider) => provider.id === "meta")).toBe(true);
     expect(catalogue.providers.some((provider) => provider.id === "moonshot")).toBe(true);
     expect(catalogue.providers.some((provider) => provider.id === "zai")).toBe(true);
-    expect(catalogue.models.length).toBeGreaterThan(0);
+    expect(catalogue.models.length).toBeGreaterThanOrEqual(20);
+    expect(catalogue.apiPricing.length).toBeGreaterThanOrEqual(30);
+    expect(catalogue.models.find((model) => model.id === "gpt-6-astra")?.apiModelId).toBe("gpt-6-astra");
+    expect(catalogue.models.find((model) => model.id === "grok-4-7")?.contextWindowTokens).toBe(500000);
+    expect(catalogue.models.find((model) => model.id === "deepseek-v4-pro")?.availability).toBe("current");
+    expect(catalogue.apiPricing.find((price) => price.id === "openai-gpt-6-astra-standard")?.inputPerMillion).toBe(10);
+    expect(catalogue.apiPricing.find((price) => price.id === "openai-gpt-6-astra-flex-batch")?.inputPerMillion).toBe(5);
+    expect(catalogue.apiPricing.some((price) => price.effectiveFrom === "2026-12-01")).toBe(true);
     expect(catalogue.subscriptionPlans.length).toBeGreaterThan(0);
     expect(catalogue.apiPricing.length).toBeGreaterThan(0);
     for (const provider of catalogue.providers) {
