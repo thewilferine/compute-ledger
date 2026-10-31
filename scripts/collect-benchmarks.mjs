@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { benchmarkDatasetSchema, benchmarkResultSchema } from "../src/data/schema.ts";
-import { fetchJson, writeJsonAtomic } from "./lib/refresh-io.mjs";
+import { fetchJsonObserved, writeJsonAtomic } from "./lib/refresh-io.mjs";
 
 const catalogue = JSON.parse(await readFile("public/data/catalogue.json", "utf8"));
 const benchmarkSources = [
@@ -29,8 +29,21 @@ for (const model of catalogue.models) {
 const results = [];
 for (const benchmark of benchmarkSources) {
   const sourceUrl = `https://huggingface.co/api/datasets/${benchmark.datasetId}/leaderboard`;
-  const rows = await fetchJson(sourceUrl);
-  if (!Array.isArray(rows)) throw new Error(`Leaderboard response for ${benchmark.datasetId} was not an array.`);
+  const fetched = await fetchJsonObserved({
+    id: `huggingface-${benchmark.id}`, url: sourceUrl,
+    publisher: "Hugging Face", domain: "benchmarks",
+    strategy: "public-leaderboard-json-api",
+    automationSuitability: "independent-results-review-required",
+  });
+  if (fetched.status !== "fetched") {
+    console.warn(`Benchmark source ${benchmark.id} is ${fetched.status}; skipping it. ${fetched.error}`);
+    continue;
+  }
+  const rows = fetched.data;
+  if (!Array.isArray(rows)) {
+    console.warn(`Leaderboard response for ${benchmark.datasetId} was invalid; skipping it.`);
+    continue;
+  }
 
   for (const row of rows) {
     if (typeof row.modelId !== "string" || !Number.isFinite(row.value)) continue;
@@ -64,7 +77,10 @@ for (const benchmark of benchmarkSources) {
   }
 }
 
-if (results.length === 0) throw new Error("No benchmark result rows were returned by the configured public leaderboards.");
+if (results.length === 0) {
+  console.warn("No benchmark sources returned usable rows; retaining the last-known-good benchmark dataset.");
+  process.exit(0);
+}
 
 const dataset = benchmarkDatasetSchema.parse({
   schemaVersion: 1,
