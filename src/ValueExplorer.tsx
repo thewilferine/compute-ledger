@@ -39,9 +39,9 @@ export function defaultCurrencyForLocale(locale: string): "GBP" | "USD" | "EUR" 
     if (region === "US") return "USD";
     if (region && EURO_REGIONS.has(region)) return "EUR";
   } catch {
-    // Invalid or unavailable browser locale: use the site's UK-friendly fallback.
+    // Invalid or unavailable browser locale: use the international USD fallback.
   }
-  return "GBP";
+  return "USD";
 }
 
 function formatMoney(value: number, currency: string) {
