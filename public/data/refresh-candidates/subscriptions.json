@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-10-31",
+  "source": "Official provider subscription and help pages",
+  "observations": [
+    {
+      "sourceId": "openai-plus",
+      "title": "What is ChatGPT Plus?",
+      "publisher": "OpenAI Help Center",
+      "sourceUrl": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+      "observedAt": "2026-10-31",
+      "linkedPlanIds": [
+        "chatgpt-plus-usd"
+      ],
+      "reviewRequired": true,
+      "status": "blocked",
+      "contentType": null,
+      "pageCharacters": null,
+      "priceMentions": [],
+      "error": "Source page failed for https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus: HTTP 403 Forbidden",
+      "lastKnownGoodObservation": null,
+      "reviewReason": "Source could not be retrieved. No pricing conclusions can be drawn; the last successful observation is retained separately for context."
+    },
+    {
+      "sourceId": "claude-pro",
+      "title": "What is the Pro plan?",
+      "publisher": "Anthropic Support",
+      "sourceUrl": "https://support.claude.com/en/articles/8325606-what-is-the-pro-plan",
+      "observedAt": "2026-10-31",
+      "linkedPlanIds": [
+        "claude-pro-usd"
+      ],
+      "reviewRequired": true,
+      "status": "fetched",
+      "contentType": "text/html; charset=utf-8",
+      "pageCharacters": 209041,
+      "priceMentions": [
+        {
+          "text": "$20",
+          "context": "ess to pay for API usage separately. How much does the Pro plan cost? The Pro plan is available for $20 per month (US), with pricing in your local currency where supported. Monthly pricing varies by regi"
+        }
+      ],
+      "reviewReason": "Page text is evidence for human review only; price mentions are not assigned to plans, regions or billing periods automatically."
+    },
+    {
+      "sourceId": "anthropic-subscription-plans",
+      "title": "Choose a Claude plan",
+      "publisher": "Anthropic Support",
+      "sourceUrl": "https://support.claude.com/en/articles/11049762-choose-a-claude-plan",
+      "observedAt": "2026-10-31",
+      "linkedPlanIds": [
+        "claude-pro-usd",
+        "claude-pro-annual-usd",
+        "claude-max-5x-usd",
+        "claude-max-20x-usd"
+      ],
+      "reviewRequired": true,
+      "status": "unavailable",
+      "contentType": null,
+      "pageCharacters": null,
+      "priceMentions": [],
+      "error": "Source page failed for https://support.claude.com/en/articles/11049762-choose-a-claude-plan: HTTP 404 Not Found",
+      "lastKnownGoodObservation": null,
+      "reviewReason": "Source could not be retrieved. No pricing conclusions can be drawn; the last successful observation is retained separately for context."
+    },
+    {
+      "sourceId": "google-ai-pro",
+      "title": "Google AI Pro subscriptions",
+      "publisher": "Google",
+      "sourceUrl": "https://gemini.google/gi/subscriptions/?hl=en-GB",
+      "observedAt": "2026-10-31",
+      "linkedPlanIds": [
+        "google-ai-pro-gbp",
+        "google-ai-plus-gbp",
+        "google-ai-ultra-5x-gbp",
+        "google-ai-ultra-20x-gbp"
+      ],
+      "reviewRequired": true,
+      "status": "fetched",
+      "contentType": "text/html; charset=utf-8",
+      "pageCharacters": 298033,
+      "priceMentions": [
+        {
+          "text": "£ 0",
+          "context": " Gibraltar Free of charge Get everyday help from Google AI to tackle tasks at work, school or home. £ 0 GBP/month with a Google Account Get started Gemini app Your personal, proactive and powerful AI ass"
+        },
+        {
+          "text": "£ 4.49",
+          "context": "e AI Plus 1 Get more access to new and powerful features to boost your productivity and creativity. £ 4.49 GBP/month Get 2x higher usage access than Free-of-charge Get started Everything in free and: Gemini"
+        },
+        {
+          "text": "£ 15.49",
+          "context": " AI Pro 1 Get higher access to new and powerful features to boost your productivity and creativity. £ 15.49 GBP/month Get 4x higher usage access than Free-of-charge Get started Everything in free and: Gemini"
+        },
+        {
+          "text": "£ 78.99",
+          "context": " 1 Unlock the highest level of access to the best of Google AI and exclusive features. Starting at: £ 78.99 GBP/month £ 78.99 GBP/month: 5x higher usage limits vs. AI Pro £ 154.99 GBP /month: 20x higher usag"
+        },
+        {
+          "text": "£ 78.99",
+          "context": "est level of access to the best of Google AI and exclusive features. Starting at: £ 78.99 GBP/month £ 78.99 GBP/month: 5x higher usage limits vs. AI Pro £ 154.99 GBP /month: 20x higher usage limits vs AI Pro"
+        },
+        {
+          "text": "£ 154.99",
+          "context": "usive features. Starting at: £ 78.99 GBP/month £ 78.99 GBP/month: 5x higher usage limits vs. AI Pro £ 154.99 GBP /month: 20x higher usage limits vs AI Pro Get started Everything in Google AI Pro and: Gemini a"
+        },
+        {
+          "text": "$21",
+          "context": "Gemini Enterprise Business edition For small businesses and teams. No IT setup needed. Starting at: $21 USD per seat per month Start a trial Gemini – your personal, proactive and powerful AI assistant bu"
+        },
+        {
+          "text": "$30",
+          "context": "prise Standard/Plus editions For organisations that need enterprise-grade IT controls. Starting at: $30 USD per seat per month Contact sales Everything in Business edition and: Higher usage limits for Ge"
+        }
+      ],
+      "reviewReason": "Page text is evidence for human review only; price mentions are not assigned to plans, regions or billing periods automatically."
+    },
+    {
+      "sourceId": "google-gemini-usage",
+      "title": "Gemini Apps limits & feature availability",
+      "publisher": "Google Support",
+      "sourceUrl": "https://support.google.com/gemini/answer/16275805?hl=en-GB",
+      "observedAt": "2026-10-31",
+      "linkedPlanIds": [
+        "google-ai-pro-gbp",
+        "google-ai-plus-gbp",
+        "google-ai-ultra-5x-gbp",
+        "google-ai-ultra-20x-gbp"
+      ],
+      "reviewRequired": true,
+      "status": "fetched",
+      "contentType": "text/html; charset=UTF-8",
+      "pageCharacters": 1663451,
+      "priceMentions": [],
+      "reviewReason": "Page text is evidence for human review only; price mentions are not assigned to plans, regions or billing periods automatically."
+    },
+    {
+      "sourceId": "openai-pro-tiers",
+      "title": "About ChatGPT Pro tiers",
+      "publisher": "OpenAI Help Center",
+      "sourceUrl": "https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers",
+      "observedAt": "2026-10-31",
+      "linkedPlanIds": [
+        "chatgpt-pro-100-usd",
+        "chatgpt-pro-200-usd",
+        "chatgpt-pro-500-usd"
+      ],
+      "reviewRequired": true,
+      "status": "blocked",
+      "contentType": null,
+      "pageCharacters": null,
+      "priceMentions": [],
+      "error": "Source page failed for https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers: HTTP 403 Forbidden",
+      "lastKnownGoodObservation": null,
+      "reviewReason": "Source could not be retrieved. No pricing conclusions can be drawn; the last successful observation is retained separately for context."
+    },
+    {
+      "sourceId": "xai-subscription-pricing",
+      "title": "Grok subscription pricing",
+      "publisher": "xAI",
+      "sourceUrl": "https://x.ai/pricing",
+      "observedAt": "2026-10-31",
+      "linkedPlanIds": [
+        "xai-supergrok-usd",
+        "xai-supergrok-plus-usd"
+      ],
+      "reviewRequired": true,
+      "status": "blocked",
+      "contentType": null,
+      "pageCharacters": null,
+      "priceMentions": [],
+      "error": "Source page failed for https://x.ai/pricing: HTTP 403 Forbidden",
+      "lastKnownGoodObservation": null,
+      "reviewReason": "Source could not be retrieved. No pricing conclusions can be drawn; the last successful observation is retained separately for context."
+    },
+    {
+      "sourceId": "xai-subscription-usage",
+      "title": "Grok weekly usage limits",
+      "publisher": "xAI Documentation",
+      "sourceUrl": "https://docs.x.ai/grok/faq",
+      "observedAt": "2026-10-31",
+      "linkedPlanIds": [
+        "xai-supergrok-usd",
+        "xai-supergrok-plus-usd"
+      ],
+      "reviewRequired": true,
+      "status": "fetched",
+      "contentType": "text/markdown; charset=utf-8",
+      "pageCharacters": 20357,
+      "priceMentions": [
+        {
+          "text": "$5",
+          "context": "Top up credits expire one year after purchase (unless otherwise stated). * You can buy as little as $5 from the Usage tab on web. **Note:** Extra Usage Credits are priced at standard rates, which means "
+        }
+      ],
+      "reviewReason": "Page text is evidence for human review only; price mentions are not assigned to plans, regions or billing periods automatically."
+    }
+  ]
+}
