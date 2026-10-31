@@ -72,7 +72,7 @@
       "publisher": "OpenAI API Documentation",
       "url": "https://developers.openai.com/api/docs/pricing",
       "accessedAt": "2026-10-31",
-      "notes": "Official API rates; context length and processing tiers affect price."
+      "notes": "Official current model rates by standard, Flex/Batch, Fast and Ultrafast tiers, with cached-input and cache-write prices."
     },
     {
       "id": "anthropic-models",
@@ -161,6 +161,38 @@
       "url": "https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/",
       "accessedAt": "2026-10-31",
       "notes": "Official open multimodal model announcement."
+    },
+    {
+      "id": "anthropic-pricing-current",
+      "title": "Claude API pricing",
+      "publisher": "Anthropic Platform Docs",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "accessedAt": "2026-10-31",
+      "notes": "Current official API list prices, prompt cache writes/reads, batch discounts, long-context pricing and data-residency modifiers."
+    },
+    {
+      "id": "google-gemini-api-pricing",
+      "title": "Gemini Developer API pricing",
+      "publisher": "Google AI for Developers",
+      "url": "https://ai.google.dev/gemini-api/docs/pricing",
+      "accessedAt": "2026-10-31",
+      "notes": "Current Gemini Developer API prices, including introductory pricing and scheduled price changes."
+    },
+    {
+      "id": "xai-api-pricing",
+      "title": "API pricing",
+      "publisher": "xAI Developer Docs",
+      "url": "https://docs.x.ai/developers/pricing",
+      "accessedAt": "2026-10-31",
+      "notes": "Official model pricing including Grok 4.7 short/long-context rates, caching and regional endpoint modifiers."
+    },
+    {
+      "id": "mistral-large-4-docs",
+      "title": "Mistral Large 4 model documentation",
+      "publisher": "Mistral AI Documentation",
+      "url": "https://docs.mistral.ai/models/mistral-large-4-0",
+      "accessedAt": "2026-10-31",
+      "notes": "Official model page lists public preview token prices and cached input price."
     }
   ],
   "providers": [
@@ -257,7 +289,7 @@
     {
       "id": "deepseek-v4-flash",
       "providerId": "deepseek",
-      "name": "DeepSeek-V4.1-Flash",
+      "name": "DeepSeek-V4.1-Flash-1017",
       "modality": [
         "text",
         "image"
@@ -265,12 +297,14 @@
       "contextWindowTokens": 1000000,
       "sources": [
         "deepseek-api"
-      ]
+      ],
+      "availability": "current",
+      "notes": "Official API model version exposed as deepseek-flash; legacy deepseek-v4-flash aliases route here."
     },
     {
       "id": "deepseek-v4-pro",
       "providerId": "deepseek",
-      "name": "DeepSeek-V4-Pro",
+      "name": "DeepSeek-V4-Pro-0813",
       "modality": [
         "text"
       ],
@@ -278,8 +312,8 @@
       "sources": [
         "deepseek-api"
       ],
-      "availability": "retired",
-      "notes": "Superseded: DeepSeek states V4 Pro requests route to V4.1-Flash at V4.1-Flash rates from 14 September 2026."
+      "availability": "current",
+      "notes": "Current DeepSeek API model version. The official API pricing page still lists deepseek-v4-pro; legacy deepseek-v4-flash aliases route to DeepSeek-V4.1-Flash-1017."
     },
     {
       "id": "gpt-6-astra",
@@ -475,7 +509,7 @@
       ],
       "availability": "preview",
       "releaseDate": "2026-10-06",
-      "notes": "Public preview at observation date; described as open-weight and natively multimodal."
+      "notes": "Public preview at observation date; official model page lists $0.70 input, $2.10 output and $0.07 cached input per million tokens."
     },
     {
       "id": "qwen-3-8-max",
@@ -594,7 +628,8 @@
       "tier": "Off-peak",
       "observedAt": "2026-10-30",
       "sourceId": "deepseek-api",
-      "notes": "USD per million tokens; off-peak rate. DeepSeek publishes time-dependent peak and off-peak pricing."
+      "notes": "USD per million tokens; off-peak rate. DeepSeek publishes time-dependent peak and off-peak pricing.",
+      "effectiveFrom": "2026-10-30"
     },
     {
       "id": "deepseek-flash-peak",
@@ -606,7 +641,8 @@
       "tier": "Peak",
       "observedAt": "2026-10-30",
       "sourceId": "deepseek-api",
-      "notes": "USD per million tokens; peak rate."
+      "notes": "USD per million tokens; peak rate.",
+      "effectiveFrom": "2026-10-30"
     },
     {
       "id": "deepseek-pro-offpeak",
@@ -618,7 +654,8 @@
       "tier": "Off-peak",
       "observedAt": "2026-10-30",
       "sourceId": "deepseek-api",
-      "notes": "USD per million tokens; off-peak rate. Historical rate card; DeepSeek subsequently retired V4 Pro and routes requests to V4.1-Flash."
+      "notes": "Current official off-peak rate for deepseek-v4-pro; peak/off-peak schedule is defined by DeepSeek documentation.",
+      "effectiveFrom": "2026-10-30"
     },
     {
       "id": "deepseek-pro-peak",
@@ -630,7 +667,8 @@
       "tier": "Peak",
       "observedAt": "2026-10-30",
       "sourceId": "deepseek-api",
-      "notes": "USD per million tokens; peak rate. Historical rate card; DeepSeek subsequently retired V4 Pro and routes requests to V4.1-Flash."
+      "notes": "Current official peak rate for deepseek-v4-pro; peak/off-peak schedule is defined by DeepSeek documentation.",
+      "effectiveFrom": "2026-10-30"
     },
     {
       "id": "claude-opus-48-standard",
@@ -642,43 +680,8 @@
       "tier": "Standard",
       "observedAt": "2026-10-30",
       "sourceId": "claude-api-pricing",
-      "notes": "Standard Global API list price. Cache-hit rate shown as cached input price."
-    },
-    {
-      "id": "gpt61-sol",
-      "modelId": "gpt-6-1-sol",
-      "inputPerMillion": 2,
-      "outputPerMillion": 10,
-      "cachedInputPerMillion": 0.1,
-      "currency": "USD",
-      "tier": "Standard",
-      "observedAt": "2026-10-31",
-      "sourceId": "openai-pricing-current",
-      "notes": "Standard text-token rate per 1M tokens; context length and processing tiers can change price."
-    },
-    {
-      "id": "gpt61-terra",
-      "modelId": "gpt-6-1-terra",
-      "inputPerMillion": 1,
-      "outputPerMillion": 5,
-      "cachedInputPerMillion": 0.05,
-      "currency": "USD",
-      "tier": "Standard",
-      "observedAt": "2026-10-31",
-      "sourceId": "openai-pricing-current",
-      "notes": "Standard text-token rate per 1M tokens; context length and processing tiers can change price."
-    },
-    {
-      "id": "gpt6-luna",
-      "modelId": "gpt-6-luna",
-      "inputPerMillion": 0.1,
-      "outputPerMillion": 0.5,
-      "cachedInputPerMillion": 0.01,
-      "currency": "USD",
-      "tier": "Standard",
-      "observedAt": "2026-10-31",
-      "sourceId": "openai-pricing-current",
-      "notes": "Standard text-token rate per 1M tokens; context length and processing tiers can change price."
+      "notes": "Standard Global API list price. Cache-hit rate shown as cached input price.",
+      "effectiveFrom": "2026-10-30"
     },
     {
       "id": "gemini-4-argon-intro",
@@ -689,19 +692,377 @@
       "currency": "USD",
       "tier": "Introductory through 2026-11-30",
       "observedAt": "2026-10-31",
-      "sourceId": "google-gemini-argon",
-      "notes": "Introductory public-access rate; $4 input / $20 output per 1M tokens applies after 30 November 2026."
+      "sourceId": "google-gemini-api-pricing",
+      "notes": "Introductory paid-tier rate through 30 November 2026. Google states $4 input / $20 output / $0.20 cached input from 1 December 2026.",
+      "effectiveFrom": "2026-10-30",
+      "effectiveTo": "2026-11-30"
     },
     {
       "id": "mistral-large-4-preview",
       "modelId": "mistral-large-4",
-      "inputPerMillion": 1.36,
-      "outputPerMillion": 4.18,
+      "inputPerMillion": 0.7,
+      "outputPerMillion": 2.1,
       "currency": "USD",
       "tier": "Public preview",
       "observedAt": "2026-10-31",
-      "sourceId": "mistral-large-4",
-      "notes": "Published launch-page token rates; verify preview changes before comparison."
+      "sourceId": "mistral-large-4-docs",
+      "notes": "Public preview price from Mistral's official model documentation.",
+      "effectiveFrom": "2026-10-06",
+      "cachedInputPerMillion": 0.07
+    },
+    {
+      "id": "openai-gpt-6-astra-standard",
+      "modelId": "gpt-6-astra",
+      "inputPerMillion": 5,
+      "outputPerMillion": 25,
+      "cachedInputPerMillion": 0.5,
+      "cacheWrite5mPerMillion": 6.25,
+      "cacheWrite1hPerMillion": 12.5,
+      "currency": "USD",
+      "tier": "Standard",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "openai-pricing-current",
+      "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+    },
+    {
+      "id": "openai-gpt-6-astra-flex-batch",
+      "modelId": "gpt-6-astra",
+      "inputPerMillion": 10,
+      "outputPerMillion": 50,
+      "cachedInputPerMillion": 1,
+      "cacheWrite5mPerMillion": 12.5,
+      "cacheWrite1hPerMillion": 25,
+      "currency": "USD",
+      "tier": "Flex/Batch",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "openai-pricing-current",
+      "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+    },
+    {
+      "id": "openai-gpt-6-astra-fast",
+      "modelId": "gpt-6-astra",
+      "inputPerMillion": 20,
+      "outputPerMillion": 100,
+      "cachedInputPerMillion": 2,
+      "cacheWrite5mPerMillion": 25,
+      "cacheWrite1hPerMillion": 50,
+      "currency": "USD",
+      "tier": "Fast",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "openai-pricing-current",
+      "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+    },
+    {
+      "id": "openai-gpt-6-astra-ultrafast",
+      "modelId": "gpt-6-astra",
+      "inputPerMillion": 60,
+      "outputPerMillion": 300,
+      "cachedInputPerMillion": 6,
+      "cacheWrite5mPerMillion": 75,
+      "cacheWrite1hPerMillion": 150,
+      "currency": "USD",
+      "tier": "Ultrafast",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "openai-pricing-current",
+      "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+    },
+    {
+      "id": "openai-gpt-6-1-sol-standard",
+      "modelId": "gpt-6-1-sol",
+      "inputPerMillion": 1,
+      "outputPerMillion": 5,
+      "cachedInputPerMillion": 0.05,
+      "cacheWrite5mPerMillion": 1.25,
+      "cacheWrite1hPerMillion": 2.5,
+      "currency": "USD",
+      "tier": "Standard",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "openai-pricing-current",
+      "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+    },
+    {
+      "id": "openai-gpt-6-1-sol-flex-batch",
+      "modelId": "gpt-6-1-sol",
+      "inputPerMillion": 2,
+      "outputPerMillion": 10,
+      "cachedInputPerMillion": 0.1,
+      "cacheWrite5mPerMillion": 2.5,
+      "cacheWrite1hPerMillion": 5,
+      "currency": "USD",
+      "tier": "Flex/Batch",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "openai-pricing-current",
+      "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+    },
+    {
+      "id": "openai-gpt-6-1-sol-fast",
+      "modelId": "gpt-6-1-sol",
+      "inputPerMillion": 4,
+      "outputPerMillion": 20,
+      "cachedInputPerMillion": 0.2,
+      "cacheWrite5mPerMillion": 5,
+      "cacheWrite1hPerMillion": 10,
+      "currency": "USD",
+      "tier": "Fast",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "openai-pricing-current",
+      "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+    },
+    {
+      "id": "openai-gpt-6-1-sol-ultrafast",
+      "modelId": "gpt-6-1-sol",
+      "inputPerMillion": 12,
+      "outputPerMillion": 60,
+      "cachedInputPerMillion": 0.6,
+      "cacheWrite5mPerMillion": 15,
+      "cacheWrite1hPerMillion": 30,
+      "currency": "USD",
+      "tier": "Ultrafast",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "openai-pricing-current",
+      "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+    },
+    {
+      "id": "openai-gpt-6-1-terra-standard",
+      "modelId": "gpt-6-1-terra",
+      "inputPerMillion": 0.5,
+      "outputPerMillion": 2.5,
+      "cachedInputPerMillion": 0.025,
+      "cacheWrite5mPerMillion": 0.625,
+      "cacheWrite1hPerMillion": 1.25,
+      "currency": "USD",
+      "tier": "Standard",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "openai-pricing-current",
+      "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+    },
+    {
+      "id": "openai-gpt-6-1-terra-flex-batch",
+      "modelId": "gpt-6-1-terra",
+      "inputPerMillion": 1,
+      "outputPerMillion": 5,
+      "cachedInputPerMillion": 0.05,
+      "cacheWrite5mPerMillion": 1.25,
+      "cacheWrite1hPerMillion": 2.5,
+      "currency": "USD",
+      "tier": "Flex/Batch",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "openai-pricing-current",
+      "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+    },
+    {
+      "id": "openai-gpt-6-1-terra-fast",
+      "modelId": "gpt-6-1-terra",
+      "inputPerMillion": 2,
+      "outputPerMillion": 10,
+      "cachedInputPerMillion": 0.1,
+      "cacheWrite5mPerMillion": 2.5,
+      "cacheWrite1hPerMillion": 5,
+      "currency": "USD",
+      "tier": "Fast",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "openai-pricing-current",
+      "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+    },
+    {
+      "id": "openai-gpt-6-luna-standard",
+      "modelId": "gpt-6-luna",
+      "inputPerMillion": 0.05,
+      "outputPerMillion": 0.25,
+      "cachedInputPerMillion": 0.005,
+      "cacheWrite5mPerMillion": 0.0625,
+      "cacheWrite1hPerMillion": 0.125,
+      "currency": "USD",
+      "tier": "Standard",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "openai-pricing-current",
+      "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+    },
+    {
+      "id": "openai-gpt-6-luna-flex-batch",
+      "modelId": "gpt-6-luna",
+      "inputPerMillion": 0.1,
+      "outputPerMillion": 0.5,
+      "cachedInputPerMillion": 0.01,
+      "cacheWrite5mPerMillion": 0.125,
+      "cacheWrite1hPerMillion": 0.25,
+      "currency": "USD",
+      "tier": "Flex/Batch",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "openai-pricing-current",
+      "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+    },
+    {
+      "id": "openai-gpt-6-luna-fast",
+      "modelId": "gpt-6-luna",
+      "inputPerMillion": 0.2,
+      "outputPerMillion": 1,
+      "cachedInputPerMillion": 0.02,
+      "cacheWrite5mPerMillion": 0.25,
+      "cacheWrite1hPerMillion": 0.5,
+      "currency": "USD",
+      "tier": "Fast",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "openai-pricing-current",
+      "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+    },
+    {
+      "id": "anthropic-claude-opus-5-5-standard",
+      "modelId": "claude-opus-5-5",
+      "inputPerMillion": 4,
+      "outputPerMillion": 20,
+      "cachedInputPerMillion": 0.2,
+      "cacheWrite5mPerMillion": 5,
+      "cacheWrite1hPerMillion": 8,
+      "currency": "USD",
+      "tier": "Standard",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "anthropic-pricing-current",
+      "notes": "Standard global API list price. Prompt cache writes and cache reads are priced separately."
+    },
+    {
+      "id": "anthropic-claude-opus-5-5-batch",
+      "modelId": "claude-opus-5-5",
+      "inputPerMillion": 2,
+      "outputPerMillion": 10,
+      "cachedInputPerMillion": 0.1,
+      "cacheWrite5mPerMillion": 2.5,
+      "cacheWrite1hPerMillion": 4,
+      "currency": "USD",
+      "tier": "Batch",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "anthropic-pricing-current",
+      "notes": "Batch API applies a 50% discount to input and output; cache modifiers stack with batch pricing."
+    },
+    {
+      "id": "anthropic-claude-sonnet-5-5-standard",
+      "modelId": "claude-sonnet-5-5",
+      "inputPerMillion": 2,
+      "outputPerMillion": 10,
+      "cachedInputPerMillion": 0.1,
+      "cacheWrite5mPerMillion": 2.5,
+      "cacheWrite1hPerMillion": 4,
+      "currency": "USD",
+      "tier": "Standard",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "anthropic-pricing-current",
+      "notes": "Standard global API list price. Prompt cache writes and cache reads are priced separately."
+    },
+    {
+      "id": "anthropic-claude-sonnet-5-5-batch",
+      "modelId": "claude-sonnet-5-5",
+      "inputPerMillion": 1,
+      "outputPerMillion": 5,
+      "cachedInputPerMillion": 0.05,
+      "cacheWrite5mPerMillion": 1.25,
+      "cacheWrite1hPerMillion": 2,
+      "currency": "USD",
+      "tier": "Batch",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "anthropic-pricing-current",
+      "notes": "Batch API applies a 50% discount to input and output; cache modifiers stack with batch pricing."
+    },
+    {
+      "id": "anthropic-claude-haiku-5-5-standard",
+      "modelId": "claude-haiku-5-5",
+      "inputPerMillion": 0.1,
+      "outputPerMillion": 0.5,
+      "cachedInputPerMillion": 0.01,
+      "cacheWrite5mPerMillion": 0.125,
+      "cacheWrite1hPerMillion": 0.2,
+      "currency": "USD",
+      "tier": "Standard",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "anthropic-pricing-current",
+      "notes": "Standard global API list price. Prompt cache writes and cache reads are priced separately."
+    },
+    {
+      "id": "anthropic-claude-haiku-5-5-batch",
+      "modelId": "claude-haiku-5-5",
+      "inputPerMillion": 0.05,
+      "outputPerMillion": 0.25,
+      "cachedInputPerMillion": 0.005,
+      "cacheWrite5mPerMillion": 0.0625,
+      "cacheWrite1hPerMillion": 0.1,
+      "currency": "USD",
+      "tier": "Batch",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "anthropic-pricing-current",
+      "notes": "Batch API applies a 50% discount to input and output; cache modifiers stack with batch pricing."
+    },
+    {
+      "id": "anthropic-claude-haiku-5-5-long-context",
+      "modelId": "claude-haiku-5-5",
+      "inputPerMillion": 0.5,
+      "outputPerMillion": 2.5,
+      "cachedInputPerMillion": 0.05,
+      "cacheWrite5mPerMillion": 0.625,
+      "cacheWrite1hPerMillion": 1,
+      "currency": "USD",
+      "tier": "Standard (>100k prompt)",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "anthropic-pricing-current",
+      "notes": "Higher rate applies to all input tokens when an individual prompt exceeds 100,000 tokens, including cache reads and writes."
+    },
+    {
+      "id": "gemini-4-argon-standard-2026-12",
+      "modelId": "gemini-4-argon",
+      "inputPerMillion": 4,
+      "outputPerMillion": 20,
+      "cachedInputPerMillion": 0.2,
+      "currency": "USD",
+      "tier": "Standard (from 2026-12-01)",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-12-01",
+      "sourceId": "google-gemini-api-pricing",
+      "notes": "Scheduled standard paid-tier rates from 1 December 2026; not yet effective at the observation date."
+    },
+    {
+      "id": "xai-grok-4-7-short",
+      "modelId": "grok-4-7",
+      "inputPerMillion": 2,
+      "outputPerMillion": 6,
+      "cachedInputPerMillion": 0.5,
+      "currency": "USD",
+      "tier": "Standard (<200k prompt)",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "xai-api-pricing",
+      "notes": "Global endpoint list price. Short-context rate applies below 200k prompt tokens."
+    },
+    {
+      "id": "xai-grok-4-7-long",
+      "modelId": "grok-4-7",
+      "inputPerMillion": 4,
+      "outputPerMillion": 12,
+      "cachedInputPerMillion": 1,
+      "currency": "USD",
+      "tier": "Long context (>=200k prompt)",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "xai-api-pricing",
+      "notes": "Global endpoint list price. Once a prompt reaches 200k tokens, long-context rates apply to all tokens in that request."
     }
   ]
 }
