@@ -52,6 +52,10 @@ export const apiPricingSchema = z.object({
   observedAt: z.string().date(),
   sourceId: z.string().min(1),
   notes: z.string().optional(),
+  cacheWrite5mPerMillion: z.number().nonnegative().optional(),
+  cacheWrite1hPerMillion: z.number().nonnegative().optional(),
+  effectiveFrom: z.string().date().optional(),
+  effectiveTo: z.string().date().optional(),
 });
 
 export const datasetSchema = z.object({
