@@ -60,6 +60,7 @@ const snapshot = {
   id: snapshotId,
   capturedAt,
   contentHash,
+  changeCount: changes.length,
   catalogue,
 };
 const changeSet = {
