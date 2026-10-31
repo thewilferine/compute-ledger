@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-31T23:55:00.000Z",
+  "updatedAt": "2026-10-31T21:35:00.000Z",
   "sources": [
     {
       "id": "openai-plus",
@@ -265,6 +265,70 @@
       "url": "https://build.nvidia.com/nvidia/nemotron-3.5-bolt-e4b/modelcard",
       "accessedAt": "2026-10-31",
       "notes": "Official NVIDIA model card and release information for the compact Nemotron 3.5 Bolt E4B reasoning model."
+    },
+    {
+      "id": "microsoft-365-copilot",
+      "title": "Microsoft 365 plans for individuals",
+      "publisher": "Microsoft",
+      "url": "https://www.microsoft.com/en-gb/microsoft-365-copilot/pricing/individuals",
+      "accessedAt": "2026-10-31",
+      "notes": "UK monthly and annual consumer prices for Microsoft 365 Personal, Family and Premium, plus the monthly Pro tier. Copilot features and AI usage limits vary by tier; Family AI benefits are for the subscription owner only."
+    },
+    {
+      "id": "perplexity-consumer-plans",
+      "title": "Which Perplexity subscription plan is right for you?",
+      "publisher": "Perplexity Help Center",
+      "url": "https://www.perplexity.ai/help-center/en/articles/11187416-which-perplexity-subscription-plan-is-right-for-you",
+      "accessedAt": "2026-10-31",
+      "notes": "Official consumer plan overview for Free, Pro and Max, including feature and usage-limit distinctions. Pricing is separately confirmed by Perplexity's consumer hub and Max billing FAQ."
+    },
+    {
+      "id": "perplexity-max-billing",
+      "title": "Perplexity Max billing",
+      "publisher": "Perplexity Help Center",
+      "url": "https://www.perplexity.ai/help-center/en/articles/11680686-perplexity-max",
+      "accessedAt": "2026-10-31",
+      "notes": "Official Max billing FAQ states USD $200/month or $2,000/year on web; promotions and regional/platform prices may differ."
+    },
+    {
+      "id": "mistral-le-chat-pro",
+      "title": "The all new Le Chat: Your AI assistant for life and work",
+      "publisher": "Mistral AI",
+      "url": "https://mistral.ai/news/all-new-le-chat/",
+      "accessedAt": "2026-10-31",
+      "notes": "Official February 6, 2025 launch announcement states Le Chat Pro starts at USD $14.99/month. Treat this as a dated published starting price; checkout and regional prices may have changed."
+    },
+    {
+      "id": "deepseek-consumer-app",
+      "title": "DeepSeek app",
+      "publisher": "DeepSeek",
+      "url": "https://www.deepseek.com/en/download/",
+      "accessedAt": "2026-10-31",
+      "notes": "Official current download page describes the consumer assistant as free to use. Product availability and feature limits may vary by region and rollout."
+    },
+    {
+      "id": "meta-one-consumer",
+      "title": "Introducing Meta One",
+      "publisher": "Meta Newsroom",
+      "url": "https://about.fb.com/news/2026/09/introducing-meta-one-subscription-service-more-features-ai/",
+      "accessedAt": "2026-10-31",
+      "notes": "Official September 15, 2026 announcement lists Core and Premium bundles with expanded Meta AI generation usage. US prices are shown; pricing, benefits and availability vary by region, app and account."
+    },
+    {
+      "id": "poe-consumer-faq",
+      "title": "Poe FAQs",
+      "publisher": "Poe Help Center",
+      "url": "https://help.poe.com/hc/en-us/articles/19944206309524-Poe-FAQs",
+      "accessedAt": "2026-10-31",
+      "notes": "Explains daily points for non-paying users, shared flexible point pools across bots, per-bot variable point costs and daily reset behaviour."
+    },
+    {
+      "id": "poe-purchases-faq",
+      "title": "Poe Purchases FAQs",
+      "publisher": "Poe Help Center",
+      "url": "https://help.poe.com/hc/en-us/articles/19945140063636-Poe-Purchases-FAQs",
+      "accessedAt": "2026-10-31",
+      "notes": "Explains subscription benefits and points, monthly/annual billing, and states paid Poe subscriptions start at USD $4.99/month. Actual plans and points vary by selected tier and platform."
     }
   ],
   "providers": [
@@ -375,6 +439,32 @@
       "sources": [
         "nvidia-nemotron35",
         "nvidia-nemotron-bolt"
+      ]
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "website": "https://www.microsoft.com",
+      "sources": [
+        "microsoft-365-copilot"
+      ]
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "website": "https://www.perplexity.ai",
+      "sources": [
+        "perplexity-consumer-plans",
+        "perplexity-max-billing"
+      ]
+    },
+    {
+      "id": "poe",
+      "name": "Poe",
+      "website": "https://poe.com",
+      "sources": [
+        "poe-consumer-faq",
+        "poe-purchases-faq"
       ]
     }
   ],
@@ -1084,6 +1174,317 @@
       "usageResetCadence": "Weekly, on the schedule shown in account settings.",
       "accessSummary": "Everything in SuperGrok plus significantly higher usage, 1080p video creation and priority access.",
       "notes": "Monthly web list price."
+    },
+    {
+      "id": "microsoft-365-personal-gbp-monthly",
+      "providerId": "microsoft",
+      "name": "Microsoft 365 Personal",
+      "billingPeriod": "monthly",
+      "price": 8.49,
+      "currency": "GBP",
+      "region": "United Kingdom",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "microsoft-365-copilot"
+      ],
+      "usageLimitType": "dynamic",
+      "usageLimitSummary": "Includes Copilot in eligible Microsoft 365 apps and higher-than-free Copilot usage. AI benefits are limited to the subscription owner; exact feature limits vary.",
+      "usageResetCadence": "Feature-specific allowances; Microsoft account shows remaining AI credits and limits.",
+      "accessSummary": "Copilot chat and eligible Microsoft 365 app integrations, alongside Office apps and OneDrive storage. AI access is for the subscription owner; Family sharing does not share AI benefits.",
+      "notes": "Bundled Microsoft 365 subscription, not a standalone Copilot-only price. UK web price; taxes and offers may vary."
+    },
+    {
+      "id": "microsoft-365-personal-gbp-annual",
+      "providerId": "microsoft",
+      "name": "Microsoft 365 Personal (annual)",
+      "billingPeriod": "annual",
+      "price": 84.99,
+      "currency": "GBP",
+      "region": "United Kingdom",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "microsoft-365-copilot"
+      ],
+      "usageLimitType": "dynamic",
+      "usageLimitSummary": "Includes Copilot in eligible Microsoft 365 apps and higher-than-free Copilot usage. AI benefits are limited to the subscription owner; exact feature limits vary.",
+      "usageResetCadence": "Feature-specific allowances; Microsoft account shows remaining AI credits and limits.",
+      "accessSummary": "Copilot chat and eligible Microsoft 365 app integrations, alongside Office apps and OneDrive storage. AI access is for the subscription owner; Family sharing does not share AI benefits.",
+      "notes": "Bundled Microsoft 365 subscription, not a standalone Copilot-only price. UK web price; taxes and offers may vary. Annual amount billed upfront."
+    },
+    {
+      "id": "microsoft-365-family-gbp-monthly",
+      "providerId": "microsoft",
+      "name": "Microsoft 365 Family",
+      "billingPeriod": "monthly",
+      "price": 10.49,
+      "currency": "GBP",
+      "region": "United Kingdom",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "microsoft-365-copilot"
+      ],
+      "usageLimitType": "dynamic",
+      "usageLimitSummary": "Includes Copilot in eligible Microsoft 365 apps and higher-than-free Copilot usage. AI benefits are limited to the subscription owner; exact feature limits vary.",
+      "usageResetCadence": "Feature-specific allowances; Microsoft account shows remaining AI credits and limits.",
+      "accessSummary": "Copilot chat and eligible Microsoft 365 app integrations, alongside Office apps and OneDrive storage. AI access is for the subscription owner; Family sharing does not share AI benefits.",
+      "notes": "Bundled Microsoft 365 subscription, not a standalone Copilot-only price. UK web price; taxes and offers may vary."
+    },
+    {
+      "id": "microsoft-365-family-gbp-annual",
+      "providerId": "microsoft",
+      "name": "Microsoft 365 Family (annual)",
+      "billingPeriod": "annual",
+      "price": 104.99,
+      "currency": "GBP",
+      "region": "United Kingdom",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "microsoft-365-copilot"
+      ],
+      "usageLimitType": "dynamic",
+      "usageLimitSummary": "Includes Copilot in eligible Microsoft 365 apps and higher-than-free Copilot usage. AI benefits are limited to the subscription owner; exact feature limits vary.",
+      "usageResetCadence": "Feature-specific allowances; Microsoft account shows remaining AI credits and limits.",
+      "accessSummary": "Copilot chat and eligible Microsoft 365 app integrations, alongside Office apps and OneDrive storage. AI access is for the subscription owner; Family sharing does not share AI benefits.",
+      "notes": "Bundled Microsoft 365 subscription, not a standalone Copilot-only price. UK web price; taxes and offers may vary. Annual amount billed upfront."
+    },
+    {
+      "id": "microsoft-365-premium-gbp-monthly",
+      "providerId": "microsoft",
+      "name": "Microsoft 365 Premium",
+      "billingPeriod": "monthly",
+      "price": 18.99,
+      "currency": "GBP",
+      "region": "United Kingdom",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "microsoft-365-copilot"
+      ],
+      "usageLimitType": "dynamic",
+      "usageLimitSummary": "Higher AI usage than Personal and Family, with extensive limits for Copilot chat, visual assistance, audio and image creation. Microsoft does not publish a fixed prompt/token quota.",
+      "usageResetCadence": "Feature-specific allowances; Microsoft account shows remaining AI credits and limits.",
+      "accessSummary": "Copilot chat and eligible Microsoft 365 app integrations, alongside Office apps and OneDrive storage. AI access is for the subscription owner; Family sharing does not share AI benefits.",
+      "notes": "Bundled Microsoft 365 subscription, not a standalone Copilot-only price. UK web price; taxes and offers may vary."
+    },
+    {
+      "id": "microsoft-365-premium-gbp-annual",
+      "providerId": "microsoft",
+      "name": "Microsoft 365 Premium (annual)",
+      "billingPeriod": "annual",
+      "price": 189.99,
+      "currency": "GBP",
+      "region": "United Kingdom",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "microsoft-365-copilot"
+      ],
+      "usageLimitType": "dynamic",
+      "usageLimitSummary": "Higher AI usage than Personal and Family, with extensive limits for Copilot chat, visual assistance, audio and image creation. Microsoft does not publish a fixed prompt/token quota.",
+      "usageResetCadence": "Feature-specific allowances; Microsoft account shows remaining AI credits and limits.",
+      "accessSummary": "Copilot chat and eligible Microsoft 365 app integrations, alongside Office apps and OneDrive storage. AI access is for the subscription owner; Family sharing does not share AI benefits.",
+      "notes": "Bundled Microsoft 365 subscription, not a standalone Copilot-only price. UK web price; taxes and offers may vary. Annual amount billed upfront."
+    },
+    {
+      "id": "microsoft-365-pro-gbp-monthly",
+      "providerId": "microsoft",
+      "name": "Microsoft 365 Pro",
+      "billingPeriod": "monthly",
+      "price": 94.99,
+      "currency": "GBP",
+      "region": "United Kingdom",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "microsoft-365-copilot"
+      ],
+      "usageLimitType": "dynamic",
+      "usageLimitSummary": "Highest published Copilot usage tier on the UK individual pricing page. Microsoft does not publish a fixed prompt/token quota.",
+      "usageResetCadence": "Feature-specific allowances; check the Microsoft account for remaining AI credits and limits.",
+      "accessSummary": "Highest Copilot usage tier with advanced AI features, Copilot in Microsoft 365 apps and bundled Microsoft 365 benefits.",
+      "notes": "Monthly billing only on the UK pricing page; this is a bundled Microsoft 365 price, not a standalone Copilot price."
+    },
+    {
+      "id": "perplexity-pro-usd-monthly",
+      "providerId": "perplexity",
+      "name": "Perplexity Pro",
+      "billingPeriod": "monthly",
+      "price": 20,
+      "currency": "USD",
+      "region": "United States",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "perplexity-consumer-plans",
+        "perplexity-max-billing"
+      ],
+      "usageLimitType": "dynamic",
+      "usageLimitSummary": "Expanded access to Pro Search, research, file analysis and advanced models. Usage is governed by plan limits rather than a published token quota.",
+      "usageResetCadence": "Feature-specific limits reset on their published daily, weekly or monthly schedules.",
+      "accessSummary": "Access to advanced models from multiple providers, Pro Search, research, file analysis, image/video generation and file/app creation.",
+      "notes": "US web list price; annual billing and temporary promotions may offer different effective monthly prices."
+    },
+    {
+      "id": "perplexity-pro-usd-annual",
+      "providerId": "perplexity",
+      "name": "Perplexity Pro (annual)",
+      "billingPeriod": "annual",
+      "price": 200,
+      "currency": "USD",
+      "region": "United States",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "perplexity-consumer-plans",
+        "perplexity-max-billing"
+      ],
+      "usageLimitType": "dynamic",
+      "usageLimitSummary": "Same Pro entitlement tier as monthly billing; feature-specific usage limits apply.",
+      "usageResetCadence": "Feature-specific limits reset on their published daily, weekly or monthly schedules.",
+      "accessSummary": "Access to advanced models from multiple providers, Pro Search, research, file analysis, image/video generation and file/app creation.",
+      "notes": "US web annual price. Annual offers and promotions may change."
+    },
+    {
+      "id": "perplexity-max-usd-monthly",
+      "providerId": "perplexity",
+      "name": "Perplexity Max",
+      "billingPeriod": "monthly",
+      "price": 200,
+      "currency": "USD",
+      "region": "United States",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "perplexity-consumer-plans",
+        "perplexity-max-billing"
+      ],
+      "usageLimitType": "dynamic",
+      "usageLimitSummary": "Highest consumer access tier, with expanded limits for advanced models, Research and Create files/apps. Exact usage varies by feature.",
+      "usageResetCadence": "Feature-specific limits reset on their published daily, weekly or monthly schedules.",
+      "accessSummary": "Highest access to advanced models, Perplexity Computer, research, Create files and apps, early features and priority support.",
+      "notes": "US web list price; check checkout for regional and promotional pricing."
+    },
+    {
+      "id": "perplexity-max-usd-annual",
+      "providerId": "perplexity",
+      "name": "Perplexity Max (annual)",
+      "billingPeriod": "annual",
+      "price": 2000,
+      "currency": "USD",
+      "region": "United States",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "perplexity-consumer-plans",
+        "perplexity-max-billing"
+      ],
+      "usageLimitType": "dynamic",
+      "usageLimitSummary": "Highest consumer access tier, with expanded limits for advanced models, Research and Create files/apps. Exact usage varies by feature.",
+      "usageResetCadence": "Feature-specific limits reset on their published daily, weekly or monthly schedules.",
+      "accessSummary": "Highest access to advanced models, Perplexity Computer, research, Create files and apps, early features and priority support.",
+      "notes": "US web annual price stated in the Max billing FAQ; promotional pricing may differ."
+    },
+    {
+      "id": "mistral-le-chat-pro-usd-monthly",
+      "providerId": "mistral",
+      "name": "Le Chat Pro",
+      "billingPeriod": "monthly",
+      "price": 14.99,
+      "currency": "USD",
+      "region": "United States",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "mistral-le-chat-pro"
+      ],
+      "usageLimitType": "dynamic",
+      "usageLimitSummary": "Expanded access and higher usage limits than the free tier. Mistral does not publish a fixed cross-feature prompt or token quota in the cited announcement.",
+      "usageResetCadence": "Feature-specific limits; no single public reset quota stated in the cited announcement.",
+      "accessSummary": "Expanded access to Le Chat's models and features, including faster service and the latest capabilities.",
+      "notes": "Mistral's February 2025 launch announcement stated a starting price of USD $14.99/month. This is a dated published starting price, not a guarantee of current checkout pricing."
+    },
+    {
+      "id": "deepseek-free-usd",
+      "providerId": "deepseek",
+      "name": "DeepSeek Free",
+      "billingPeriod": "monthly",
+      "price": 0,
+      "currency": "USD",
+      "region": "Global",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "deepseek-consumer-app"
+      ],
+      "usageLimitType": "not-published",
+      "usageLimitSummary": "The official consumer app is described as free. A fixed public quota is not specified on the cited product page.",
+      "usageResetCadence": "Not published.",
+      "accessSummary": "DeepSeek consumer assistant with chat, web search, Deep Think, file upload and text extraction.",
+      "notes": "No paid consumer tier or in-app purchase is advertised on the cited official consumer app page."
+    },
+    {
+      "id": "meta-one-core-usd-monthly",
+      "providerId": "meta",
+      "name": "Meta One Core",
+      "billingPeriod": "monthly",
+      "price": 7.99,
+      "currency": "USD",
+      "region": "United States",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "meta-one-consumer"
+      ],
+      "usageLimitType": "shared-pool",
+      "usageLimitSummary": "Expanded usage for selected Meta AI generation and creative features compared with the free experience. Exact included generation counts are not published in the announcement.",
+      "usageResetCadence": "Feature-specific allowances; exact reset cadence not published.",
+      "accessSummary": "Bundle of Meta app features plus increased Meta AI image/video generation and creative-tool usage.",
+      "notes": "US starting price for the individual bundle; includes non-AI social app benefits. Availability and pricing vary by region, app and account."
+    },
+    {
+      "id": "meta-one-premium-usd-monthly",
+      "providerId": "meta",
+      "name": "Meta One Premium",
+      "billingPeriod": "monthly",
+      "price": 19.99,
+      "currency": "USD",
+      "region": "United States",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "meta-one-consumer"
+      ],
+      "usageLimitType": "shared-pool",
+      "usageLimitSummary": "Higher usage headroom for Meta AI and creative features than Core. Exact included generation counts are not published in the announcement.",
+      "usageResetCadence": "Feature-specific allowances; exact reset cadence not published.",
+      "accessSummary": "Premium bundle across Meta apps with the most room for Meta AI content creation and expanded app features.",
+      "notes": "US starting price; includes non-AI social app benefits. Availability and pricing vary by region, app and account."
+    },
+    {
+      "id": "poe-free-usd",
+      "providerId": "poe",
+      "name": "Poe Free",
+      "billingPeriod": "monthly",
+      "price": 0,
+      "currency": "USD",
+      "region": "Global",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "poe-consumer-faq"
+      ],
+      "usageLimitType": "shared-pool",
+      "usageLimitSummary": "Non-paying users receive a daily pool of compute points shared across bots. Point cost varies by bot and message; unused daily points do not roll over.",
+      "usageResetCadence": "Daily; points reset every 24 hours and do not roll over.",
+      "accessSummary": "Access to Poe's catalogue of official and user-created bots, with daily compute points and per-bot variable point costs.",
+      "notes": "Free tier; exact daily point allowance can vary and is shown in the account."
+    },
+    {
+      "id": "poe-subscription-usd-from",
+      "providerId": "poe",
+      "name": "Poe Subscription (from)",
+      "billingPeriod": "monthly",
+      "price": 4.99,
+      "currency": "USD",
+      "region": "United States",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "poe-consumer-faq",
+        "poe-purchases-faq"
+      ],
+      "usageLimitType": "shared-pool",
+      "usageLimitSummary": "Subscribers receive a larger flexible pool of compute points across bots, plus access to more advanced bots. Exact point allowance depends on the selected subscription tier and is shown in the account.",
+      "usageResetCadence": "Points are granted daily and/or monthly depending on the subscription; unused points do not roll over unless specified.",
+      "accessSummary": "One subscription provides access to advanced third-party bots across multiple model providers, with compute points allocated flexibly across bots.",
+      "notes": "Starting price stated by Poe at USD $4.99/month. Higher tiers, annual billing, add-on points, regional and app-store prices may differ."
     }
   ],
   "apiPricing": [
