@@ -52,7 +52,7 @@ npm run preview
 5. Review material data changes through pull requests.
 6. Never describe a modelled estimate as a provider's financial disclosure.
 
-See [the methodology notes](docs/methodology.md) for the modelling boundaries, definitions and known omissions.
+See [the methodology notes](docs/methodology.md) for the modelling boundaries, definitions and known omissions. Release notes are in [CHANGELOG.md](CHANGELOG.md).
 
 ## Current data coverage
 
