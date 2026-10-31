@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add weekly domain collectors for subscription source observations, model discovery, API pricing evidence and provenance-aware benchmark leaderboards. Keep aggregator pricing and unverified benchmark submissions explicitly labelled and separate from canonical provider data.
+
 - Add a domain-oriented GitHub Actions data refresh pipeline with scheduled ECB exchange-rate updates, manual domain selection, validation, test/build gates, refresh reports and reviewed pull requests. Other catalogue domains remain explicit manual-review inputs until reliable collectors are added.
 
 
