@@ -3,6 +3,8 @@
 ## Unreleased
 
 ### Added
+- Immutable, validated catalogue snapshots and deterministic record-level change sets, indexed for future history views.
+- Daily and change-triggered GitHub Actions workflow for catalogue history, with a baseline snapshot on first run.
 - Selected-currency subscription comparison with converted monthly prices, original-price disclosure and dated ECB reference rates.
 - Daily GitHub Actions workflow to refresh ECB reference rates through Frankfurter.
 - Value Explorer for comparing consumer plans by currency, monthly-equivalent price, budget and published usage terms.
