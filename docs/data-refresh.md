@@ -31,6 +31,8 @@ Statuses are deliberately distinct:
 
 A failed attempt updates the latest status and error but preserves `lastSuccessfulAt`. Per-source failures in subscription pages, official pricing pages and benchmark leaderboards do not stop unrelated sources from being collected. If a complete upstream feed (for example the model discovery API) is unavailable, its previous candidate file is left untouched. The source registry itself still records the failed attempt.
 
+The refresh report derives its per-domain status from the latest source-registry entries after each collector exits successfully. A domain is labelled **Updated successfully** only when all registered sources were fetched; it is **Partial** when any source failed or has an unrecognised status; and **Review required** when sources were fetched but at least one is explicitly marked for manual review. The report includes fetched/total counts, individual failure categories and manual-review counts in both the Actions step summary and generated pull-request body. A source-level failure does not fail the workflow by itself. A collector process failure is reported separately as **Collector failed** and still fails the refresh job after the summary has been written, preventing a misleading data PR.
+
 The registry describes collection health, not source truth or commercial facts. It does not infer that a provider is blocking Compute Ledger specifically: HTTP 403 only establishes that the request was forbidden. Do not disguise the workflow as a browser, rotate addresses to evade controls or bypass access restrictions. Prefer documented APIs, public feeds and provider-supported data access; otherwise retain the source as manual review.
 
 ## Schedules
