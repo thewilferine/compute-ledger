@@ -14,7 +14,7 @@ A snapshot contains a version, capture timestamp, SHA-256 content hash and the c
 
 `.github/workflows/snapshot-catalogue.yml` runs when the catalogue or its validation/history implementation changes, on a daily schedule as a safety net, and on manual dispatch. It validates the catalogue with the existing Zod schema and checks cross-record references before writing any history.
 
-If the current catalogue has the same canonical content hash as the latest snapshot, the workflow does nothing. Otherwise it writes a new immutable snapshot, a change set and the updated index, then commits those files. The workflow only writes beneath `public/data/history/`; it never edits or replaces `catalogue.json`.
+If the current catalogue has the same canonical content hash as the latest snapshot, the workflow does nothing. Otherwise it writes a new immutable snapshot, a change set and the updated index, then opens or updates a pull request containing only the generated history files. History is reviewed and merged through the repository's protected-branch process; the workflow never pushes directly to `main` or edits/replaces `catalogue.json`. It dispatches the repository validation workflow against the PR branch so the required `validate` check can run for the generated commit.
 
 The first successful run creates a baseline snapshot with an empty change set. Later runs compare against the preceding snapshot.
 
@@ -38,7 +38,7 @@ A missing or unavailable source is not evidence that a catalogue item has disapp
 
 Snapshots are retained indefinitely in Git for now. Full snapshots are small, straightforward to inspect and provide a robust audit trail; Git stores repeated content efficiently. Revisit retention only if repository size or history query performance becomes a real concern.
 
-Validation runs before history is written. If parsing, schema validation or relationship validation fails, the workflow exits without creating or committing a snapshot. The current catalogue and last-known-good history remain untouched.
+Validation runs before history is written. If parsing, schema validation or relationship validation fails, the workflow exits without creating a history pull request. The current catalogue and last-known-good history remain untouched.
 
 ## Local use
 
