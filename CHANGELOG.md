@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Add a domain-oriented GitHub Actions data refresh pipeline with scheduled ECB exchange-rate updates, manual domain selection, validation, test/build gates, refresh reports and reviewed pull requests. Other catalogue domains remain explicit manual-review inputs until reliable collectors are added.
+
+
+## Unreleased
+
 ### Added
 - Immutable, validated catalogue snapshots and deterministic record-level change sets, indexed for future history views.
 - Daily and change-triggered GitHub Actions workflow for catalogue history, with a baseline snapshot on first run.

@@ -10,7 +10,8 @@
     "typecheck": "tsc -b --pretty",
     "test": "vitest run",
     "test:watch": "vitest",
-    "history:snapshot": "node --experimental-strip-types scripts/snapshot-catalogue.mjs"
+    "history:snapshot": "node --experimental-strip-types scripts/snapshot-catalogue.mjs",
+    "data:refresh": "node --experimental-strip-types scripts/refresh-data.mjs"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
