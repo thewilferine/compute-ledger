@@ -10,8 +10,9 @@ describe("browser locale currency defaults", () => {
     expect(defaultCurrencyForLocale("en-GB")).toBe("GBP");
     expect(defaultCurrencyForLocale("en-US")).toBe("USD");
     expect(defaultCurrencyForLocale("de-DE")).toBe("EUR");
-    expect(defaultCurrencyForLocale("fr-CA")).toBe("GBP");
-    expect(defaultCurrencyForLocale("not-a-locale")).toBe("GBP");
+    expect(defaultCurrencyForLocale("fr-CA")).toBe("USD");
+    expect(defaultCurrencyForLocale("ja-JP")).toBe("USD");
+    expect(defaultCurrencyForLocale("not-a-locale")).toBe("USD");
   });
 });
 
