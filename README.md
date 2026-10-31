@@ -11,6 +11,7 @@ The project models plausible serving costs from public information and explicit 
 - Recharts + Lucide
 - Zod for runtime data validation
 - Vitest for unit tests
+- pnpm for dependency management
 - JSON catalogue committed to Git
 - GitHub Actions for validation and GitHub Pages deployment
 
@@ -18,21 +19,23 @@ There is no application backend or database. Calculations run in the browser. Th
 
 ## Local development
 
-Requirements: Node.js 22+ and npm.
+Requirements: Node.js 22.16.0 and pnpm 12.16.1. The exact Node.js version is declared in `package.json`; both CI workflows read it from there, so CI and local development share one version source.
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Useful commands:
 
 ```bash
-npm run typecheck
-npm test
-npm run build
-npm run preview
+pnpm run typecheck
+pnpm test
+pnpm run build
+pnpm run preview
 ```
+
+Commit `package.json` and `pnpm-lock.yaml` together whenever dependencies change. CI uses a frozen lockfile and will fail if the manifest and lockfile are out of sync.
 
 ## Repository layout
 
@@ -66,4 +69,8 @@ The Vite base path is configured for `https://thewilferine.github.io/compute-led
 
 ## Licence
 
-Not yet selected.
+This project is licensed under the [MIT Licence](LICENSE).
+
+## Contributing and security
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development and pull request guidance, and [SECURITY.md](SECURITY.md) for private vulnerability reporting.
