@@ -36,6 +36,10 @@ describe("catalogue history helpers", () => {
     expect(() => validateCatalogueRelationships(invalid)).toThrow(/duplicate id/i);
   });
 
+  it("creates an empty change set for the initial baseline", () => {
+    expect(createChangeSet(null, catalogue())).toEqual([]);
+  });
+
   it("records additions, removals and field-level updates in a stable order", () => {
     const before = catalogue();
     const after = catalogue();
