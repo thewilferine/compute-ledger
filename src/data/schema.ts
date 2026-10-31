@@ -23,6 +23,9 @@ export const modelSchema = z.object({
   modality: z.array(z.enum(["text", "image", "audio", "video"])),
   contextWindowTokens: z.number().int().positive().optional(),
   sources: z.array(z.string()),
+  availability: z.enum(["current", "preview", "previous-generation", "retired"]).optional(),
+  releaseDate: z.string().date().optional(),
+  notes: z.string().optional(),
 });
 
 export const subscriptionPlanSchema = z.object({
