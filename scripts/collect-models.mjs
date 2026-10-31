@@ -1,5 +1,5 @@
 import { readFile } from "node:fs/promises";
-import { fetchJsonObserved, writeJsonAtomic } from "./lib/refresh-io.mjs";
+import { fetchJsonObserved, recordSourceHealth, writeJsonAtomic } from "./lib/refresh-io.mjs";
 
 const catalogue = JSON.parse(await readFile("public/data/catalogue.json", "utf8"));
 const knownProviders = {
@@ -37,6 +37,10 @@ if (fetched.status !== "fetched") {
 }
 const payload = fetched.data;
 if (!Array.isArray(payload.data) || payload.data.length === 0) {
+  await recordSourceHealth({
+    ...source, status: "invalid_response",
+    error: "OpenRouter response did not contain a non-empty data array.",
+  });
   console.warn("Model discovery source returned an invalid/empty catalogue; retaining last-known-good candidates.");
   process.exit(0);
 }
