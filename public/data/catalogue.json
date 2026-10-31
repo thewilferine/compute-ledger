@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-31T00:00:00.000Z",
+  "updatedAt": "2026-10-31T23:00:00.000Z",
   "sources": [
     {
       "id": "openai-plus",
@@ -193,6 +193,46 @@
       "url": "https://docs.mistral.ai/models/mistral-large-4-0",
       "accessedAt": "2026-10-31",
       "notes": "Official model page lists public preview token prices and cached input price."
+    },
+    {
+      "id": "openai-pro-tiers",
+      "title": "About ChatGPT Pro tiers",
+      "publisher": "OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers",
+      "accessedAt": "2026-10-31",
+      "notes": "Official Pro 100, Pro 200 and Pro 500 monthly prices, tier differences and usage-limit behaviour. Pro 500 is the only tier with Ultrafast access."
+    },
+    {
+      "id": "anthropic-subscription-plans",
+      "title": "Choose a Claude plan",
+      "publisher": "Anthropic Support",
+      "url": "https://support.claude.com/en/articles/11049762-choose-a-claude-plan",
+      "accessedAt": "2026-10-31",
+      "notes": "Official consumer Pro and Max pricing, annual Pro billing, and 5x/20x usage capacity descriptions."
+    },
+    {
+      "id": "google-gemini-usage",
+      "title": "Gemini Apps limits & feature availability",
+      "publisher": "Google Support",
+      "url": "https://support.google.com/gemini/answer/16275805?hl=en-GB",
+      "accessedAt": "2026-10-31",
+      "notes": "Explains compute-based limits, five-hour refreshes up to a weekly cap, and published relative plan limits."
+    },
+    {
+      "id": "xai-subscription-pricing",
+      "title": "Grok subscription pricing",
+      "publisher": "xAI",
+      "url": "https://x.ai/pricing",
+      "accessedAt": "2026-10-31",
+      "notes": "Official individual SuperGrok and SuperGrok Plus monthly prices and included access."
+    },
+    {
+      "id": "xai-subscription-usage",
+      "title": "Grok weekly usage limits",
+      "publisher": "xAI Documentation",
+      "url": "https://docs.x.ai/grok/faq",
+      "accessedAt": "2026-10-31",
+      "notes": "Explains the shared weekly usage pool, variable compute consumption by feature, reset schedule and extra usage credits."
     }
   ],
   "providers": [
@@ -675,6 +715,214 @@
         "google-ai-pro"
       ],
       "notes": "UK price displayed on Google's subscriptions page at time of access."
+    },
+    {
+      "id": "chatgpt-pro-100-usd",
+      "providerId": "openai",
+      "name": "ChatGPT Pro 100",
+      "billingPeriod": "monthly",
+      "price": 100,
+      "currency": "USD",
+      "region": "United States",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "openai-pro-tiers"
+      ],
+      "usageLimitType": "dynamic",
+      "usageLimitSummary": "Higher included usage than Plus; model allowances vary by tier and can reset when exhausted. Exact message/token quotas are not published as a fixed monthly allowance.",
+      "usageResetCadence": "Per-model allowance resets; reset time shown in ChatGPT when available.",
+      "accessSummary": "Pro reasoning, Codex, Deep Research and ChatGPT Work; Ultrafast mode is not included.",
+      "notes": "Monthly web list price. API usage is separate."
+    },
+    {
+      "id": "chatgpt-pro-200-usd",
+      "providerId": "openai",
+      "name": "ChatGPT Pro 200",
+      "billingPeriod": "monthly",
+      "price": 200,
+      "currency": "USD",
+      "region": "United States",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "openai-pro-tiers"
+      ],
+      "usageLimitType": "dynamic",
+      "usageLimitSummary": "Higher included usage than Pro 100. Exact message/token quotas are not published as a fixed monthly allowance; allowances vary by model and tier.",
+      "usageResetCadence": "Per-model allowance resets; reset time shown in ChatGPT when available.",
+      "accessSummary": "Pro reasoning, Codex, Deep Research and ChatGPT Work; Ultrafast mode is not included.",
+      "notes": "Monthly web list price. New subscribers may have a lower allowance than some grandfathered subscribers; API usage is separate."
+    },
+    {
+      "id": "chatgpt-pro-500-usd",
+      "providerId": "openai",
+      "name": "ChatGPT Pro 500",
+      "billingPeriod": "monthly",
+      "price": 500,
+      "currency": "USD",
+      "region": "United States",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "openai-pro-tiers"
+      ],
+      "usageLimitType": "dynamic",
+      "usageLimitSummary": "Highest included usage among the three Pro tiers. Model allowances still apply; Ultrafast consumes included usage at 8× the selected model's Standard rate.",
+      "usageResetCadence": "Per-model allowance resets; reset time shown in ChatGPT when available.",
+      "accessSummary": "Pro reasoning, Codex, Deep Research and ChatGPT Work; includes Ultrafast for eligible models.",
+      "notes": "Monthly web list price. API usage is separate."
+    },
+    {
+      "id": "claude-pro-annual-usd",
+      "providerId": "anthropic",
+      "name": "Claude Pro (annual)",
+      "billingPeriod": "annual",
+      "price": 200,
+      "currency": "USD",
+      "region": "United States",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "anthropic-subscription-plans"
+      ],
+      "usageLimitType": "dynamic",
+      "usageLimitSummary": "Same Pro usage tier as monthly billing: five-hour session limits plus a weekly limit across models. Actual message capacity varies with prompt length, context, model and features.",
+      "usageResetCadence": "Five-hour session reset and fixed weekly reset.",
+      "accessSummary": "Claude models, Claude Code and paid-plan features; model access may vary.",
+      "notes": "$200 billed annually ($16.67/month equivalent). API usage is separate."
+    },
+    {
+      "id": "claude-max-5x-usd",
+      "providerId": "anthropic",
+      "name": "Claude Max 5x",
+      "billingPeriod": "monthly",
+      "price": 100,
+      "currency": "USD",
+      "region": "United States",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "anthropic-subscription-plans"
+      ],
+      "usageLimitType": "tier-multiplier",
+      "usageMultiplier": 5,
+      "usageLimitSummary": "Five times Pro's per-session usage allowance, plus a weekly limit across models. Actual capacity varies with prompt length, context, model and features.",
+      "usageResetCadence": "Five-hour session reset and fixed weekly reset.",
+      "accessSummary": "Claude models and Claude Code, priority access and monthly Claude API credits.",
+      "notes": "Monthly web list price; mobile pricing may differ."
+    },
+    {
+      "id": "claude-max-20x-usd",
+      "providerId": "anthropic",
+      "name": "Claude Max 20x",
+      "billingPeriod": "monthly",
+      "price": 200,
+      "currency": "USD",
+      "region": "United States",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "anthropic-subscription-plans"
+      ],
+      "usageLimitType": "tier-multiplier",
+      "usageMultiplier": 20,
+      "usageLimitSummary": "Twenty times Pro's per-session usage allowance, plus a weekly limit across models. Actual capacity varies with prompt length, context, model and features.",
+      "usageResetCadence": "Five-hour session reset and fixed weekly reset.",
+      "accessSummary": "Claude models and Claude Code, priority access and monthly Claude API credits.",
+      "notes": "Monthly web list price; mobile pricing may differ."
+    },
+    {
+      "id": "google-ai-plus-gbp",
+      "providerId": "google",
+      "name": "Google AI Plus",
+      "billingPeriod": "monthly",
+      "price": 4.49,
+      "currency": "GBP",
+      "region": "United Kingdom",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "google-ai-pro",
+        "google-gemini-usage"
+      ],
+      "usageLimitType": "tier-multiplier",
+      "usageMultiplier": 2,
+      "usageLimitSummary": "Google states 2× higher Gemini usage access than the free tier. Limits are compute-based, not a fixed prompt count.",
+      "usageResetCadence": "Refreshes every five hours until the weekly cap is reached.",
+      "accessSummary": "Gemini Flash and expanded Gemini features, with 2× free-tier usage access.",
+      "notes": "UK web list price; Google One storage and other bundled benefits are included."
+    },
+    {
+      "id": "google-ai-ultra-5x-gbp",
+      "providerId": "google",
+      "name": "Google AI Ultra (5x)",
+      "billingPeriod": "monthly",
+      "price": 78.99,
+      "currency": "GBP",
+      "region": "United Kingdom",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "google-ai-pro",
+        "google-gemini-usage"
+      ],
+      "usageLimitType": "tier-multiplier",
+      "usageMultiplier": 5,
+      "usageLimitSummary": "Google advertises 5× the AI Pro usage limit. Gemini usage is compute-based and subject to five-hour refreshes and a weekly cap.",
+      "usageResetCadence": "Refreshes every five hours until the weekly cap is reached.",
+      "accessSummary": "Highest-level Gemini model and feature access; 5× AI Pro usage tier.",
+      "notes": "UK web price for the lower Ultra tier. Bundled storage and other Google benefits are included."
+    },
+    {
+      "id": "google-ai-ultra-20x-gbp",
+      "providerId": "google",
+      "name": "Google AI Ultra (20x)",
+      "billingPeriod": "monthly",
+      "price": 154.99,
+      "currency": "GBP",
+      "region": "United Kingdom",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "google-ai-pro",
+        "google-gemini-usage"
+      ],
+      "usageLimitType": "tier-multiplier",
+      "usageMultiplier": 20,
+      "usageLimitSummary": "Google advertises 20× the AI Pro usage limit. Gemini usage is compute-based and subject to five-hour refreshes and a weekly cap.",
+      "usageResetCadence": "Refreshes every five hours until the weekly cap is reached.",
+      "accessSummary": "Highest-level Gemini model and feature access; 20× AI Pro usage tier.",
+      "notes": "UK web price for the higher Ultra tier. Bundled storage and other Google benefits are included."
+    },
+    {
+      "id": "xai-supergrok-usd",
+      "providerId": "xai",
+      "name": "SuperGrok",
+      "billingPeriod": "monthly",
+      "price": 30,
+      "currency": "USD",
+      "region": "United States",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "xai-subscription-pricing",
+        "xai-subscription-usage"
+      ],
+      "usageLimitType": "shared-pool",
+      "usageLimitSummary": "Paid usage draws from one shared weekly pool across Grok products. Different features consume different amounts of the pool; exact included units are not published.",
+      "usageResetCadence": "Weekly, on the schedule shown in account settings.",
+      "accessSummary": "Grok frontier models, Grok Bot, connectors and higher feature limits.",
+      "notes": "Monthly web list price; account and platform eligibility may affect availability."
+    },
+    {
+      "id": "xai-supergrok-plus-usd",
+      "providerId": "xai",
+      "name": "SuperGrok Plus",
+      "billingPeriod": "monthly",
+      "price": 100,
+      "currency": "USD",
+      "region": "United States",
+      "observedAt": "2026-10-31",
+      "sources": [
+        "xai-subscription-pricing",
+        "xai-subscription-usage"
+      ],
+      "usageLimitType": "shared-pool",
+      "usageLimitSummary": "Larger shared weekly usage pool than SuperGrok. Different features consume different amounts; exact included units are not published.",
+      "usageResetCadence": "Weekly, on the schedule shown in account settings.",
+      "accessSummary": "Everything in SuperGrok plus significantly higher usage, 1080p video creation and priority access.",
+      "notes": "Monthly web list price."
     }
   ],
   "apiPricing": [
@@ -1185,4 +1433,4 @@
       "notes": "Batch API applies a 50% discount to input and output; cache modifiers stack with batch pricing."
     }
   ]
-}
+}\n
