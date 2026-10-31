@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
 import {
+  classifySourceError,
   extractPriceMentions,
   fetchPageObserved,
   htmlToText,
@@ -59,7 +60,7 @@ for (const [sourceId, linkedPlanIds] of planIdsBySource) {
     const message = error instanceof Error ? error.message : String(error);
     observations.push({
       ...baseObservation,
-      status: error?.message?.match(/HTTP 403/) ? "blocked" : error?.message?.match(/HTTP 429/) ? "rate_limited" : "unavailable",
+      status: classifySourceError(error),
       contentType: null,
       pageCharacters: null,
       priceMentions: [],
