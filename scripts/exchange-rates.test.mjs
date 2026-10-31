@@ -13,6 +13,7 @@ describe("exchange-rate collector parsing", () => {
       base: "EUR",
       rates: { EUR: 1, GBP: 0.86, USD: 1.16 },
       source: "European Central Bank via Frankfurter",
+      sourceUrl: "https://api.frankfurter.dev/",
     });
   });
 
