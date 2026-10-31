@@ -34,6 +34,8 @@ The budget-conscious, everyday and heavy-use profiles provide decision guidance,
 
 Subscription records are retail price observations, not recognised revenue or inference budgets. Each observation preserves advertised currency, region, billing period and date. Regional taxes, app-store pricing, promotions and checkout conditions can change the final amount.
 
+The catalogue includes both standalone AI subscriptions and broader consumer bundles where AI access is a material advertised benefit (for example, Microsoft 365 Copilot and Meta One). The full bundle price is recorded, not an invented allocation of price to the AI component. The plan notes identify these bundled products so they are not mistaken for AI-only subscriptions. Aggregators such as Poe are represented using their own point-based access model rather than pretending that a subscription buys a fixed number of model requests. Poe points are shared across bots, and the point cost can vary by model, context and task. Where a provider's price is a published starting price or a dated announcement rather than a stable regional checkout quote, that qualification is retained in the record notes.
+
 Usage policy is recorded separately from price and model access. The catalogue distinguishes dynamic limits, published relative tier multipliers, shared usage pools and cases where a limit has not been published. A multiplier such as 5× Pro is not a token quota. A shared pool is not a count of equivalent requests: compute-intensive features can consume more capacity than simple chat. Where a provider does not publish a fixed allowance, the project must not invent one.
 
 ## API list-price workload comparison
