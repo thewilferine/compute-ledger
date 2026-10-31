@@ -1,0 +1,1604 @@
+{
+  "snapshotVersion": 1,
+  "id": "2026-10-31T10-55-39-166Z-6d92c8f00666",
+  "capturedAt": "2026-10-31T10:55:39.166Z",
+  "contentHash": "6d92c8f0066686b7b6aba9004105e47aa6572aabeea5b4719c6b15f1c1569d3f",
+  "changeCount": 0,
+  "catalogue": {
+    "schemaVersion": 1,
+    "updatedAt": "2026-10-31T23:55:00.000Z",
+    "sources": [
+      {
+        "id": "openai-plus",
+        "title": "What is ChatGPT Plus?",
+        "publisher": "OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+        "accessedAt": "2026-10-31",
+        "notes": "States ChatGPT Plus is USD $20/month. Local app-store and regional prices may differ."
+      },
+      {
+        "id": "claude-plans",
+        "title": "Choose a Claude plan",
+        "publisher": "Anthropic Support",
+        "url": "https://support.claude.com/en/articles/11049762-choose-a-claude-plan",
+        "accessedAt": "2026-10-30",
+        "notes": "Lists individual Pro at USD $20/month or $200/year. Local pricing may differ."
+      },
+      {
+        "id": "google-ai-pro",
+        "title": "Google AI Pro subscriptions",
+        "publisher": "Google",
+        "url": "https://gemini.google/gi/subscriptions/?hl=en-GB",
+        "accessedAt": "2026-10-31",
+        "notes": "UK subscription page lists Google AI Plus at £4.49/month, AI Pro at £15.49/month, and AI Ultra at £78.99 or £154.99/month. Ultra offers 5x or 20x AI Pro usage limits; regional and offer conditions apply."
+      },
+      {
+        "id": "deepseek-api",
+        "title": "Models & Pricing",
+        "publisher": "DeepSeek API Documentation",
+        "url": "https://api-docs.deepseek.com/quick_start/pricing/",
+        "accessedAt": "2026-10-30",
+        "notes": "Official API rate card; prices in USD per million tokens. Time-of-day peak and off-peak pricing applies."
+      },
+      {
+        "id": "openai-api",
+        "title": "Pricing",
+        "publisher": "OpenAI API Documentation",
+        "url": "https://developers.openai.com/api/docs/pricing",
+        "accessedAt": "2026-10-30",
+        "notes": "Official API pricing page. Pricing varies by model, speed tier, context and modality."
+      },
+      {
+        "id": "claude-pro",
+        "title": "What is the Pro plan?",
+        "publisher": "Anthropic Support",
+        "url": "https://support.claude.com/en/articles/8325606-what-is-the-pro-plan",
+        "accessedAt": "2026-10-31",
+        "notes": "Explains Claude Pro pricing is USD $20/month in the US, local prices vary; API usage is separate."
+      },
+      {
+        "id": "claude-api-pricing",
+        "title": "Claude Model Pricing — List Prices",
+        "publisher": "Anthropic",
+        "url": "https://www-cdn.anthropic.com/files/4zrzovbb/website/3684c2faafb97418665782cea0001f439f74b1d2.pdf",
+        "accessedAt": "2026-10-30",
+        "notes": "Official price list effective 27 May 2026. Includes Claude Opus 4.8 API prices in USD per million tokens; not consumer subscription pricing."
+      },
+      {
+        "id": "openai-models",
+        "title": "OpenAI API models",
+        "publisher": "OpenAI API Documentation",
+        "url": "https://developers.openai.com/api/docs/models",
+        "accessedAt": "2026-10-31",
+        "notes": "Official GPT-6 model directory."
+      },
+      {
+        "id": "openai-pricing-current",
+        "title": "OpenAI API pricing",
+        "publisher": "OpenAI API Documentation",
+        "url": "https://developers.openai.com/api/docs/pricing",
+        "accessedAt": "2026-10-31",
+        "notes": "Official current model rates by standard, Flex/Batch, Fast and Ultrafast tiers, with cached-input and cache-write prices."
+      },
+      {
+        "id": "anthropic-models",
+        "title": "Claude models and announcements",
+        "publisher": "Anthropic",
+        "url": "https://www.anthropic.com/news/models",
+        "accessedAt": "2026-10-31",
+        "notes": "Official Claude model announcement index."
+      },
+      {
+        "id": "anthropic-system-cards",
+        "title": "Claude model system cards",
+        "publisher": "Anthropic",
+        "url": "https://www.anthropic.com/system-cards",
+        "accessedAt": "2026-10-31",
+        "notes": "Official Claude system-card index."
+      },
+      {
+        "id": "google-gemini-argon",
+        "title": "Gemini 4 Argon is now available",
+        "publisher": "Google DeepMind",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+        "accessedAt": "2026-10-31",
+        "notes": "Official Argon announcement, availability and pricing."
+      },
+      {
+        "id": "xai-grok-docs",
+        "title": "Grok documentation",
+        "publisher": "xAI",
+        "url": "https://docs.x.ai/grok/overview",
+        "accessedAt": "2026-10-31",
+        "notes": "Official Grok developer documentation."
+      },
+      {
+        "id": "deepseek-v41",
+        "title": "DeepSeek-V4.1-Flash-1017",
+        "publisher": "DeepSeek API Documentation",
+        "url": "https://api-docs.deepseek.com/news/news261017/",
+        "accessedAt": "2026-10-31",
+        "notes": "Official October 17 model update and API alias."
+      },
+      {
+        "id": "meta-muse",
+        "title": "Muse model series",
+        "publisher": "Meta AI",
+        "url": "https://ai.meta.com/tools/muse/",
+        "accessedAt": "2026-10-31",
+        "notes": "Official Meta Muse pages identify Muse Wonder and Muse Wonder Full as the current frontier model series; model access and product availability are distinct from a public API listing."
+      },
+      {
+        "id": "mistral-large-4",
+        "title": "Introducing Mistral Large 4",
+        "publisher": "Mistral AI",
+        "url": "https://mistral.ai/news/mistral-large-4/",
+        "accessedAt": "2026-10-31",
+        "notes": "Official launch, preview status and published API rates."
+      },
+      {
+        "id": "qwen-38",
+        "title": "Qwen3.8-Max",
+        "publisher": "Qwen",
+        "url": "https://qwen.ai/blog?id=qwen3.8",
+        "accessedAt": "2026-10-31",
+        "notes": "Official Qwen flagship announcement."
+      },
+      {
+        "id": "moonshot-kimi",
+        "title": "Kimi K3.1 Pro",
+        "publisher": "Moonshot AI",
+        "url": "https://www.moonshot.ai/",
+        "accessedAt": "2026-10-31",
+        "notes": "Official Moonshot AI model listing."
+      },
+      {
+        "id": "zai-glm53",
+        "title": "GLM-5.3",
+        "publisher": "Z.ai",
+        "url": "https://z.ai/blog/glm-5.3",
+        "accessedAt": "2026-10-31",
+        "notes": "Official model announcement."
+      },
+      {
+        "id": "nvidia-nemotron35",
+        "title": "Nemotron 3.5 Super VL",
+        "publisher": "NVIDIA",
+        "url": "https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/",
+        "accessedAt": "2026-10-31",
+        "notes": "Official open multimodal model announcement."
+      },
+      {
+        "id": "anthropic-pricing-current",
+        "title": "Claude API pricing",
+        "publisher": "Anthropic Platform Docs",
+        "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+        "accessedAt": "2026-10-31",
+        "notes": "Current official API list prices, prompt cache writes/reads, batch discounts, long-context pricing and data-residency modifiers."
+      },
+      {
+        "id": "google-gemini-api-pricing",
+        "title": "Gemini Developer API pricing",
+        "publisher": "Google AI for Developers",
+        "url": "https://ai.google.dev/gemini-api/docs/pricing",
+        "accessedAt": "2026-10-31",
+        "notes": "Current Gemini Developer API prices, including introductory pricing and scheduled price changes."
+      },
+      {
+        "id": "xai-api-pricing",
+        "title": "API pricing",
+        "publisher": "xAI Developer Docs",
+        "url": "https://docs.x.ai/developers/pricing",
+        "accessedAt": "2026-10-31",
+        "notes": "Official model pricing including Grok 4.7 short/long-context rates, caching and regional endpoint modifiers."
+      },
+      {
+        "id": "mistral-large-4-docs",
+        "title": "Mistral Large 4 model documentation",
+        "publisher": "Mistral AI Documentation",
+        "url": "https://docs.mistral.ai/models/mistral-large-4-0",
+        "accessedAt": "2026-10-31",
+        "notes": "Official model page lists public preview token prices and cached input price."
+      },
+      {
+        "id": "openai-pro-tiers",
+        "title": "About ChatGPT Pro tiers",
+        "publisher": "OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers",
+        "accessedAt": "2026-10-31",
+        "notes": "Official Pro 100, Pro 200 and Pro 500 monthly prices, tier differences and usage-limit behaviour. Pro 500 is the only tier with Ultrafast access."
+      },
+      {
+        "id": "anthropic-subscription-plans",
+        "title": "Choose a Claude plan",
+        "publisher": "Anthropic Support",
+        "url": "https://support.claude.com/en/articles/11049762-choose-a-claude-plan",
+        "accessedAt": "2026-10-31",
+        "notes": "Official consumer Pro and Max pricing, annual Pro billing, and 5x/20x usage capacity descriptions."
+      },
+      {
+        "id": "google-gemini-usage",
+        "title": "Gemini Apps limits & feature availability",
+        "publisher": "Google Support",
+        "url": "https://support.google.com/gemini/answer/16275805?hl=en-GB",
+        "accessedAt": "2026-10-31",
+        "notes": "Explains compute-based limits, five-hour refreshes up to a weekly cap, and published relative plan limits."
+      },
+      {
+        "id": "xai-subscription-pricing",
+        "title": "Grok subscription pricing",
+        "publisher": "xAI",
+        "url": "https://x.ai/pricing",
+        "accessedAt": "2026-10-31",
+        "notes": "Official individual SuperGrok and SuperGrok Plus monthly prices and included access."
+      },
+      {
+        "id": "xai-subscription-usage",
+        "title": "Grok weekly usage limits",
+        "publisher": "xAI Documentation",
+        "url": "https://docs.x.ai/grok/faq",
+        "accessedAt": "2026-10-31",
+        "notes": "Explains the shared weekly usage pool, variable compute consumption by feature, reset schedule and extra usage credits."
+      },
+      {
+        "id": "openai-changelog",
+        "title": "OpenAI API changelog",
+        "publisher": "OpenAI API Documentation",
+        "url": "https://developers.openai.com/api/docs/changelog",
+        "accessedAt": "2026-10-31",
+        "notes": "Official release notes, including GPT-6 Rosalind Research and its restricted API availability."
+      },
+      {
+        "id": "google-models",
+        "title": "Gemini API models",
+        "publisher": "Google AI for Developers",
+        "url": "https://ai.google.dev/gemini-api/docs/models",
+        "accessedAt": "2026-10-31",
+        "notes": "Official model directory with current, preview, specialized and previous-generation Gemini API model IDs."
+      },
+      {
+        "id": "zai-glm53-flash",
+        "title": "GLM-5.3-Flash: Frontier Intelligence, Flash Cost",
+        "publisher": "Z.ai",
+        "url": "https://z.ai/blog/glm-5.3-flash",
+        "accessedAt": "2026-10-31",
+        "notes": "Official August 26 release announcement; natively multimodal 320B-total/18B-active model with 1M-token context and open weights."
+      },
+      {
+        "id": "nvidia-nemotron-bolt",
+        "title": "Nemotron 3.5 Bolt E4B model card",
+        "publisher": "NVIDIA",
+        "url": "https://build.nvidia.com/nvidia/nemotron-3.5-bolt-e4b/modelcard",
+        "accessedAt": "2026-10-31",
+        "notes": "Official NVIDIA model card and release information for the compact Nemotron 3.5 Bolt E4B reasoning model."
+      }
+    ],
+    "providers": [
+      {
+        "id": "openai",
+        "name": "OpenAI",
+        "website": "https://openai.com",
+        "sources": [
+          "openai-plus",
+          "openai-api",
+          "openai-models",
+          "openai-pricing-current",
+          "openai-pro-tiers",
+          "openai-changelog"
+        ]
+      },
+      {
+        "id": "anthropic",
+        "name": "Anthropic",
+        "website": "https://www.anthropic.com",
+        "sources": [
+          "claude-plans",
+          "claude-pro",
+          "anthropic-models",
+          "anthropic-system-cards",
+          "anthropic-pricing-current",
+          "anthropic-subscription-plans"
+        ]
+      },
+      {
+        "id": "google",
+        "name": "Google",
+        "website": "https://ai.google",
+        "sources": [
+          "google-ai-pro",
+          "google-gemini-argon",
+          "google-gemini-api-pricing",
+          "google-gemini-usage",
+          "google-models"
+        ]
+      },
+      {
+        "id": "deepseek",
+        "name": "DeepSeek",
+        "website": "https://www.deepseek.com",
+        "sources": [
+          "deepseek-api",
+          "deepseek-v41"
+        ]
+      },
+      {
+        "id": "xai",
+        "name": "xAI",
+        "website": "https://x.ai",
+        "sources": [
+          "xai-grok-docs",
+          "xai-api-pricing",
+          "xai-subscription-pricing",
+          "xai-subscription-usage"
+        ]
+      },
+      {
+        "id": "meta",
+        "name": "Meta",
+        "website": "https://ai.meta.com",
+        "sources": [
+          "meta-muse"
+        ]
+      },
+      {
+        "id": "mistral",
+        "name": "Mistral AI",
+        "website": "https://mistral.ai",
+        "sources": [
+          "mistral-large-4",
+          "mistral-large-4-docs"
+        ]
+      },
+      {
+        "id": "alibaba",
+        "name": "Alibaba (Qwen)",
+        "website": "https://qwen.ai",
+        "sources": [
+          "qwen-38"
+        ]
+      },
+      {
+        "id": "moonshot",
+        "name": "Moonshot AI",
+        "website": "https://www.moonshot.ai",
+        "sources": [
+          "moonshot-kimi"
+        ]
+      },
+      {
+        "id": "zai",
+        "name": "Z.ai",
+        "website": "https://z.ai",
+        "sources": [
+          "zai-glm53",
+          "zai-glm53-flash"
+        ]
+      },
+      {
+        "id": "nvidia",
+        "name": "NVIDIA",
+        "website": "https://www.nvidia.com",
+        "sources": [
+          "nvidia-nemotron35",
+          "nvidia-nemotron-bolt"
+        ]
+      }
+    ],
+    "models": [
+      {
+        "id": "deepseek-v4-flash",
+        "providerId": "deepseek",
+        "name": "DeepSeek-V4.1-Flash-1017",
+        "modality": [
+          "text",
+          "image"
+        ],
+        "contextWindowTokens": 1000000,
+        "sources": [
+          "deepseek-api",
+          "deepseek-v41"
+        ],
+        "availability": "current",
+        "notes": "Canonical catalogue entry for DeepSeek-V4.1-Flash-1017, exposed through the deepseek-flash API ID. The older deepseek-v4-flash alias routes to this version.",
+        "apiModelId": "deepseek-flash",
+        "positioning": "efficient"
+      },
+      {
+        "id": "deepseek-v4-pro",
+        "providerId": "deepseek",
+        "name": "DeepSeek-V4-Pro-0813",
+        "modality": [
+          "text"
+        ],
+        "contextWindowTokens": 1000000,
+        "sources": [
+          "deepseek-api"
+        ],
+        "availability": "current",
+        "notes": "Current DeepSeek API model version. The official API pricing page still lists deepseek-v4-pro; legacy deepseek-v4-flash aliases route to DeepSeek-V4.1-Flash-1017.",
+        "apiModelId": "deepseek-v4-pro",
+        "positioning": "flagship"
+      },
+      {
+        "id": "gpt-6-astra",
+        "providerId": "openai",
+        "name": "GPT-6 Astra",
+        "modality": [
+          "text"
+        ],
+        "sources": [
+          "openai-api"
+        ],
+        "apiModelId": "gpt-6-astra",
+        "positioning": "flagship",
+        "availability": "current",
+        "contextWindowTokens": 1050000
+      },
+      {
+        "id": "claude-opus-4-8",
+        "providerId": "anthropic",
+        "name": "Claude Opus 4.8",
+        "modality": [
+          "text",
+          "image"
+        ],
+        "sources": [
+          "claude-api-pricing"
+        ],
+        "availability": "previous-generation",
+        "positioning": "previous-generation"
+      },
+      {
+        "id": "gpt-6-1-sol",
+        "providerId": "openai",
+        "name": "GPT-6.1 Sol",
+        "modality": [
+          "text",
+          "image"
+        ],
+        "sources": [
+          "openai-models"
+        ],
+        "availability": "current",
+        "releaseDate": "2026-09-29",
+        "notes": "Near-Astra performance for complex work at a lower price, per OpenAI.",
+        "contextWindowTokens": 1050000,
+        "apiModelId": "gpt-6.1-sol",
+        "positioning": "balanced"
+      },
+      {
+        "id": "gpt-6-1-terra",
+        "providerId": "openai",
+        "name": "GPT-6.1 Terra",
+        "modality": [
+          "text",
+          "image"
+        ],
+        "sources": [
+          "openai-models"
+        ],
+        "availability": "current",
+        "releaseDate": "2026-10-26",
+        "notes": "Fast model for visual reasoning, computer use and writing, per OpenAI.",
+        "contextWindowTokens": 1050000,
+        "apiModelId": "gpt-6.1-terra",
+        "positioning": "efficient"
+      },
+      {
+        "id": "gpt-6-luna",
+        "providerId": "openai",
+        "name": "GPT-6 Luna",
+        "modality": [
+          "text",
+          "image"
+        ],
+        "sources": [
+          "openai-models"
+        ],
+        "availability": "current",
+        "releaseDate": "2026-09-22",
+        "notes": "Efficiency-oriented GPT-6 family model.",
+        "contextWindowTokens": 1050000,
+        "apiModelId": "gpt-6-luna",
+        "positioning": "efficient"
+      },
+      {
+        "id": "claude-opus-5-5",
+        "providerId": "anthropic",
+        "name": "Claude Opus 5.5",
+        "modality": [
+          "text",
+          "image"
+        ],
+        "sources": [
+          "anthropic-models",
+          "anthropic-system-cards",
+          "anthropic-pricing-current"
+        ],
+        "availability": "current",
+        "releaseDate": "2026-09-22",
+        "notes": "Current Opus-tier frontier model.",
+        "apiModelId": "claude-opus-5-5",
+        "positioning": "flagship"
+      },
+      {
+        "id": "claude-sonnet-5-5",
+        "providerId": "anthropic",
+        "name": "Claude Sonnet 5.5",
+        "modality": [
+          "text",
+          "image"
+        ],
+        "sources": [
+          "anthropic-models",
+          "anthropic-system-cards",
+          "anthropic-pricing-current"
+        ],
+        "availability": "current",
+        "releaseDate": "2026-09-28",
+        "notes": "Current Sonnet-tier model.",
+        "apiModelId": "claude-sonnet-5-5",
+        "positioning": "balanced"
+      },
+      {
+        "id": "claude-haiku-5-5",
+        "providerId": "anthropic",
+        "name": "Claude Haiku 5.5",
+        "modality": [
+          "text",
+          "image"
+        ],
+        "sources": [
+          "anthropic-models",
+          "anthropic-system-cards",
+          "anthropic-pricing-current"
+        ],
+        "availability": "current",
+        "releaseDate": "2026-10-07",
+        "notes": "Fast, high-volume Haiku-tier model.",
+        "apiModelId": "claude-haiku-5-5",
+        "positioning": "efficient"
+      },
+      {
+        "id": "gemini-4-argon",
+        "providerId": "google",
+        "name": "Gemini 4 Argon",
+        "modality": [
+          "text",
+          "image"
+        ],
+        "sources": [
+          "google-gemini-argon"
+        ],
+        "availability": "current",
+        "releaseDate": "2026-10-13",
+        "notes": "Google states a 1M-token unified input/output limit.",
+        "contextWindowTokens": 1000000,
+        "apiModelId": "gemini-4-argon",
+        "positioning": "flagship"
+      },
+      {
+        "id": "grok-4-7",
+        "providerId": "xai",
+        "name": "Grok 4.7",
+        "modality": [
+          "text",
+          "image"
+        ],
+        "sources": [
+          "xai-grok-docs"
+        ],
+        "availability": "current",
+        "releaseDate": "2026-09-21",
+        "notes": "Listed in xAI's official Grok documentation.",
+        "apiModelId": "grok-4.7",
+        "contextWindowTokens": 500000,
+        "positioning": "flagship"
+      },
+      {
+        "id": "muse-wonder-full",
+        "providerId": "meta",
+        "name": "Muse Wonder Full",
+        "modality": [
+          "text",
+          "image"
+        ],
+        "sources": [
+          "meta-muse"
+        ],
+        "availability": "current",
+        "releaseDate": "2026-10-12",
+        "notes": "Meta identifies Muse Wonder and Muse Wonder Full as its latest frontier models.",
+        "positioning": "flagship"
+      },
+      {
+        "id": "mistral-large-4",
+        "providerId": "mistral",
+        "name": "Mistral Large 4",
+        "modality": [
+          "text",
+          "image"
+        ],
+        "sources": [
+          "mistral-large-4",
+          "mistral-large-4-docs"
+        ],
+        "availability": "preview",
+        "releaseDate": "2026-10-06",
+        "notes": "Public preview at observation date; official model page lists $0.70 input, $2.10 output and $0.07 cached input per million tokens.",
+        "apiModelId": "mistral-large-4",
+        "contextWindowTokens": 1000000,
+        "positioning": "flagship"
+      },
+      {
+        "id": "qwen-3-8-max",
+        "providerId": "alibaba",
+        "name": "Qwen3.8-Max",
+        "modality": [
+          "text",
+          "image"
+        ],
+        "sources": [
+          "qwen-38"
+        ],
+        "availability": "current",
+        "releaseDate": "2026-08-03",
+        "notes": "Qwen describes this as its most capable model in the family.",
+        "contextWindowTokens": 1000000,
+        "positioning": "flagship"
+      },
+      {
+        "id": "kimi-k31-pro",
+        "providerId": "moonshot",
+        "name": "Kimi K3.1 Pro",
+        "modality": [
+          "text"
+        ],
+        "sources": [
+          "moonshot-kimi"
+        ],
+        "availability": "current",
+        "releaseDate": "2026-10-24",
+        "notes": "Moonshot describes a 3T-class model with a 1M-token context window.",
+        "contextWindowTokens": 1000000,
+        "positioning": "flagship"
+      },
+      {
+        "id": "glm-5-3",
+        "providerId": "zai",
+        "name": "GLM-5.3",
+        "modality": [
+          "text"
+        ],
+        "sources": [
+          "zai-glm53"
+        ],
+        "availability": "current",
+        "releaseDate": "2026-08-14",
+        "notes": "Z.ai's frontier coding and long-horizon agent model.",
+        "positioning": "flagship"
+      },
+      {
+        "id": "nemotron-3-5-super-vl",
+        "providerId": "nvidia",
+        "name": "Nemotron 3.5 Super VL",
+        "modality": [
+          "text",
+          "image",
+          "video"
+        ],
+        "sources": [
+          "nvidia-nemotron35"
+        ],
+        "availability": "current",
+        "releaseDate": "2026-10-15",
+        "notes": "NVIDIA describes a 120B open multimodal model for specialized agent workloads.",
+        "positioning": "specialist"
+      },
+      {
+        "id": "claude-fable-5-1",
+        "providerId": "anthropic",
+        "name": "Claude Fable 5.1",
+        "apiModelId": "claude-fable-5-1",
+        "modality": [
+          "text",
+          "image"
+        ],
+        "sources": [
+          "anthropic-pricing-current"
+        ],
+        "availability": "preview",
+        "notes": "Additional frontier model listed in Anthropic's official pricing documentation; access may be restricted.",
+        "positioning": "specialist"
+      },
+      {
+        "id": "claude-mythos-5-1",
+        "providerId": "anthropic",
+        "name": "Claude Mythos 5.1",
+        "apiModelId": "claude-mythos-5-1",
+        "modality": [
+          "text",
+          "image"
+        ],
+        "sources": [
+          "anthropic-pricing-current"
+        ],
+        "availability": "preview",
+        "notes": "Additional frontier model listed in Anthropic's official pricing documentation; access is restricted.",
+        "positioning": "specialist"
+      },
+      {
+        "id": "gpt-6-rosalind",
+        "providerId": "openai",
+        "name": "GPT-6 Rosalind Research",
+        "modality": [
+          "text"
+        ],
+        "sources": [
+          "openai-changelog"
+        ],
+        "availability": "preview",
+        "releaseDate": "2026-10-30",
+        "apiModelId": "gpt-6-rosalind",
+        "positioning": "specialist",
+        "notes": "Specialized biological reasoning model with scientific tool use. API access is restricted to approved Rosalind Research organizations and authorized users; not available in Chat."
+      },
+      {
+        "id": "gemini-3-8-flash",
+        "providerId": "google",
+        "name": "Gemini 3.8 Flash",
+        "modality": [
+          "text",
+          "image"
+        ],
+        "sources": [
+          "google-models"
+        ],
+        "availability": "current",
+        "apiModelId": "gemini-3.8-flash",
+        "positioning": "efficient",
+        "notes": "Current Flash model for long-horizon software engineering, autonomous agents and enterprise workflows."
+      },
+      {
+        "id": "gemini-3-1-pro-preview",
+        "providerId": "google",
+        "name": "Gemini 3.1 Pro",
+        "modality": [
+          "text",
+          "image"
+        ],
+        "sources": [
+          "google-models"
+        ],
+        "availability": "preview",
+        "apiModelId": "gemini-3.1-pro-preview",
+        "positioning": "balanced",
+        "notes": "Preview Pro-tier model listed in Google's official Gemini API model directory."
+      },
+      {
+        "id": "muse-wonder",
+        "providerId": "meta",
+        "name": "Muse Wonder",
+        "modality": [
+          "text",
+          "image"
+        ],
+        "sources": [
+          "meta-muse"
+        ],
+        "availability": "current",
+        "releaseDate": "2026-10-12",
+        "positioning": "balanced",
+        "notes": "Member of Meta's current Muse Wonder frontier model series, alongside Muse Wonder Full."
+      },
+      {
+        "id": "glm-5-3-flash",
+        "providerId": "zai",
+        "name": "GLM-5.3-Flash",
+        "modality": [
+          "text",
+          "image"
+        ],
+        "sources": [
+          "zai-glm53-flash"
+        ],
+        "availability": "current",
+        "releaseDate": "2026-08-26",
+        "apiModelId": "glm-5.3-flash",
+        "contextWindowTokens": 1048576,
+        "positioning": "efficient",
+        "notes": "Natively multimodal 320B-total/18B-active model; optimized for agentic coding and efficient long-context inference. Open weights are available."
+      },
+      {
+        "id": "nemotron-3-5-bolt-e4b",
+        "providerId": "nvidia",
+        "name": "Nemotron 3.5 Bolt E4B",
+        "modality": [
+          "text"
+        ],
+        "sources": [
+          "nvidia-nemotron-bolt"
+        ],
+        "availability": "current",
+        "releaseDate": "2026-10-23",
+        "positioning": "efficient",
+        "notes": "Compact reasoning, tool-calling and agentic-chat model; intended for customization and post-training as well as evaluation."
+      }
+    ],
+    "subscriptionPlans": [
+      {
+        "id": "chatgpt-plus-usd",
+        "providerId": "openai",
+        "name": "ChatGPT Plus",
+        "billingPeriod": "monthly",
+        "price": 20,
+        "currency": "USD",
+        "region": "United States",
+        "observedAt": "2026-10-30",
+        "sources": [
+          "openai-plus"
+        ],
+        "notes": "Web price stated by OpenAI; taxes, local currency and app-store pricing may differ. API usage is billed separately.",
+        "usageLimitType": "dynamic",
+        "usageLimitSummary": "Higher model and tool limits than Free, but message caps can vary with demand and model. No fixed monthly token quota is published.",
+        "usageResetCadence": "Model-specific caps and reset timing are shown in ChatGPT when applicable.",
+        "accessSummary": "Advanced reasoning models, expanded uploads, image generation and Deep Research; model availability can vary by account and rollout."
+      },
+      {
+        "id": "claude-pro-usd",
+        "providerId": "anthropic",
+        "name": "Claude Pro",
+        "billingPeriod": "monthly",
+        "price": 20,
+        "currency": "USD",
+        "region": "United States",
+        "observedAt": "2026-10-30",
+        "sources": [
+          "claude-pro",
+          "anthropic-subscription-plans"
+        ],
+        "notes": "US list price. Local pricing varies. API usage is separate.",
+        "usageLimitType": "dynamic",
+        "usageLimitSummary": "Five-hour session limits plus a weekly limit across models. Capacity varies with prompt length, context, model and features.",
+        "usageResetCadence": "Five-hour session reset and fixed weekly reset.",
+        "accessSummary": "More Claude models, Claude Code and expanded feature access; exact message capacity varies by workload."
+      },
+      {
+        "id": "google-ai-pro-gbp",
+        "providerId": "google",
+        "name": "Google AI Pro",
+        "billingPeriod": "monthly",
+        "price": 15.49,
+        "currency": "GBP",
+        "region": "United Kingdom",
+        "observedAt": "2026-10-30",
+        "sources": [
+          "google-ai-pro",
+          "google-gemini-usage"
+        ],
+        "notes": "UK price displayed on Google's subscriptions page at time of access.",
+        "usageLimitType": "tier-multiplier",
+        "usageMultiplier": 4,
+        "usageLimitSummary": "Google states 4× higher Gemini usage access than the free tier. Limits are compute-based, not a fixed prompt count.",
+        "usageResetCadence": "Refreshes every five hours until the weekly cap is reached.",
+        "accessSummary": "Gemini 4 Argon, Pro and Flash models, Deep Research, video features and Google app integrations."
+      },
+      {
+        "id": "chatgpt-pro-100-usd",
+        "providerId": "openai",
+        "name": "ChatGPT Pro 100",
+        "billingPeriod": "monthly",
+        "price": 100,
+        "currency": "USD",
+        "region": "United States",
+        "observedAt": "2026-10-31",
+        "sources": [
+          "openai-pro-tiers"
+        ],
+        "usageLimitType": "dynamic",
+        "usageLimitSummary": "Higher included usage than Plus; model allowances vary by tier and can reset when exhausted. Exact message/token quotas are not published as a fixed monthly allowance.",
+        "usageResetCadence": "Per-model allowance resets; reset time shown in ChatGPT when available.",
+        "accessSummary": "Pro reasoning, Codex, Deep Research and ChatGPT Work; Ultrafast mode is not included.",
+        "notes": "Monthly web list price. API usage is separate."
+      },
+      {
+        "id": "chatgpt-pro-200-usd",
+        "providerId": "openai",
+        "name": "ChatGPT Pro 200",
+        "billingPeriod": "monthly",
+        "price": 200,
+        "currency": "USD",
+        "region": "United States",
+        "observedAt": "2026-10-31",
+        "sources": [
+          "openai-pro-tiers"
+        ],
+        "usageLimitType": "dynamic",
+        "usageLimitSummary": "Higher included usage than Pro 100. Exact message/token quotas are not published as a fixed monthly allowance; allowances vary by model and tier.",
+        "usageResetCadence": "Per-model allowance resets; reset time shown in ChatGPT when available.",
+        "accessSummary": "Pro reasoning, Codex, Deep Research and ChatGPT Work; Ultrafast mode is not included.",
+        "notes": "Monthly web list price. New subscribers may have a lower allowance than some grandfathered subscribers; API usage is separate."
+      },
+      {
+        "id": "chatgpt-pro-500-usd",
+        "providerId": "openai",
+        "name": "ChatGPT Pro 500",
+        "billingPeriod": "monthly",
+        "price": 500,
+        "currency": "USD",
+        "region": "United States",
+        "observedAt": "2026-10-31",
+        "sources": [
+          "openai-pro-tiers"
+        ],
+        "usageLimitType": "dynamic",
+        "usageLimitSummary": "Highest included usage among the three Pro tiers. Model allowances still apply; Ultrafast consumes included usage at 8× the selected model's Standard rate.",
+        "usageResetCadence": "Per-model allowance resets; reset time shown in ChatGPT when available.",
+        "accessSummary": "Pro reasoning, Codex, Deep Research and ChatGPT Work; includes Ultrafast for eligible models.",
+        "notes": "Monthly web list price. API usage is separate."
+      },
+      {
+        "id": "claude-pro-annual-usd",
+        "providerId": "anthropic",
+        "name": "Claude Pro (annual)",
+        "billingPeriod": "annual",
+        "price": 200,
+        "currency": "USD",
+        "region": "United States",
+        "observedAt": "2026-10-31",
+        "sources": [
+          "anthropic-subscription-plans"
+        ],
+        "usageLimitType": "dynamic",
+        "usageLimitSummary": "Same Pro usage tier as monthly billing: five-hour session limits plus a weekly limit across models. Actual message capacity varies with prompt length, context, model and features.",
+        "usageResetCadence": "Five-hour session reset and fixed weekly reset.",
+        "accessSummary": "Claude models, Claude Code and paid-plan features; model access may vary.",
+        "notes": "$200 billed annually ($16.67/month equivalent). API usage is separate."
+      },
+      {
+        "id": "claude-max-5x-usd",
+        "providerId": "anthropic",
+        "name": "Claude Max 5x",
+        "billingPeriod": "monthly",
+        "price": 100,
+        "currency": "USD",
+        "region": "United States",
+        "observedAt": "2026-10-31",
+        "sources": [
+          "anthropic-subscription-plans"
+        ],
+        "usageLimitType": "tier-multiplier",
+        "usageMultiplier": 5,
+        "usageLimitSummary": "Five times Pro's per-session usage allowance, plus a weekly limit across models. Actual capacity varies with prompt length, context, model and features.",
+        "usageResetCadence": "Five-hour session reset and fixed weekly reset.",
+        "accessSummary": "Claude models and Claude Code, priority access and monthly Claude API credits.",
+        "notes": "Monthly web list price; mobile pricing may differ."
+      },
+      {
+        "id": "claude-max-20x-usd",
+        "providerId": "anthropic",
+        "name": "Claude Max 20x",
+        "billingPeriod": "monthly",
+        "price": 200,
+        "currency": "USD",
+        "region": "United States",
+        "observedAt": "2026-10-31",
+        "sources": [
+          "anthropic-subscription-plans"
+        ],
+        "usageLimitType": "tier-multiplier",
+        "usageMultiplier": 20,
+        "usageLimitSummary": "Twenty times Pro's per-session usage allowance, plus a weekly limit across models. Actual capacity varies with prompt length, context, model and features.",
+        "usageResetCadence": "Five-hour session reset and fixed weekly reset.",
+        "accessSummary": "Claude models and Claude Code, priority access and monthly Claude API credits.",
+        "notes": "Monthly web list price; mobile pricing may differ."
+      },
+      {
+        "id": "google-ai-plus-gbp",
+        "providerId": "google",
+        "name": "Google AI Plus",
+        "billingPeriod": "monthly",
+        "price": 4.49,
+        "currency": "GBP",
+        "region": "United Kingdom",
+        "observedAt": "2026-10-31",
+        "sources": [
+          "google-ai-pro",
+          "google-gemini-usage"
+        ],
+        "usageLimitType": "tier-multiplier",
+        "usageMultiplier": 2,
+        "usageLimitSummary": "Google states 2× higher Gemini usage access than the free tier. Limits are compute-based, not a fixed prompt count.",
+        "usageResetCadence": "Refreshes every five hours until the weekly cap is reached.",
+        "accessSummary": "Gemini Flash and expanded Gemini features, with 2× free-tier usage access.",
+        "notes": "UK web list price; Google One storage and other bundled benefits are included."
+      },
+      {
+        "id": "google-ai-ultra-5x-gbp",
+        "providerId": "google",
+        "name": "Google AI Ultra (5x)",
+        "billingPeriod": "monthly",
+        "price": 78.99,
+        "currency": "GBP",
+        "region": "United Kingdom",
+        "observedAt": "2026-10-31",
+        "sources": [
+          "google-ai-pro",
+          "google-gemini-usage"
+        ],
+        "usageLimitType": "tier-multiplier",
+        "usageMultiplier": 5,
+        "usageLimitSummary": "Google advertises 5× the AI Pro usage limit. Gemini usage is compute-based and subject to five-hour refreshes and a weekly cap.",
+        "usageResetCadence": "Refreshes every five hours until the weekly cap is reached.",
+        "accessSummary": "Highest-level Gemini model and feature access; 5× AI Pro usage tier.",
+        "notes": "UK web price for the lower Ultra tier. Bundled storage and other Google benefits are included."
+      },
+      {
+        "id": "google-ai-ultra-20x-gbp",
+        "providerId": "google",
+        "name": "Google AI Ultra (20x)",
+        "billingPeriod": "monthly",
+        "price": 154.99,
+        "currency": "GBP",
+        "region": "United Kingdom",
+        "observedAt": "2026-10-31",
+        "sources": [
+          "google-ai-pro",
+          "google-gemini-usage"
+        ],
+        "usageLimitType": "tier-multiplier",
+        "usageMultiplier": 20,
+        "usageLimitSummary": "Google advertises 20× the AI Pro usage limit. Gemini usage is compute-based and subject to five-hour refreshes and a weekly cap.",
+        "usageResetCadence": "Refreshes every five hours until the weekly cap is reached.",
+        "accessSummary": "Highest-level Gemini model and feature access; 20× AI Pro usage tier.",
+        "notes": "UK web price for the higher Ultra tier. Bundled storage and other Google benefits are included."
+      },
+      {
+        "id": "xai-supergrok-usd",
+        "providerId": "xai",
+        "name": "SuperGrok",
+        "billingPeriod": "monthly",
+        "price": 30,
+        "currency": "USD",
+        "region": "United States",
+        "observedAt": "2026-10-31",
+        "sources": [
+          "xai-subscription-pricing",
+          "xai-subscription-usage"
+        ],
+        "usageLimitType": "shared-pool",
+        "usageLimitSummary": "Paid usage draws from one shared weekly pool across Grok products. Different features consume different amounts of the pool; exact included units are not published.",
+        "usageResetCadence": "Weekly, on the schedule shown in account settings.",
+        "accessSummary": "Grok frontier models, Grok Bot, connectors and higher feature limits.",
+        "notes": "Monthly web list price; account and platform eligibility may affect availability."
+      },
+      {
+        "id": "xai-supergrok-plus-usd",
+        "providerId": "xai",
+        "name": "SuperGrok Plus",
+        "billingPeriod": "monthly",
+        "price": 100,
+        "currency": "USD",
+        "region": "United States",
+        "observedAt": "2026-10-31",
+        "sources": [
+          "xai-subscription-pricing",
+          "xai-subscription-usage"
+        ],
+        "usageLimitType": "shared-pool",
+        "usageLimitSummary": "Larger shared weekly usage pool than SuperGrok. Different features consume different amounts; exact included units are not published.",
+        "usageResetCadence": "Weekly, on the schedule shown in account settings.",
+        "accessSummary": "Everything in SuperGrok plus significantly higher usage, 1080p video creation and priority access.",
+        "notes": "Monthly web list price."
+      }
+    ],
+    "apiPricing": [
+      {
+        "id": "deepseek-flash-offpeak",
+        "modelId": "deepseek-v4-flash",
+        "inputPerMillion": 0.15,
+        "outputPerMillion": 0.6,
+        "cachedInputPerMillion": 0.003,
+        "currency": "USD",
+        "tier": "Off-peak",
+        "observedAt": "2026-10-30",
+        "sourceId": "deepseek-api",
+        "notes": "USD per million tokens; off-peak rate. DeepSeek publishes time-dependent peak and off-peak pricing.",
+        "effectiveFrom": "2026-10-30"
+      },
+      {
+        "id": "deepseek-flash-peak",
+        "modelId": "deepseek-v4-flash",
+        "inputPerMillion": 0.3,
+        "outputPerMillion": 1.2,
+        "cachedInputPerMillion": 0.006,
+        "currency": "USD",
+        "tier": "Peak",
+        "observedAt": "2026-10-30",
+        "sourceId": "deepseek-api",
+        "notes": "USD per million tokens; peak rate.",
+        "effectiveFrom": "2026-10-30"
+      },
+      {
+        "id": "deepseek-pro-offpeak",
+        "modelId": "deepseek-v4-pro",
+        "inputPerMillion": 0.66,
+        "outputPerMillion": 1.98,
+        "cachedInputPerMillion": 0.022,
+        "currency": "USD",
+        "tier": "Off-peak",
+        "observedAt": "2026-10-30",
+        "sourceId": "deepseek-api",
+        "notes": "Current official off-peak rate for deepseek-v4-pro; peak/off-peak schedule is defined by DeepSeek documentation.",
+        "effectiveFrom": "2026-10-30"
+      },
+      {
+        "id": "deepseek-pro-peak",
+        "modelId": "deepseek-v4-pro",
+        "inputPerMillion": 1.32,
+        "outputPerMillion": 3.96,
+        "cachedInputPerMillion": 0.044,
+        "currency": "USD",
+        "tier": "Peak",
+        "observedAt": "2026-10-30",
+        "sourceId": "deepseek-api",
+        "notes": "Current official peak rate for deepseek-v4-pro; peak/off-peak schedule is defined by DeepSeek documentation.",
+        "effectiveFrom": "2026-10-30"
+      },
+      {
+        "id": "claude-opus-48-standard",
+        "modelId": "claude-opus-4-8",
+        "inputPerMillion": 5,
+        "outputPerMillion": 25,
+        "cachedInputPerMillion": 0.5,
+        "currency": "USD",
+        "tier": "Standard",
+        "observedAt": "2026-10-30",
+        "sourceId": "claude-api-pricing",
+        "notes": "Standard Global API list price. Cache-hit rate shown as cached input price.",
+        "effectiveFrom": "2026-10-30"
+      },
+      {
+        "id": "gemini-4-argon-intro",
+        "modelId": "gemini-4-argon",
+        "inputPerMillion": 2,
+        "outputPerMillion": 10,
+        "cachedInputPerMillion": 0.1,
+        "currency": "USD",
+        "tier": "Introductory through 2026-11-30",
+        "observedAt": "2026-10-31",
+        "sourceId": "google-gemini-api-pricing",
+        "notes": "Introductory paid-tier rate through 30 November 2026. Google states $4 input / $20 output / $0.20 cached input from 1 December 2026.",
+        "effectiveFrom": "2026-10-30",
+        "effectiveTo": "2026-11-30"
+      },
+      {
+        "id": "mistral-large-4-preview",
+        "modelId": "mistral-large-4",
+        "inputPerMillion": 0.7,
+        "outputPerMillion": 2.1,
+        "currency": "USD",
+        "tier": "Public preview",
+        "observedAt": "2026-10-31",
+        "sourceId": "mistral-large-4-docs",
+        "notes": "Public preview price from Mistral's official model documentation.",
+        "effectiveFrom": "2026-10-06",
+        "cachedInputPerMillion": 0.07
+      },
+      {
+        "id": "openai-gpt-6-astra-standard",
+        "modelId": "gpt-6-astra",
+        "inputPerMillion": 10,
+        "outputPerMillion": 50,
+        "cachedInputPerMillion": 1,
+        "cacheWrite5mPerMillion": 12.5,
+        "cacheWrite1hPerMillion": 25,
+        "currency": "USD",
+        "tier": "Standard",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "openai-pricing-current",
+        "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+      },
+      {
+        "id": "openai-gpt-6-astra-flex-batch",
+        "modelId": "gpt-6-astra",
+        "inputPerMillion": 5,
+        "outputPerMillion": 25,
+        "cachedInputPerMillion": 0.5,
+        "cacheWrite5mPerMillion": 6.25,
+        "cacheWrite1hPerMillion": 12.5,
+        "currency": "USD",
+        "tier": "Flex/Batch",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "openai-pricing-current",
+        "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+      },
+      {
+        "id": "openai-gpt-6-astra-fast",
+        "modelId": "gpt-6-astra",
+        "inputPerMillion": 20,
+        "outputPerMillion": 100,
+        "cachedInputPerMillion": 2,
+        "cacheWrite5mPerMillion": 25,
+        "cacheWrite1hPerMillion": 50,
+        "currency": "USD",
+        "tier": "Fast",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "openai-pricing-current",
+        "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+      },
+      {
+        "id": "openai-gpt-6-astra-ultrafast",
+        "modelId": "gpt-6-astra",
+        "inputPerMillion": 60,
+        "outputPerMillion": 300,
+        "cachedInputPerMillion": 6,
+        "cacheWrite5mPerMillion": 75,
+        "cacheWrite1hPerMillion": 150,
+        "currency": "USD",
+        "tier": "Ultrafast",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "openai-pricing-current",
+        "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+      },
+      {
+        "id": "openai-gpt-6-1-sol-standard",
+        "modelId": "gpt-6-1-sol",
+        "inputPerMillion": 2,
+        "outputPerMillion": 10,
+        "cachedInputPerMillion": 0.1,
+        "cacheWrite5mPerMillion": 2.5,
+        "cacheWrite1hPerMillion": 5,
+        "currency": "USD",
+        "tier": "Standard",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "openai-pricing-current",
+        "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+      },
+      {
+        "id": "openai-gpt-6-1-sol-flex-batch",
+        "modelId": "gpt-6-1-sol",
+        "inputPerMillion": 1,
+        "outputPerMillion": 5,
+        "cachedInputPerMillion": 0.05,
+        "cacheWrite5mPerMillion": 1.25,
+        "cacheWrite1hPerMillion": 2.5,
+        "currency": "USD",
+        "tier": "Flex/Batch",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "openai-pricing-current",
+        "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+      },
+      {
+        "id": "openai-gpt-6-1-sol-fast",
+        "modelId": "gpt-6-1-sol",
+        "inputPerMillion": 4,
+        "outputPerMillion": 20,
+        "cachedInputPerMillion": 0.2,
+        "cacheWrite5mPerMillion": 5,
+        "cacheWrite1hPerMillion": 10,
+        "currency": "USD",
+        "tier": "Fast",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "openai-pricing-current",
+        "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+      },
+      {
+        "id": "openai-gpt-6-1-sol-ultrafast",
+        "modelId": "gpt-6-1-sol",
+        "inputPerMillion": 12,
+        "outputPerMillion": 60,
+        "cachedInputPerMillion": 0.6,
+        "cacheWrite5mPerMillion": 15,
+        "cacheWrite1hPerMillion": 30,
+        "currency": "USD",
+        "tier": "Ultrafast",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "openai-pricing-current",
+        "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+      },
+      {
+        "id": "openai-gpt-6-1-terra-standard",
+        "modelId": "gpt-6-1-terra",
+        "inputPerMillion": 1,
+        "outputPerMillion": 5,
+        "cachedInputPerMillion": 0.05,
+        "cacheWrite5mPerMillion": 1.25,
+        "cacheWrite1hPerMillion": 2.5,
+        "currency": "USD",
+        "tier": "Standard",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "openai-pricing-current",
+        "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+      },
+      {
+        "id": "openai-gpt-6-1-terra-flex-batch",
+        "modelId": "gpt-6-1-terra",
+        "inputPerMillion": 0.5,
+        "outputPerMillion": 2.5,
+        "cachedInputPerMillion": 0.025,
+        "cacheWrite5mPerMillion": 0.625,
+        "cacheWrite1hPerMillion": 1.25,
+        "currency": "USD",
+        "tier": "Flex/Batch",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "openai-pricing-current",
+        "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+      },
+      {
+        "id": "openai-gpt-6-1-terra-fast",
+        "modelId": "gpt-6-1-terra",
+        "inputPerMillion": 2,
+        "outputPerMillion": 10,
+        "cachedInputPerMillion": 0.1,
+        "cacheWrite5mPerMillion": 2.5,
+        "cacheWrite1hPerMillion": 5,
+        "currency": "USD",
+        "tier": "Fast",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "openai-pricing-current",
+        "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+      },
+      {
+        "id": "openai-gpt-6-luna-standard",
+        "modelId": "gpt-6-luna",
+        "inputPerMillion": 0.1,
+        "outputPerMillion": 0.5,
+        "cachedInputPerMillion": 0.01,
+        "cacheWrite5mPerMillion": 0.125,
+        "cacheWrite1hPerMillion": 0.25,
+        "currency": "USD",
+        "tier": "Standard",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "openai-pricing-current",
+        "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+      },
+      {
+        "id": "openai-gpt-6-luna-flex-batch",
+        "modelId": "gpt-6-luna",
+        "inputPerMillion": 0.05,
+        "outputPerMillion": 0.25,
+        "cachedInputPerMillion": 0.005,
+        "cacheWrite5mPerMillion": 0.0625,
+        "cacheWrite1hPerMillion": 0.125,
+        "currency": "USD",
+        "tier": "Flex/Batch",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "openai-pricing-current",
+        "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+      },
+      {
+        "id": "openai-gpt-6-luna-fast",
+        "modelId": "gpt-6-luna",
+        "inputPerMillion": 0.2,
+        "outputPerMillion": 1,
+        "cachedInputPerMillion": 0.02,
+        "cacheWrite5mPerMillion": 0.25,
+        "cacheWrite1hPerMillion": 0.5,
+        "currency": "USD",
+        "tier": "Fast",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "openai-pricing-current",
+        "notes": "Official published tier rate per 1M tokens. Cached input is the cache-read price; cache-write prices are shown separately."
+      },
+      {
+        "id": "anthropic-claude-opus-5-5-standard",
+        "modelId": "claude-opus-5-5",
+        "inputPerMillion": 4,
+        "outputPerMillion": 20,
+        "cachedInputPerMillion": 0.2,
+        "cacheWrite5mPerMillion": 5,
+        "cacheWrite1hPerMillion": 8,
+        "currency": "USD",
+        "tier": "Standard",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "anthropic-pricing-current",
+        "notes": "Standard global API list price. Prompt cache writes and cache reads are priced separately."
+      },
+      {
+        "id": "anthropic-claude-opus-5-5-batch",
+        "modelId": "claude-opus-5-5",
+        "inputPerMillion": 2,
+        "outputPerMillion": 10,
+        "cachedInputPerMillion": 0.1,
+        "cacheWrite5mPerMillion": 2.5,
+        "cacheWrite1hPerMillion": 4,
+        "currency": "USD",
+        "tier": "Batch",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "anthropic-pricing-current",
+        "notes": "Batch API applies a 50% discount to input and output; cache modifiers stack with batch pricing."
+      },
+      {
+        "id": "anthropic-claude-sonnet-5-5-standard",
+        "modelId": "claude-sonnet-5-5",
+        "inputPerMillion": 2,
+        "outputPerMillion": 10,
+        "cachedInputPerMillion": 0.1,
+        "cacheWrite5mPerMillion": 2.5,
+        "cacheWrite1hPerMillion": 4,
+        "currency": "USD",
+        "tier": "Standard",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "anthropic-pricing-current",
+        "notes": "Standard global API list price. Prompt cache writes and cache reads are priced separately."
+      },
+      {
+        "id": "anthropic-claude-sonnet-5-5-batch",
+        "modelId": "claude-sonnet-5-5",
+        "inputPerMillion": 1,
+        "outputPerMillion": 5,
+        "cachedInputPerMillion": 0.05,
+        "cacheWrite5mPerMillion": 1.25,
+        "cacheWrite1hPerMillion": 2,
+        "currency": "USD",
+        "tier": "Batch",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "anthropic-pricing-current",
+        "notes": "Batch API applies a 50% discount to input and output; cache modifiers stack with batch pricing."
+      },
+      {
+        "id": "anthropic-claude-haiku-5-5-standard",
+        "modelId": "claude-haiku-5-5",
+        "inputPerMillion": 0.1,
+        "outputPerMillion": 0.5,
+        "cachedInputPerMillion": 0.01,
+        "cacheWrite5mPerMillion": 0.125,
+        "cacheWrite1hPerMillion": 0.2,
+        "currency": "USD",
+        "tier": "Standard",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "anthropic-pricing-current",
+        "notes": "Standard global API list price. Prompt cache writes and cache reads are priced separately."
+      },
+      {
+        "id": "anthropic-claude-haiku-5-5-batch",
+        "modelId": "claude-haiku-5-5",
+        "inputPerMillion": 0.05,
+        "outputPerMillion": 0.25,
+        "cachedInputPerMillion": 0.005,
+        "cacheWrite5mPerMillion": 0.0625,
+        "cacheWrite1hPerMillion": 0.1,
+        "currency": "USD",
+        "tier": "Batch",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "anthropic-pricing-current",
+        "notes": "Batch API applies a 50% discount to input and output; cache modifiers stack with batch pricing."
+      },
+      {
+        "id": "anthropic-claude-haiku-5-5-long-context",
+        "modelId": "claude-haiku-5-5",
+        "inputPerMillion": 0.5,
+        "outputPerMillion": 2.5,
+        "cachedInputPerMillion": 0.05,
+        "cacheWrite5mPerMillion": 0.625,
+        "cacheWrite1hPerMillion": 1,
+        "currency": "USD",
+        "tier": "Standard (>100k prompt)",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "anthropic-pricing-current",
+        "notes": "Higher rate applies to all input tokens when an individual prompt exceeds 100,000 tokens, including cache reads and writes."
+      },
+      {
+        "id": "gemini-4-argon-standard-2026-12",
+        "modelId": "gemini-4-argon",
+        "inputPerMillion": 4,
+        "outputPerMillion": 20,
+        "cachedInputPerMillion": 0.2,
+        "currency": "USD",
+        "tier": "Standard (from 2026-12-01)",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-12-01",
+        "sourceId": "google-gemini-api-pricing",
+        "notes": "Scheduled standard paid-tier rates from 1 December 2026; not yet effective at the observation date."
+      },
+      {
+        "id": "xai-grok-4-7-short",
+        "modelId": "grok-4-7",
+        "inputPerMillion": 2,
+        "outputPerMillion": 6,
+        "cachedInputPerMillion": 0.5,
+        "currency": "USD",
+        "tier": "Standard (<200k prompt)",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "xai-api-pricing",
+        "notes": "Global endpoint list price. Short-context rate applies below 200k prompt tokens."
+      },
+      {
+        "id": "xai-grok-4-7-long",
+        "modelId": "grok-4-7",
+        "inputPerMillion": 4,
+        "outputPerMillion": 12,
+        "cachedInputPerMillion": 1,
+        "currency": "USD",
+        "tier": "Long context (>=200k prompt)",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "xai-api-pricing",
+        "notes": "Global endpoint list price. Once a prompt reaches 200k tokens, long-context rates apply to all tokens in that request."
+      },
+      {
+        "id": "anthropic-claude-fable-5-1-standard",
+        "modelId": "claude-fable-5-1",
+        "inputPerMillion": 10,
+        "outputPerMillion": 50,
+        "cachedInputPerMillion": 0.25,
+        "cacheWrite5mPerMillion": 12.5,
+        "cacheWrite1hPerMillion": 20,
+        "currency": "USD",
+        "tier": "Standard",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "anthropic-pricing-current",
+        "notes": "Official published model list price; access may be restricted."
+      },
+      {
+        "id": "anthropic-claude-fable-5-1-batch",
+        "modelId": "claude-fable-5-1",
+        "inputPerMillion": 5,
+        "outputPerMillion": 25,
+        "cachedInputPerMillion": 0.125,
+        "cacheWrite5mPerMillion": 6.25,
+        "cacheWrite1hPerMillion": 10,
+        "currency": "USD",
+        "tier": "Batch",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "anthropic-pricing-current",
+        "notes": "Batch API applies a 50% discount to input and output; cache modifiers stack with batch pricing."
+      },
+      {
+        "id": "anthropic-claude-mythos-5-1-standard",
+        "modelId": "claude-mythos-5-1",
+        "inputPerMillion": 10,
+        "outputPerMillion": 50,
+        "cachedInputPerMillion": 0.25,
+        "cacheWrite5mPerMillion": 12.5,
+        "cacheWrite1hPerMillion": 20,
+        "currency": "USD",
+        "tier": "Standard",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "anthropic-pricing-current",
+        "notes": "Official published model list price; access may be restricted."
+      },
+      {
+        "id": "anthropic-claude-mythos-5-1-batch",
+        "modelId": "claude-mythos-5-1",
+        "inputPerMillion": 5,
+        "outputPerMillion": 25,
+        "cachedInputPerMillion": 0.125,
+        "cacheWrite5mPerMillion": 6.25,
+        "cacheWrite1hPerMillion": 10,
+        "currency": "USD",
+        "tier": "Batch",
+        "observedAt": "2026-10-31",
+        "effectiveFrom": "2026-10-31",
+        "sourceId": "anthropic-pricing-current",
+        "notes": "Batch API applies a 50% discount to input and output; cache modifiers stack with batch pricing."
+      }
+    ]
+  }
+}

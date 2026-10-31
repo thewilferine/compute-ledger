@@ -1,0 +1,14 @@
+{
+  "historyVersion": 1,
+  "generatedAt": "2026-10-31T10:55:39.166Z",
+  "snapshots": [
+    {
+      "id": "2026-10-31T10-55-39-166Z-6d92c8f00666",
+      "capturedAt": "2026-10-31T10:55:39.166Z",
+      "contentHash": "6d92c8f0066686b7b6aba9004105e47aa6572aabeea5b4719c6b15f1c1569d3f",
+      "snapshot": "data/history/snapshots/2026-10-31T10-55-39-166Z-6d92c8f00666.json",
+      "changes": "data/history/changes/2026-10-31T10-55-39-166Z-6d92c8f00666.json",
+      "changeCount": 0
+    }
+  ]
+}
