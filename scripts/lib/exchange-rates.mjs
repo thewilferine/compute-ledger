@@ -18,7 +18,8 @@ export function parseExchangeRates(rows, currencies) {
       row.rate <= 0 ||
       typeof row.date !== "string" ||
       !/^\d{4}-\d{2}-\d{2}$/.test(row.date) ||
-      Number.isNaN(Date.parse(`${row.date}T00:00:00Z`))
+      Number.isNaN(Date.parse(`${row.date}T00:00:00Z`)) ||
+      new Date(`${row.date}T00:00:00Z`).toISOString().slice(0, 10) !== row.date
     ) {
       throw new Error("Exchange-rate API returned an invalid row.");
     }
@@ -48,5 +49,6 @@ export function parseExchangeRates(rows, currencies) {
     base: "EUR",
     rates,
     source: "European Central Bank via Frankfurter",
+    sourceUrl: "https://api.frankfurter.dev/",
   };
 }
