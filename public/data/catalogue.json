@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-30T00:00:00.000Z",
+  "updatedAt": "2026-10-31T00:00:00.000Z",
   "sources": [
     {
       "id": "openai-plus",
@@ -57,6 +57,110 @@
       "url": "https://www-cdn.anthropic.com/files/4zrzovbb/website/3684c2faafb97418665782cea0001f439f74b1d2.pdf",
       "accessedAt": "2026-10-30",
       "notes": "Official price list effective 27 May 2026. Includes Claude Opus 4.8 API prices in USD per million tokens; not consumer subscription pricing."
+    },
+    {
+      "id": "openai-models",
+      "title": "OpenAI API models",
+      "publisher": "OpenAI API Documentation",
+      "url": "https://developers.openai.com/api/docs/models",
+      "accessedAt": "2026-10-31",
+      "notes": "Official GPT-6 model directory."
+    },
+    {
+      "id": "openai-pricing-current",
+      "title": "OpenAI API pricing",
+      "publisher": "OpenAI API Documentation",
+      "url": "https://developers.openai.com/api/docs/pricing",
+      "accessedAt": "2026-10-31",
+      "notes": "Official API rates; context length and processing tiers affect price."
+    },
+    {
+      "id": "anthropic-models",
+      "title": "Claude models and announcements",
+      "publisher": "Anthropic",
+      "url": "https://www.anthropic.com/news/models",
+      "accessedAt": "2026-10-31",
+      "notes": "Official Claude model announcement index."
+    },
+    {
+      "id": "anthropic-system-cards",
+      "title": "Claude model system cards",
+      "publisher": "Anthropic",
+      "url": "https://www.anthropic.com/system-cards",
+      "accessedAt": "2026-10-31",
+      "notes": "Official Claude system-card index."
+    },
+    {
+      "id": "google-gemini-argon",
+      "title": "Gemini 4 Argon is now available",
+      "publisher": "Google DeepMind",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+      "accessedAt": "2026-10-31",
+      "notes": "Official Argon announcement, availability and pricing."
+    },
+    {
+      "id": "xai-grok-docs",
+      "title": "Grok documentation",
+      "publisher": "xAI",
+      "url": "https://docs.x.ai/grok/overview",
+      "accessedAt": "2026-10-31",
+      "notes": "Official Grok developer documentation."
+    },
+    {
+      "id": "deepseek-v41",
+      "title": "DeepSeek-V4.1-Flash-1017",
+      "publisher": "DeepSeek API Documentation",
+      "url": "https://api-docs.deepseek.com/news/news261017/",
+      "accessedAt": "2026-10-31",
+      "notes": "Official October 17 model update and API alias."
+    },
+    {
+      "id": "meta-muse",
+      "title": "Muse model series",
+      "publisher": "Meta AI",
+      "url": "https://ai.meta.com/tools/muse/",
+      "accessedAt": "2026-10-31",
+      "notes": "Official page for Muse Wonder and Muse Wonder Full."
+    },
+    {
+      "id": "mistral-large-4",
+      "title": "Introducing Mistral Large 4",
+      "publisher": "Mistral AI",
+      "url": "https://mistral.ai/news/mistral-large-4/",
+      "accessedAt": "2026-10-31",
+      "notes": "Official launch, preview status and published API rates."
+    },
+    {
+      "id": "qwen-38",
+      "title": "Qwen3.8-Max",
+      "publisher": "Qwen",
+      "url": "https://qwen.ai/blog?id=qwen3.8",
+      "accessedAt": "2026-10-31",
+      "notes": "Official Qwen flagship announcement."
+    },
+    {
+      "id": "moonshot-kimi",
+      "title": "Kimi K3.1 Pro",
+      "publisher": "Moonshot AI",
+      "url": "https://www.moonshot.ai/",
+      "accessedAt": "2026-10-31",
+      "notes": "Official Moonshot AI model listing."
+    },
+    {
+      "id": "zai-glm53",
+      "title": "GLM-5.3",
+      "publisher": "Z.ai",
+      "url": "https://z.ai/blog/glm-5.3",
+      "accessedAt": "2026-10-31",
+      "notes": "Official model announcement."
+    },
+    {
+      "id": "nvidia-nemotron35",
+      "title": "Nemotron 3.5 Super VL",
+      "publisher": "NVIDIA",
+      "url": "https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/",
+      "accessedAt": "2026-10-31",
+      "notes": "Official open multimodal model announcement."
     }
   ],
   "providers": [
@@ -99,6 +203,54 @@
       "name": "xAI",
       "website": "https://x.ai",
       "sources": []
+    },
+    {
+      "id": "meta",
+      "name": "Meta",
+      "website": "https://ai.meta.com",
+      "sources": [
+        "meta-muse"
+      ]
+    },
+    {
+      "id": "mistral",
+      "name": "Mistral AI",
+      "website": "https://mistral.ai",
+      "sources": [
+        "mistral-large-4"
+      ]
+    },
+    {
+      "id": "alibaba",
+      "name": "Alibaba (Qwen)",
+      "website": "https://qwen.ai",
+      "sources": [
+        "qwen-38"
+      ]
+    },
+    {
+      "id": "moonshot",
+      "name": "Moonshot AI",
+      "website": "https://www.moonshot.ai",
+      "sources": [
+        "moonshot-kimi"
+      ]
+    },
+    {
+      "id": "zai",
+      "name": "Z.ai",
+      "website": "https://z.ai",
+      "sources": [
+        "zai-glm53"
+      ]
+    },
+    {
+      "id": "nvidia",
+      "name": "NVIDIA",
+      "website": "https://www.nvidia.com",
+      "sources": [
+        "nvidia-nemotron35"
+      ]
     }
   ],
   "models": [
@@ -125,7 +277,9 @@
       "contextWindowTokens": 1000000,
       "sources": [
         "deepseek-api"
-      ]
+      ],
+      "availability": "retired",
+      "notes": "Superseded: DeepSeek states V4 Pro requests route to V4.1-Flash at V4.1-Flash rates from 14 September 2026."
     },
     {
       "id": "gpt-6-astra",
@@ -148,7 +302,241 @@
       ],
       "sources": [
         "claude-api-pricing"
-      ]
+      ],
+      "availability": "previous-generation"
+    },
+    {
+      "id": "gpt-6-1-sol",
+      "providerId": "openai",
+      "name": "GPT-6.1 Sol",
+      "modality": [
+        "text",
+        "image"
+      ],
+      "sources": [
+        "openai-models"
+      ],
+      "availability": "current",
+      "releaseDate": "2026-09-29",
+      "notes": "Near-Astra performance for complex work at a lower price, per OpenAI.",
+      "contextWindowTokens": 1050000
+    },
+    {
+      "id": "gpt-6-1-terra",
+      "providerId": "openai",
+      "name": "GPT-6.1 Terra",
+      "modality": [
+        "text",
+        "image"
+      ],
+      "sources": [
+        "openai-models"
+      ],
+      "availability": "current",
+      "releaseDate": "2026-10-26",
+      "notes": "Fast model for visual reasoning, computer use and writing, per OpenAI.",
+      "contextWindowTokens": 1050000
+    },
+    {
+      "id": "gpt-6-luna",
+      "providerId": "openai",
+      "name": "GPT-6 Luna",
+      "modality": [
+        "text",
+        "image"
+      ],
+      "sources": [
+        "openai-models"
+      ],
+      "availability": "current",
+      "releaseDate": "2026-09-22",
+      "notes": "Efficiency-oriented GPT-6 family model.",
+      "contextWindowTokens": 1050000
+    },
+    {
+      "id": "claude-opus-5-5",
+      "providerId": "anthropic",
+      "name": "Claude Opus 5.5",
+      "modality": [
+        "text",
+        "image"
+      ],
+      "sources": [
+        "anthropic-models",
+        "anthropic-system-cards"
+      ],
+      "availability": "current",
+      "releaseDate": "2026-09-22",
+      "notes": "Current Opus-tier frontier model."
+    },
+    {
+      "id": "claude-sonnet-5-5",
+      "providerId": "anthropic",
+      "name": "Claude Sonnet 5.5",
+      "modality": [
+        "text",
+        "image"
+      ],
+      "sources": [
+        "anthropic-models",
+        "anthropic-system-cards"
+      ],
+      "availability": "current",
+      "releaseDate": "2026-09-28",
+      "notes": "Current Sonnet-tier model."
+    },
+    {
+      "id": "claude-haiku-5-5",
+      "providerId": "anthropic",
+      "name": "Claude Haiku 5.5",
+      "modality": [
+        "text",
+        "image"
+      ],
+      "sources": [
+        "anthropic-models",
+        "anthropic-system-cards"
+      ],
+      "availability": "current",
+      "releaseDate": "2026-10-07",
+      "notes": "Fast, high-volume Haiku-tier model."
+    },
+    {
+      "id": "gemini-4-argon",
+      "providerId": "google",
+      "name": "Gemini 4 Argon",
+      "modality": [
+        "text",
+        "image"
+      ],
+      "sources": [
+        "google-gemini-argon"
+      ],
+      "availability": "current",
+      "releaseDate": "2026-10-13",
+      "notes": "Google states a 1M-token unified input/output limit.",
+      "contextWindowTokens": 1000000
+    },
+    {
+      "id": "grok-4-7",
+      "providerId": "xai",
+      "name": "Grok 4.7",
+      "modality": [
+        "text",
+        "image"
+      ],
+      "sources": [
+        "xai-grok-docs"
+      ],
+      "availability": "current",
+      "releaseDate": "2026-09-21",
+      "notes": "Listed in xAI's official Grok documentation."
+    },
+    {
+      "id": "deepseek-v41-flash-1017",
+      "providerId": "deepseek",
+      "name": "DeepSeek-V4.1-Flash-1017",
+      "modality": [
+        "text",
+        "image"
+      ],
+      "sources": [
+        "deepseek-v41"
+      ],
+      "availability": "current",
+      "releaseDate": "2026-10-17",
+      "notes": "October 17 update; API alias remains deepseek-flash."
+    },
+    {
+      "id": "muse-wonder-full",
+      "providerId": "meta",
+      "name": "Muse Wonder Full",
+      "modality": [
+        "text",
+        "image"
+      ],
+      "sources": [
+        "meta-muse"
+      ],
+      "availability": "current",
+      "releaseDate": "2026-10-12",
+      "notes": "Meta identifies Muse Wonder and Muse Wonder Full as its latest frontier models."
+    },
+    {
+      "id": "mistral-large-4",
+      "providerId": "mistral",
+      "name": "Mistral Large 4",
+      "modality": [
+        "text",
+        "image"
+      ],
+      "sources": [
+        "mistral-large-4"
+      ],
+      "availability": "preview",
+      "releaseDate": "2026-10-06",
+      "notes": "Public preview at observation date; described as open-weight and natively multimodal."
+    },
+    {
+      "id": "qwen-3-8-max",
+      "providerId": "alibaba",
+      "name": "Qwen3.8-Max",
+      "modality": [
+        "text",
+        "image"
+      ],
+      "sources": [
+        "qwen-38"
+      ],
+      "availability": "current",
+      "releaseDate": "2026-08-03",
+      "notes": "Qwen describes this as its most capable model in the family.",
+      "contextWindowTokens": 1000000
+    },
+    {
+      "id": "kimi-k31-pro",
+      "providerId": "moonshot",
+      "name": "Kimi K3.1 Pro",
+      "modality": [
+        "text"
+      ],
+      "sources": [
+        "moonshot-kimi"
+      ],
+      "availability": "current",
+      "releaseDate": "2026-10-24",
+      "notes": "Moonshot describes a 3T-class model with a 1M-token context window.",
+      "contextWindowTokens": 1000000
+    },
+    {
+      "id": "glm-5-3",
+      "providerId": "zai",
+      "name": "GLM-5.3",
+      "modality": [
+        "text"
+      ],
+      "sources": [
+        "zai-glm53"
+      ],
+      "availability": "current",
+      "releaseDate": "2026-08-14",
+      "notes": "Z.ai's frontier coding and long-horizon agent model."
+    },
+    {
+      "id": "nemotron-3-5-super-vl",
+      "providerId": "nvidia",
+      "name": "Nemotron 3.5 Super VL",
+      "modality": [
+        "text",
+        "image",
+        "video"
+      ],
+      "sources": [
+        "nvidia-nemotron35"
+      ],
+      "availability": "current",
+      "releaseDate": "2026-10-15",
+      "notes": "NVIDIA describes a 120B open multimodal model for specialized agent workloads."
     }
   ],
   "subscriptionPlans": [
@@ -230,7 +618,7 @@
       "tier": "Off-peak",
       "observedAt": "2026-10-30",
       "sourceId": "deepseek-api",
-      "notes": "USD per million tokens; off-peak rate."
+      "notes": "USD per million tokens; off-peak rate. Historical rate card; DeepSeek subsequently retired V4 Pro and routes requests to V4.1-Flash."
     },
     {
       "id": "deepseek-pro-peak",
@@ -242,7 +630,7 @@
       "tier": "Peak",
       "observedAt": "2026-10-30",
       "sourceId": "deepseek-api",
-      "notes": "USD per million tokens; peak rate."
+      "notes": "USD per million tokens; peak rate. Historical rate card; DeepSeek subsequently retired V4 Pro and routes requests to V4.1-Flash."
     },
     {
       "id": "claude-opus-48-standard",
@@ -255,6 +643,65 @@
       "observedAt": "2026-10-30",
       "sourceId": "claude-api-pricing",
       "notes": "Standard Global API list price. Cache-hit rate shown as cached input price."
+    },
+    {
+      "id": "gpt61-sol",
+      "modelId": "gpt-6-1-sol",
+      "inputPerMillion": 2,
+      "outputPerMillion": 10,
+      "cachedInputPerMillion": 0.1,
+      "currency": "USD",
+      "tier": "Standard",
+      "observedAt": "2026-10-31",
+      "sourceId": "openai-pricing-current",
+      "notes": "Standard text-token rate per 1M tokens; context length and processing tiers can change price."
+    },
+    {
+      "id": "gpt61-terra",
+      "modelId": "gpt-6-1-terra",
+      "inputPerMillion": 1,
+      "outputPerMillion": 5,
+      "cachedInputPerMillion": 0.05,
+      "currency": "USD",
+      "tier": "Standard",
+      "observedAt": "2026-10-31",
+      "sourceId": "openai-pricing-current",
+      "notes": "Standard text-token rate per 1M tokens; context length and processing tiers can change price."
+    },
+    {
+      "id": "gpt6-luna",
+      "modelId": "gpt-6-luna",
+      "inputPerMillion": 0.1,
+      "outputPerMillion": 0.5,
+      "cachedInputPerMillion": 0.01,
+      "currency": "USD",
+      "tier": "Standard",
+      "observedAt": "2026-10-31",
+      "sourceId": "openai-pricing-current",
+      "notes": "Standard text-token rate per 1M tokens; context length and processing tiers can change price."
+    },
+    {
+      "id": "gemini-4-argon-intro",
+      "modelId": "gemini-4-argon",
+      "inputPerMillion": 2,
+      "outputPerMillion": 10,
+      "cachedInputPerMillion": 0.1,
+      "currency": "USD",
+      "tier": "Introductory through 2026-11-30",
+      "observedAt": "2026-10-31",
+      "sourceId": "google-gemini-argon",
+      "notes": "Introductory public-access rate; $4 input / $20 output per 1M tokens applies after 30 November 2026."
+    },
+    {
+      "id": "mistral-large-4-preview",
+      "modelId": "mistral-large-4",
+      "inputPerMillion": 1.36,
+      "outputPerMillion": 4.18,
+      "currency": "USD",
+      "tier": "Public preview",
+      "observedAt": "2026-10-31",
+      "sourceId": "mistral-large-4",
+      "notes": "Published launch-page token rates; verify preview changes before comparison."
     }
   ]
 }
