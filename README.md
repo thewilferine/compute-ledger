@@ -19,7 +19,7 @@ There is no application backend or database. Calculations run in the browser. Th
 
 ## Local development
 
-Requirements: Node.js 22.16.0 or newer and pnpm 12.16.1 (both versions are declared in `package.json`).
+Requirements: Node.js 22.16.0 and pnpm 12.16.1. The exact Node.js version is declared in `package.json`; both CI workflows read it from there, so CI and local development share one version source.
 
 ```bash
 pnpm install
@@ -69,7 +69,7 @@ The Vite base path is configured for `https://thewilferine.github.io/compute-led
 
 ## Licence
 
-Not yet selected.
+This project is licensed under the [MIT Licence](LICENSE).
 
 ## Contributing and security
 
