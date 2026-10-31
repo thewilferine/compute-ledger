@@ -33,3 +33,8 @@ Any later comparison must therefore be labelled as an illustrative scenario, not
 ## Source handling
 
 Every material source-backed record should include a canonical URL, publisher, retrieval date, and notes about what the source does and does not establish. API pricing records also identify the model, currency, per-million-token input/output rates, cached-input rate where published, and any rate tier such as peak/off-peak. Price records must include currency, region, billing period, and observation date. Material changes should be reviewed before publication.
+
+
+## Provider and model coverage
+
+The model catalogue is a curated snapshot of major frontier model families, not an exhaustive list of every release, deployment alias or specialist model. A provider can be included even when its API pricing, consumer plan or detailed specifications have not yet been verified. Model status distinguishes current releases, public previews, previous-generation entries and retired models. Historical price rows remain visible with notes where a model has been superseded. Coverage should be refreshed against primary provider announcements and pricing documentation; third-party model trackers are discovery aids, not evidence of record.
