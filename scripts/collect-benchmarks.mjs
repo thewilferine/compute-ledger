@@ -39,13 +39,14 @@ for (const benchmark of benchmarkSources) {
       ?? knownAliases.get(modelName.toLowerCase())
       ?? null;
     const record = {
-      id: `${benchmark.id}:${row.modelId.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+      id: `${benchmark.id}:${row.rank ?? results.length + 1}:${row.modelId.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
       benchmarkId: benchmark.id,
       benchmarkName: benchmark.name,
       modelId: row.modelId,
       modelName,
       catalogueModelId: mappedModelId,
       score: row.value,
+      ...(Number.isInteger(row.rank) && row.rank > 0 ? { rank: row.rank } : {}),
       scoreUnit: "percent",
       ...(typeof row.lower_is_better === "boolean" ? { higherIsBetter: !row.lower_is_better } : {}),
       evaluationDate: null,
