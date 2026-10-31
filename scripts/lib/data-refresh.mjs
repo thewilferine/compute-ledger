@@ -63,7 +63,7 @@ export function formatRefreshSummary(results) {
 
   lines.push(
     "",
-    "Automated collectors only update data after successful retrieval and validation. Manual-review domains are intentionally left unchanged.",
+    "Collectors only write after successful retrieval and validation. Candidate observations remain separate from canonical catalogue records until reviewed.",
   );
   return lines.join("\n");
 }
