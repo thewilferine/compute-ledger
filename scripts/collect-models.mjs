@@ -1,5 +1,5 @@
 import { readFile } from "node:fs/promises";
-import { fetchJson, writeJsonAtomic } from "./lib/refresh-io.mjs";
+import { fetchJsonObserved, recordSourceHealth, writeJsonAtomic } from "./lib/refresh-io.mjs";
 
 const catalogue = JSON.parse(await readFile("public/data/catalogue.json", "utf8"));
 const knownProviders = {
@@ -25,9 +25,24 @@ const canonicalByApiId = new Map(
   catalogue.models.filter((model) => model.apiModelId).map((model) => [model.apiModelId.toLowerCase(), model.id]),
 );
 
-const payload = await fetchJson("https://openrouter.ai/api/v1/models");
+const source = {
+  id: "openrouter-model-catalogue", url: "https://openrouter.ai/api/v1/models",
+  publisher: "OpenRouter", domain: "models", strategy: "official-json-api",
+  automationSuitability: "aggregator-discovery-review-required",
+};
+const fetched = await fetchJsonObserved(source);
+if (fetched.status !== "fetched") {
+  console.warn(`Model discovery source is ${fetched.status}; retaining the last-known-good candidate file. ${fetched.error}`);
+  process.exit(0);
+}
+const payload = fetched.data;
 if (!Array.isArray(payload.data) || payload.data.length === 0) {
-  throw new Error("OpenRouter model catalogue returned no models.");
+  await recordSourceHealth({
+    ...source, status: "invalid_response",
+    error: "OpenRouter response did not contain a non-empty data array.",
+  });
+  console.warn("Model discovery source returned an invalid/empty catalogue; retaining last-known-good candidates.");
+  process.exit(0);
 }
 
 const observedAt = new Date().toISOString().slice(0, 10);

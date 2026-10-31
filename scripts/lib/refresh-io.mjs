@@ -66,3 +66,73 @@ export async function writeJsonAtomic(path, value) {
   await writeFile(temporary, `${JSON.stringify(value, null, 2)}\n`, "utf8");
   await rename(temporary, path);
 }
+
+export function classifySourceError(error) {
+  const message = error instanceof Error ? error.message : String(error);
+  const status = Number(error?.status ?? message.match(/HTTP (\d{3})/)?.[1]);
+  if (status === 403) return "blocked";
+  if (status === 429) return "rate_limited";
+  if (status >= 500) return "transient_failure";
+  if (status >= 400) return "unavailable";
+  if (/json|parse|unexpected token/i.test(message)) return "invalid_response";
+  if (/timeout|timed out|network|fetch failed|socket/i.test(message)) return "transient_failure";
+  return "unavailable";
+}
+
+export async function recordSourceHealth({
+  id, url, publisher = null, domain, strategy = "html-page",
+  automationSuitability = "candidate-only", status, error = null,
+  checkedAt = new Date().toISOString(),
+}) {
+  const path = "public/data/refresh-candidates/source-registry.json";
+  let registry = { schemaVersion: 1, updatedAt: checkedAt, sources: [] };
+  try { registry = JSON.parse(await (await import("node:fs/promises")).readFile(path, "utf8")); }
+  catch (readError) { if (readError.code !== "ENOENT") throw readError; }
+  const previous = registry.sources.find((item) => item.id === id);
+  const entry = {
+    id, url, publisher, domain, strategy, automationSuitability,
+    firstSeenAt: previous?.firstSeenAt ?? checkedAt,
+    lastAttemptAt: checkedAt,
+    lastSuccessfulAt: status === "fetched" ? checkedAt : (previous?.lastSuccessfulAt ?? null),
+    status,
+    lastError: error,
+    consecutiveFailures: status === "fetched" ? 0 : status === "manual_review" ? (previous?.consecutiveFailures ?? 0) : (previous?.consecutiveFailures ?? 0) + 1,
+  };
+  const sources = registry.sources.filter((item) => item.id !== id);
+  sources.push(entry);
+  sources.sort((a, b) => a.domain.localeCompare(b.domain) || a.id.localeCompare(b.id));
+  await writeJsonAtomic(path, { schemaVersion: 1, updatedAt: checkedAt, sources });
+  return entry;
+}
+
+export async function fetchPageObserved(source) {
+  const checkedAt = new Date().toISOString();
+  try {
+    const result = await fetchPage(source.url);
+    await recordSourceHealth({ ...source, status: "fetched", checkedAt });
+    return { status: "fetched", ...result };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    const status = classifySourceError(error);
+    await recordSourceHealth({ ...source, status, error: message, checkedAt });
+    return { status, error: message };
+  }
+}
+
+export async function fetchJsonObserved(source) {
+  const checkedAt = new Date().toISOString();
+  try {
+    const result = await fetchJson(source.url);
+    await recordSourceHealth({ ...source, status: "fetched", checkedAt });
+    return { status: "fetched", data: result };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    const status = classifySourceError(error);
+    await recordSourceHealth({ ...source, status, error: message, checkedAt });
+    return { status, error: message };
+  }
+}
+
+export async function recordManualSource(source) {
+  return recordSourceHealth({ ...source, status: "manual_review", error: null });
+}

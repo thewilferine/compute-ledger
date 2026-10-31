@@ -1,7 +1,8 @@
 import { readFile } from "node:fs/promises";
 import {
+  classifySourceError,
   extractPriceMentions,
-  fetchPage,
+  fetchPageObserved,
   htmlToText,
   writeJsonAtomic,
 } from "./lib/refresh-io.mjs";
@@ -19,6 +20,10 @@ for (const plan of catalogue.subscriptionPlans) {
 }
 
 const observedAt = new Date().toISOString().slice(0, 10);
+const previousOutput = await readFile("public/data/refresh-candidates/subscriptions.json", "utf8")
+  .then((value) => JSON.parse(value))
+  .catch((error) => error.code === "ENOENT" ? null : Promise.reject(error));
+const previousBySourceId = new Map((previousOutput?.observations ?? []).map((item) => [item.sourceId, item]));
 const observations = [];
 
 for (const [sourceId, linkedPlanIds] of planIdsBySource) {
@@ -36,7 +41,13 @@ for (const [sourceId, linkedPlanIds] of planIdsBySource) {
   };
 
   try {
-    const { body, contentType } = await fetchPage(source.url);
+    const result = await fetchPageObserved({
+      id: sourceId, url: source.url, publisher: source.publisher,
+      domain: "subscriptions", strategy: "official-html-page",
+      automationSuitability: "human-review-required",
+    });
+    if (result.status !== "fetched") throw new Error(result.error);
+    const { body, contentType } = result;
     const text = htmlToText(body);
     const mentions = extractPriceMentions(text);
 
@@ -53,12 +64,18 @@ for (const [sourceId, linkedPlanIds] of planIdsBySource) {
     const message = error instanceof Error ? error.message : String(error);
     observations.push({
       ...baseObservation,
-      status: "unavailable",
+      status: classifySourceError(error),
       contentType: null,
       pageCharacters: null,
       priceMentions: [],
       error: message,
-      reviewReason: "Source could not be retrieved. No pricing conclusions can be drawn; retry or review the source manually.",
+      lastKnownGoodObservation: previousBySourceId.get(sourceId) ? {
+        observedAt: previousBySourceId.get(sourceId).observedAt,
+        contentType: previousBySourceId.get(sourceId).contentType,
+        pageCharacters: previousBySourceId.get(sourceId).pageCharacters,
+        priceMentions: previousBySourceId.get(sourceId).priceMentions,
+      } : null,
+      reviewReason: "Source could not be retrieved. No pricing conclusions can be drawn; the last successful observation is retained separately for context.",
     });
     console.warn(`Unable to fetch subscription source ${sourceId}: ${message}`);
   }

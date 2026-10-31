@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { extractPriceMentions, htmlToText } from "./lib/refresh-io.mjs";
+import { classifySourceError, extractPriceMentions, htmlToText } from "./lib/refresh-io.mjs";
 
 describe("refresh source extraction", () => {
   it("converts HTML to readable text without script and style contents", () => {
@@ -16,5 +16,18 @@ describe("refresh source extraction", () => {
 
   it("does not invent a price when no currency amount is present", () => {
     expect(extractPriceMentions("Usage varies by demand.")).toEqual([]);
+  });
+});
+
+describe("source health classification", () => {
+  it.each([
+    ["HTTP 403 Forbidden", "blocked"],
+    ["HTTP 429 Too Many Requests", "rate_limited"],
+    ["HTTP 503 Service Unavailable", "transient_failure"],
+    ["HTTP 404 Not Found", "unavailable"],
+    ["Unexpected token < in JSON", "invalid_response"],
+    ["fetch failed: socket timeout", "transient_failure"],
+  ])("classifies %s as %s", (message, expected) => {
+    expect(classifySourceError(new Error(message))).toBe(expected);
   });
 });
