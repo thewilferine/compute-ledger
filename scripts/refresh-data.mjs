@@ -37,7 +37,7 @@ for (const domain of domains) {
     catch (error) { if (error.code === "ENOENT") return null; throw error; }
   })();
   console.log(`Refreshing ${definition.label}...`);
-  const run = spawnSync(process.execPath, [script, ...args], {
+  const run = spawnSync(process.execPath, ["--experimental-strip-types", script, ...args], {
     encoding: "utf8",
     stdio: "inherit",
   });
