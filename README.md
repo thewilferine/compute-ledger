@@ -80,3 +80,8 @@ The Vite base path is configured for `https://thewilferine.github.io/compute-led
 ## Licence
 
 Not yet selected.
+
+
+## Data refresh automation
+
+Data refreshes run through a reviewed GitHub Actions pipeline. The weekday schedule updates ECB reference exchange rates; other catalogue domains can be selected manually and remain marked for human review until reliable source-specific collectors are available. See [the data refresh documentation](docs/data-refresh.md).
