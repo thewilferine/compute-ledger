@@ -18,6 +18,21 @@ const officialSources = [];
 for (const sourceId of pricingSourceIds) {
   const source = sourceById.get(sourceId);
   if (!source) throw new Error(`API pricing source "${sourceId}" is missing from the catalogue.`);
+  if (source.url.toLowerCase().endsWith(".pdf")) {
+    officialSources.push({
+      sourceId,
+      title: source.title,
+      publisher: source.publisher,
+      sourceUrl: source.url,
+      observedAt,
+      contentType: "application/pdf",
+      pageCharacters: null,
+      priceMentions: [],
+      reviewRequired: true,
+      reviewReason: "PDF pricing source retained for human review; automated text extraction is not enabled for binary documents.",
+    });
+    continue;
+  }
   const { body, contentType } = await fetchPage(source.url);
   const text = htmlToText(body);
   officialSources.push({
