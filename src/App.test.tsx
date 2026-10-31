@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import App from "./App";
+import ValueExplorer from "./ValueExplorer";
 import rawCatalogue from "../public/data/catalogue.json";
 import { datasetSchema } from "./data/schema";
 
@@ -14,6 +15,16 @@ describe("Compute Ledger app", () => {
     expect(html).toContain("Subscriptions");
     expect(html).toContain("Methodology");
     expect(html).toContain("API price observations");
+  });
+
+  it("renders plan comparisons and explains the limits of cross-provider ranking", () => {
+    const dataset = datasetSchema.parse(rawCatalogue);
+    const html = renderToStaticMarkup(<ValueExplorer dataset={dataset} />);
+    expect(html).toContain("Get more AI for your money");
+    expect(html).toContain("Everyday use");
+    expect(html).toContain("Available plans");
+    expect(html).toContain("There is no defensible universal value score yet");
+    expect(html).toContain("Highest published tier for this provider");
   });
 
   it("validates the published catalogue and all source relationships", () => {
