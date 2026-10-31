@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-31T23:45:00.000Z",
+  "updatedAt": "2026-10-31T23:55:00.000Z",
   "sources": [
     {
       "id": "openai-plus",
@@ -120,7 +120,7 @@
       "publisher": "Meta AI",
       "url": "https://ai.meta.com/tools/muse/",
       "accessedAt": "2026-10-31",
-      "notes": "Official page for Muse Wonder and Muse Wonder Full."
+      "notes": "Official Meta Muse pages identify Muse Wonder and Muse Wonder Full as the current frontier model series; model access and product availability are distinct from a public API listing."
     },
     {
       "id": "mistral-large-4",
@@ -233,6 +233,38 @@
       "url": "https://docs.x.ai/grok/faq",
       "accessedAt": "2026-10-31",
       "notes": "Explains the shared weekly usage pool, variable compute consumption by feature, reset schedule and extra usage credits."
+    },
+    {
+      "id": "openai-changelog",
+      "title": "OpenAI API changelog",
+      "publisher": "OpenAI API Documentation",
+      "url": "https://developers.openai.com/api/docs/changelog",
+      "accessedAt": "2026-10-31",
+      "notes": "Official release notes, including GPT-6 Rosalind Research and its restricted API availability."
+    },
+    {
+      "id": "google-models",
+      "title": "Gemini API models",
+      "publisher": "Google AI for Developers",
+      "url": "https://ai.google.dev/gemini-api/docs/models",
+      "accessedAt": "2026-10-31",
+      "notes": "Official model directory with current, preview, specialized and previous-generation Gemini API model IDs."
+    },
+    {
+      "id": "zai-glm53-flash",
+      "title": "GLM-5.3-Flash: Frontier Intelligence, Flash Cost",
+      "publisher": "Z.ai",
+      "url": "https://z.ai/blog/glm-5.3-flash",
+      "accessedAt": "2026-10-31",
+      "notes": "Official August 26 release announcement; natively multimodal 320B-total/18B-active model with 1M-token context and open weights."
+    },
+    {
+      "id": "nvidia-nemotron-bolt",
+      "title": "Nemotron 3.5 Bolt E4B model card",
+      "publisher": "NVIDIA",
+      "url": "https://build.nvidia.com/nvidia/nemotron-3.5-bolt-e4b/modelcard",
+      "accessedAt": "2026-10-31",
+      "notes": "Official NVIDIA model card and release information for the compact Nemotron 3.5 Bolt E4B reasoning model."
     }
   ],
   "providers": [
@@ -245,7 +277,8 @@
         "openai-api",
         "openai-models",
         "openai-pricing-current",
-        "openai-pro-tiers"
+        "openai-pro-tiers",
+        "openai-changelog"
       ]
     },
     {
@@ -269,7 +302,8 @@
         "google-ai-pro",
         "google-gemini-argon",
         "google-gemini-api-pricing",
-        "google-gemini-usage"
+        "google-gemini-usage",
+        "google-models"
       ]
     },
     {
@@ -330,7 +364,8 @@
       "name": "Z.ai",
       "website": "https://z.ai",
       "sources": [
-        "zai-glm53"
+        "zai-glm53",
+        "zai-glm53-flash"
       ]
     },
     {
@@ -338,7 +373,8 @@
       "name": "NVIDIA",
       "website": "https://www.nvidia.com",
       "sources": [
-        "nvidia-nemotron35"
+        "nvidia-nemotron35",
+        "nvidia-nemotron-bolt"
       ]
     }
   ],
@@ -353,11 +389,13 @@
       ],
       "contextWindowTokens": 1000000,
       "sources": [
-        "deepseek-api"
+        "deepseek-api",
+        "deepseek-v41"
       ],
       "availability": "current",
-      "notes": "Official API model version exposed as deepseek-flash; legacy deepseek-v4-flash aliases route here.",
-      "apiModelId": "deepseek-flash"
+      "notes": "Canonical catalogue entry for DeepSeek-V4.1-Flash-1017, exposed through the deepseek-flash API ID. The older deepseek-v4-flash alias routes to this version.",
+      "apiModelId": "deepseek-flash",
+      "positioning": "efficient"
     },
     {
       "id": "deepseek-v4-pro",
@@ -372,7 +410,8 @@
       ],
       "availability": "current",
       "notes": "Current DeepSeek API model version. The official API pricing page still lists deepseek-v4-pro; legacy deepseek-v4-flash aliases route to DeepSeek-V4.1-Flash-1017.",
-      "apiModelId": "deepseek-v4-pro"
+      "apiModelId": "deepseek-v4-pro",
+      "positioning": "flagship"
     },
     {
       "id": "gpt-6-astra",
@@ -384,7 +423,10 @@
       "sources": [
         "openai-api"
       ],
-      "apiModelId": "gpt-6-astra"
+      "apiModelId": "gpt-6-astra",
+      "positioning": "flagship",
+      "availability": "current",
+      "contextWindowTokens": 1050000
     },
     {
       "id": "claude-opus-4-8",
@@ -397,7 +439,8 @@
       "sources": [
         "claude-api-pricing"
       ],
-      "availability": "previous-generation"
+      "availability": "previous-generation",
+      "positioning": "previous-generation"
     },
     {
       "id": "gpt-6-1-sol",
@@ -414,7 +457,8 @@
       "releaseDate": "2026-09-29",
       "notes": "Near-Astra performance for complex work at a lower price, per OpenAI.",
       "contextWindowTokens": 1050000,
-      "apiModelId": "gpt-6.1-sol"
+      "apiModelId": "gpt-6.1-sol",
+      "positioning": "balanced"
     },
     {
       "id": "gpt-6-1-terra",
@@ -431,7 +475,8 @@
       "releaseDate": "2026-10-26",
       "notes": "Fast model for visual reasoning, computer use and writing, per OpenAI.",
       "contextWindowTokens": 1050000,
-      "apiModelId": "gpt-6.1-terra"
+      "apiModelId": "gpt-6.1-terra",
+      "positioning": "efficient"
     },
     {
       "id": "gpt-6-luna",
@@ -448,7 +493,8 @@
       "releaseDate": "2026-09-22",
       "notes": "Efficiency-oriented GPT-6 family model.",
       "contextWindowTokens": 1050000,
-      "apiModelId": "gpt-6-luna"
+      "apiModelId": "gpt-6-luna",
+      "positioning": "efficient"
     },
     {
       "id": "claude-opus-5-5",
@@ -466,7 +512,8 @@
       "availability": "current",
       "releaseDate": "2026-09-22",
       "notes": "Current Opus-tier frontier model.",
-      "apiModelId": "claude-opus-5-5"
+      "apiModelId": "claude-opus-5-5",
+      "positioning": "flagship"
     },
     {
       "id": "claude-sonnet-5-5",
@@ -484,7 +531,8 @@
       "availability": "current",
       "releaseDate": "2026-09-28",
       "notes": "Current Sonnet-tier model.",
-      "apiModelId": "claude-sonnet-5-5"
+      "apiModelId": "claude-sonnet-5-5",
+      "positioning": "balanced"
     },
     {
       "id": "claude-haiku-5-5",
@@ -502,7 +550,8 @@
       "availability": "current",
       "releaseDate": "2026-10-07",
       "notes": "Fast, high-volume Haiku-tier model.",
-      "apiModelId": "claude-haiku-5-5"
+      "apiModelId": "claude-haiku-5-5",
+      "positioning": "efficient"
     },
     {
       "id": "gemini-4-argon",
@@ -519,7 +568,8 @@
       "releaseDate": "2026-10-13",
       "notes": "Google states a 1M-token unified input/output limit.",
       "contextWindowTokens": 1000000,
-      "apiModelId": "gemini-4-argon"
+      "apiModelId": "gemini-4-argon",
+      "positioning": "flagship"
     },
     {
       "id": "grok-4-7",
@@ -536,22 +586,8 @@
       "releaseDate": "2026-09-21",
       "notes": "Listed in xAI's official Grok documentation.",
       "apiModelId": "grok-4.7",
-      "contextWindowTokens": 500000
-    },
-    {
-      "id": "deepseek-v41-flash-1017",
-      "providerId": "deepseek",
-      "name": "DeepSeek-V4.1-Flash-1017",
-      "modality": [
-        "text",
-        "image"
-      ],
-      "sources": [
-        "deepseek-v41"
-      ],
-      "availability": "current",
-      "releaseDate": "2026-10-17",
-      "notes": "October 17 update; API alias remains deepseek-flash."
+      "contextWindowTokens": 500000,
+      "positioning": "flagship"
     },
     {
       "id": "muse-wonder-full",
@@ -566,7 +602,8 @@
       ],
       "availability": "current",
       "releaseDate": "2026-10-12",
-      "notes": "Meta identifies Muse Wonder and Muse Wonder Full as its latest frontier models."
+      "notes": "Meta identifies Muse Wonder and Muse Wonder Full as its latest frontier models.",
+      "positioning": "flagship"
     },
     {
       "id": "mistral-large-4",
@@ -584,7 +621,8 @@
       "releaseDate": "2026-10-06",
       "notes": "Public preview at observation date; official model page lists $0.70 input, $2.10 output and $0.07 cached input per million tokens.",
       "apiModelId": "mistral-large-4",
-      "contextWindowTokens": 1000000
+      "contextWindowTokens": 1000000,
+      "positioning": "flagship"
     },
     {
       "id": "qwen-3-8-max",
@@ -600,7 +638,8 @@
       "availability": "current",
       "releaseDate": "2026-08-03",
       "notes": "Qwen describes this as its most capable model in the family.",
-      "contextWindowTokens": 1000000
+      "contextWindowTokens": 1000000,
+      "positioning": "flagship"
     },
     {
       "id": "kimi-k31-pro",
@@ -615,7 +654,8 @@
       "availability": "current",
       "releaseDate": "2026-10-24",
       "notes": "Moonshot describes a 3T-class model with a 1M-token context window.",
-      "contextWindowTokens": 1000000
+      "contextWindowTokens": 1000000,
+      "positioning": "flagship"
     },
     {
       "id": "glm-5-3",
@@ -629,7 +669,8 @@
       ],
       "availability": "current",
       "releaseDate": "2026-08-14",
-      "notes": "Z.ai's frontier coding and long-horizon agent model."
+      "notes": "Z.ai's frontier coding and long-horizon agent model.",
+      "positioning": "flagship"
     },
     {
       "id": "nemotron-3-5-super-vl",
@@ -645,7 +686,8 @@
       ],
       "availability": "current",
       "releaseDate": "2026-10-15",
-      "notes": "NVIDIA describes a 120B open multimodal model for specialized agent workloads."
+      "notes": "NVIDIA describes a 120B open multimodal model for specialized agent workloads.",
+      "positioning": "specialist"
     },
     {
       "id": "claude-fable-5-1",
@@ -660,7 +702,8 @@
         "anthropic-pricing-current"
       ],
       "availability": "preview",
-      "notes": "Additional frontier model listed in Anthropic's official pricing documentation; access may be restricted."
+      "notes": "Additional frontier model listed in Anthropic's official pricing documentation; access may be restricted.",
+      "positioning": "specialist"
     },
     {
       "id": "claude-mythos-5-1",
@@ -675,7 +718,105 @@
         "anthropic-pricing-current"
       ],
       "availability": "preview",
-      "notes": "Additional frontier model listed in Anthropic's official pricing documentation; access is restricted."
+      "notes": "Additional frontier model listed in Anthropic's official pricing documentation; access is restricted.",
+      "positioning": "specialist"
+    },
+    {
+      "id": "gpt-6-rosalind",
+      "providerId": "openai",
+      "name": "GPT-6 Rosalind Research",
+      "modality": [
+        "text"
+      ],
+      "sources": [
+        "openai-changelog"
+      ],
+      "availability": "preview",
+      "releaseDate": "2026-10-30",
+      "apiModelId": "gpt-6-rosalind",
+      "positioning": "specialist",
+      "notes": "Specialized biological reasoning model with scientific tool use. API access is restricted to approved Rosalind Research organizations and authorized users; not available in Chat."
+    },
+    {
+      "id": "gemini-3-8-flash",
+      "providerId": "google",
+      "name": "Gemini 3.8 Flash",
+      "modality": [
+        "text",
+        "image"
+      ],
+      "sources": [
+        "google-models"
+      ],
+      "availability": "current",
+      "apiModelId": "gemini-3.8-flash",
+      "positioning": "efficient",
+      "notes": "Current Flash model for long-horizon software engineering, autonomous agents and enterprise workflows."
+    },
+    {
+      "id": "gemini-3-1-pro-preview",
+      "providerId": "google",
+      "name": "Gemini 3.1 Pro",
+      "modality": [
+        "text",
+        "image"
+      ],
+      "sources": [
+        "google-models"
+      ],
+      "availability": "preview",
+      "apiModelId": "gemini-3.1-pro-preview",
+      "positioning": "balanced",
+      "notes": "Preview Pro-tier model listed in Google's official Gemini API model directory."
+    },
+    {
+      "id": "muse-wonder",
+      "providerId": "meta",
+      "name": "Muse Wonder",
+      "modality": [
+        "text",
+        "image"
+      ],
+      "sources": [
+        "meta-muse"
+      ],
+      "availability": "current",
+      "releaseDate": "2026-10-12",
+      "positioning": "balanced",
+      "notes": "Member of Meta's current Muse Wonder frontier model series, alongside Muse Wonder Full."
+    },
+    {
+      "id": "glm-5-3-flash",
+      "providerId": "zai",
+      "name": "GLM-5.3-Flash",
+      "modality": [
+        "text",
+        "image"
+      ],
+      "sources": [
+        "zai-glm53-flash"
+      ],
+      "availability": "current",
+      "releaseDate": "2026-08-26",
+      "apiModelId": "glm-5.3-flash",
+      "contextWindowTokens": 1048576,
+      "positioning": "efficient",
+      "notes": "Natively multimodal 320B-total/18B-active model; optimized for agentic coding and efficient long-context inference. Open weights are available."
+    },
+    {
+      "id": "nemotron-3-5-bolt-e4b",
+      "providerId": "nvidia",
+      "name": "Nemotron 3.5 Bolt E4B",
+      "modality": [
+        "text"
+      ],
+      "sources": [
+        "nvidia-nemotron-bolt"
+      ],
+      "availability": "current",
+      "releaseDate": "2026-10-23",
+      "positioning": "efficient",
+      "notes": "Compact reasoning, tool-calling and agentic-chat model; intended for customization and post-training as well as evaluation."
     }
   ],
   "subscriptionPlans": [
