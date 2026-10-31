@@ -6,7 +6,7 @@ Compute Ledger helps individuals compare AI subscriptions, model access, usage p
 
 ## What you can do
 
-- **Value Explorer:** compare consumer plans in a chosen display currency, sorted by converted monthly-equivalent price, model access and published usage terms. See original prices and dated ECB exchange rates; filter by budget and explore budget-conscious, everyday and heavy-use profiles.
+- **Value Explorer:** compare consumer plans in a chosen display currency (defaulted from the browser's locale to GBP, USD or EUR), sorted by converted monthly-equivalent price, model access and published usage terms. See original prices and dated ECB exchange rates; filter by budget and explore budget-conscious, everyday and heavy-use profiles.
 - **Provider directory:** see which AI labs and platforms are covered by the catalogue.
 - **Model catalogue:** explore curated frontier models, modalities, context windows, availability and editorial groupings.
 - **Subscription catalogue:** inspect regional prices, billing periods, access summaries and usage-limit policies.
