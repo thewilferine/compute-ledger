@@ -50,7 +50,8 @@ npm run preview
 - `src/calculations/`: deterministic modelling functions, independent of UI.
 - `src/data/`: Zod schemas and catalogue loading.
 - `src/components/ui/`: shadcn components.
-- `public/data/`: versioned, public JSON datasets.
+- `public/data/`: versioned, public JSON datasets and immutable catalogue history snapshots.
+- `scripts/`: data maintenance and deterministic catalogue history tooling.
 - `.github/workflows/`: CI validation and Pages deployment.
 
 ## Data quality principles
@@ -62,7 +63,7 @@ npm run preview
 5. Never treat provider-relative usage multipliers as comparable quotas across providers.
 6. Prefer explicit unknowns and limitations over invented allowances or false precision.
 
-See [the methodology notes](docs/methodology.md) for definitions, comparison rules and known omissions. Release notes are in [CHANGELOG.md](CHANGELOG.md).
+See [the methodology notes](docs/methodology.md) for definitions, comparison rules and known omissions. Catalogue snapshots, change records, validation and retention are described in [catalogue history](docs/catalogue-history.md). Release notes are in [CHANGELOG.md](CHANGELOG.md).
 
 ## Current data coverage
 
