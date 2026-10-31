@@ -6,7 +6,7 @@ Compute Ledger helps individuals compare AI subscriptions, model access, usage p
 
 ## What you can do
 
-- **Value Explorer:** compare consumer plans by currency, monthly-equivalent price, model access and published usage terms. Filter by budget and explore budget-conscious, everyday and heavy-use profiles.
+- **Value Explorer:** compare consumer plans in a chosen display currency, sorted by converted monthly-equivalent price, model access and published usage terms. See original prices and dated ECB exchange rates; filter by budget and explore budget-conscious, everyday and heavy-use profiles.
 - **Provider directory:** see which AI labs and platforms are covered by the catalogue.
 - **Model catalogue:** explore curated frontier models, modalities, context windows, availability and editorial groupings.
 - **Subscription catalogue:** inspect regional prices, billing periods, access summaries and usage-limit policies.
@@ -58,7 +58,7 @@ npm run preview
 1. Attribute every material published fact to a source and retrieval date.
 2. Keep source facts separate from assumptions and calculated estimates.
 3. Preserve region, currency, billing period and observation date for prices.
-4. Compare prices only within the same currency unless a dated exchange-rate source is added.
+4. Preserve original currencies. Cross-currency comparisons must use dated, attributed reference rates and retain the original advertised price.
 5. Never treat provider-relative usage multipliers as comparable quotas across providers.
 6. Prefer explicit unknowns and limitations over invented allowances or false precision.
 
