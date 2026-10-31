@@ -20,6 +20,9 @@ const benchmarkSources = [
   },
 ];
 const observedAt = new Date().toISOString().slice(0, 10);
+const previousDataset = await readFile("public/data/benchmarks.json", "utf8")
+  .then((value) => JSON.parse(value))
+  .catch((error) => error.code === "ENOENT" ? null : Promise.reject(error));
 const knownAliases = new Map();
 for (const model of catalogue.models) {
   knownAliases.set(model.name.toLowerCase(), model.id);
@@ -36,7 +39,8 @@ for (const benchmark of benchmarkSources) {
     automationSuitability: "independent-results-review-required",
   });
   if (fetched.status !== "fetched") {
-    console.warn(`Benchmark source ${benchmark.id} is ${fetched.status}; skipping it. ${fetched.error}`);
+    results.push(...(previousDataset?.results ?? []).filter((item) => item.benchmarkId === benchmark.id));
+    console.warn(`Benchmark source ${benchmark.id} is ${fetched.status}; retaining its last-known-good results. ${fetched.error}`);
     continue;
   }
   const rows = fetched.data;
@@ -49,7 +53,8 @@ for (const benchmark of benchmarkSources) {
       status: "invalid_response",
       error: "Leaderboard response was not an array.",
     });
-    console.warn(`Leaderboard response for ${benchmark.datasetId} was invalid; skipping it.`);
+    results.push(...(previousDataset?.results ?? []).filter((item) => item.benchmarkId === benchmark.id));
+    console.warn(`Leaderboard response for ${benchmark.datasetId} was invalid; retaining its last-known-good results.`);
     continue;
   }
 
