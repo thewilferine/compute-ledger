@@ -19,7 +19,10 @@ describe("Compute Ledger app", () => {
     const sourceIds = new Set(catalogue.sources.map((source) => source.id));
     const providerIds = new Set(catalogue.providers.map((provider) => provider.id));
 
-    expect(catalogue.providers.length).toBeGreaterThan(0);
+    expect(catalogue.providers.length).toBeGreaterThanOrEqual(10);
+    expect(catalogue.providers.some((provider) => provider.id === "meta")).toBe(true);
+    expect(catalogue.providers.some((provider) => provider.id === "moonshot")).toBe(true);
+    expect(catalogue.providers.some((provider) => provider.id === "zai")).toBe(true);
     expect(catalogue.models.length).toBeGreaterThan(0);
     expect(catalogue.subscriptionPlans.length).toBeGreaterThan(0);
     expect(catalogue.apiPricing.length).toBeGreaterThan(0);
