@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { benchmarkDatasetSchema, benchmarkResultSchema } from "../src/data/schema.ts";
-import { fetchJsonObserved, writeJsonAtomic } from "./lib/refresh-io.mjs";
+import { fetchJsonObserved, recordSourceHealth, writeJsonAtomic } from "./lib/refresh-io.mjs";
 
 const catalogue = JSON.parse(await readFile("public/data/catalogue.json", "utf8"));
 const benchmarkSources = [
@@ -41,6 +41,14 @@ for (const benchmark of benchmarkSources) {
   }
   const rows = fetched.data;
   if (!Array.isArray(rows)) {
+    await recordSourceHealth({
+      id: `huggingface-${benchmark.id}`, url: sourceUrl,
+      publisher: "Hugging Face", domain: "benchmarks",
+      strategy: "public-leaderboard-json-api",
+      automationSuitability: "independent-results-review-required",
+      status: "invalid_response",
+      error: "Leaderboard response was not an array.",
+    });
     console.warn(`Leaderboard response for ${benchmark.datasetId} was invalid; skipping it.`);
     continue;
   }
