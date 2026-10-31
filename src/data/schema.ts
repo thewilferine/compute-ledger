@@ -27,6 +27,7 @@ export const modelSchema = z.object({
   availability: z.enum(["current", "preview", "previous-generation", "retired"]).optional(),
   releaseDate: z.string().date().optional(),
   notes: z.string().optional(),
+  positioning: z.enum(["flagship", "balanced", "efficient", "specialist", "previous-generation"]).optional(),
 });
 
 export const subscriptionPlanSchema = z.object({
