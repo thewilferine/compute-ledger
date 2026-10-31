@@ -49,7 +49,7 @@ export function htmlToText(value) {
 }
 
 export function extractPriceMentions(text, { limit = 100 } = {}) {
-  const pattern = /(?:USD|GBP|EUR|\$|£|€)\s?\\d+(?:,\d{3})*(?:\.\d{1,2})?|(?:\$|£|€)\s?\d+(?:\.\d{1,2})?/gi;
+  const pattern = /(?:USD|GBP|EUR|\$|£|€)\s?\d+(?:,\d{3})*(?:\.\d{1,2})?|(?:\$|£|€)\s?\d+(?:\.\d{1,2})?/gi;
   const results = [];
   for (const match of text.matchAll(pattern)) {
     const start = Math.max(0, match.index - 100);
