@@ -14,7 +14,7 @@ The project models plausible serving costs from public information and explicit 
 - JSON catalogue committed to Git
 - GitHub Actions for validation and GitHub Pages deployment
 
-There is no application backend or database. Calculations run in the browser.
+There is no application backend or database. Calculations run in the browser. The calculator separates an API list-price workload equivalent from an illustrative hardware-allocation scenario; neither is presented as a provider internal cost.
 
 ## Local development
 
