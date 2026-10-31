@@ -31,7 +31,11 @@ describe("Compute Ledger app", () => {
     expect(catalogue.apiPricing.find((price) => price.id === "openai-gpt-6-astra-standard")?.inputPerMillion).toBe(10);
     expect(catalogue.apiPricing.find((price) => price.id === "openai-gpt-6-astra-flex-batch")?.inputPerMillion).toBe(5);
     expect(catalogue.apiPricing.some((price) => price.effectiveFrom === "2026-12-01")).toBe(true);
-    expect(catalogue.subscriptionPlans.length).toBeGreaterThan(0);
+    expect(catalogue.subscriptionPlans.length).toBeGreaterThanOrEqual(14);
+    expect(catalogue.subscriptionPlans.some((plan) => plan.id === "claude-max-20x-usd" && plan.usageMultiplier === 20)).toBe(true);
+    expect(catalogue.subscriptionPlans.some((plan) => plan.id === "google-ai-ultra-20x-gbp" && plan.currency === "GBP")).toBe(true);
+    expect(catalogue.subscriptionPlans.some((plan) => plan.id === "xai-supergrok-usd" && plan.usageLimitType === "shared-pool")).toBe(true);
+    expect(catalogue.subscriptionPlans.some((plan) => plan.id === "chatgpt-pro-500-usd")).toBe(true);
     expect(catalogue.apiPricing.length).toBeGreaterThan(0);
     for (const provider of catalogue.providers) {
       for (const sourceId of provider.sources) expect(sourceIds.has(sourceId)).toBe(true);
@@ -51,6 +55,7 @@ describe("Compute Ledger app", () => {
       if (price.effectiveFrom && price.effectiveTo) expect(price.effectiveFrom <= price.effectiveTo).toBe(true);
     }
     for (const plan of catalogue.subscriptionPlans) {
+      if (plan.usageMultiplier !== undefined) expect(plan.usageMultiplier).toBeGreaterThan(0);
       expect(providerIds.has(plan.providerId)).toBe(true);
       for (const sourceId of plan.sources) expect(sourceIds.has(sourceId)).toBe(true);
     }
