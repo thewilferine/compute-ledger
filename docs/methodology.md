@@ -38,3 +38,12 @@ Every material source-backed record should include a canonical URL, publisher, r
 ## Provider and model coverage
 
 The model catalogue is a curated snapshot of major frontier model families, not an exhaustive list of every release, deployment alias or specialist model. A provider can be included even when its API pricing, consumer plan or detailed specifications have not yet been verified. Model status distinguishes current releases, public previews, previous-generation entries and retired models. Historical price rows remain visible with notes where a model has been superseded. Coverage should be refreshed against primary provider announcements and pricing documentation; third-party model trackers are discovery aids, not evidence of record.
+
+
+## Expanded API price observations
+
+API price records represent a specific published tier and effective period. The model stores standard input/output rates, cached-input read rates, cache-write rates where published, tier labels, observation dates and effective dates. It keeps separate rows for batch, speed, long-context and peak/off-peak rates rather than collapsing them into a single blended number. Future-dated rates are stored before they become effective and must not be treated as current prices.
+
+For Anthropic, cache writes, cache reads, batch discounts and data-residency multipliers can stack. For xAI, long-context rates apply to all prompt tokens once the request crosses the published threshold. For Google, introductory prices can have a scheduled end date. For DeepSeek, peak and off-peak periods are provider-defined UTC windows. These modifiers should be applied only when the workload and endpoint meet the provider's published conditions.
+
+A historical observation is never overwritten when a rate changes. The previous record should be closed with an effective-to date and a new observation added with its own source and observation date. API list prices remain commercial prices, not estimates of internal serving cost.
