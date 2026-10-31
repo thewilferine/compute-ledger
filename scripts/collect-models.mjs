@@ -12,6 +12,9 @@ const knownProviders = {
   mistral: "mistral",
   qwen: "alibaba",
   moonshotai: "moonshot",
+  "moonshot-ai": "moonshot",
+  "x-ai": "xai",
+  "z-ai": "zai",
   zai: "zai",
   nvidia: "nvidia",
 };
