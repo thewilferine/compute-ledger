@@ -1,9 +1,19 @@
 import { describe, expect, it } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import App from "./App";
-import ValueExplorer from "./ValueExplorer";
+import ValueExplorer, { defaultCurrencyForLocale } from "./ValueExplorer";
 import rawCatalogue from "../public/data/catalogue.json";
 import { datasetSchema } from "./data/schema";
+
+describe("browser locale currency defaults", () => {
+  it("selects only one of the three supported currencies from the locale region", () => {
+    expect(defaultCurrencyForLocale("en-GB")).toBe("GBP");
+    expect(defaultCurrencyForLocale("en-US")).toBe("USD");
+    expect(defaultCurrencyForLocale("de-DE")).toBe("EUR");
+    expect(defaultCurrencyForLocale("fr-CA")).toBe("GBP");
+    expect(defaultCurrencyForLocale("not-a-locale")).toBe("GBP");
+  });
+});
 
 describe("Compute Ledger app", () => {
   it("renders the dashboard and project navigation", () => {
