@@ -115,6 +115,7 @@ export function validateCatalogueRelationships(catalogue) {
 }
 
 export function createChangeSet(previous, current) {
+  if (!previous) return [];
   const changes = [];
 
   for (const collection of COLLECTIONS) {
