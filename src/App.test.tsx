@@ -24,7 +24,7 @@ describe("Compute Ledger app", () => {
     expect(html).toContain("Everyday use");
     expect(html).toContain("Available plans");
     expect(html).toContain("Price currency");
-    expect(html).toContain("ECB reference rates dated 2026-10-30");
+    expect(html).toContain("European Central Bank reference rates dated 2026-10-30");
     expect(html).toContain("Original:");
     expect(html).toContain("OpenAI");
     expect(html).toContain("Anthropic");
