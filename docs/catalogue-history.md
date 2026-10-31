@@ -18,6 +18,11 @@ If the current catalogue has the same canonical content hash as the latest snaps
 
 The first successful run creates a baseline snapshot with an empty change set. Later runs compare against the preceding snapshot.
 
+### Repository Actions permission
+
+For unattended pull-request creation, enable **Settings → Actions → General → Workflow permissions → Allow GitHub Actions to create and approve pull requests**. The workflow already requests `contents: write`, `pull-requests: write` and `actions: write`. If the repository-level setting is disabled, GitHub Actions can push the generated branch but GitHub rejects the pull-request creation request. In that case, a maintainer must open the PR manually or enable the setting before the next scheduled/manual run.
+
+
 ## Deterministic comparisons
 
 Object keys and unordered array values are canonicalised before hashing and comparison. Collection records are matched by stable `id`, not by array position. Changes are emitted in a stable order and represented as:
