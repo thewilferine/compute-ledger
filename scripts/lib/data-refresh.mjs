@@ -49,6 +49,57 @@ export function selectRefreshDomains(selection = "all") {
   return [selection];
 }
 
+
+const SOURCE_FAILURE_STATUSES = [
+  "blocked",
+  "rate_limited",
+  "transient_failure",
+  "unavailable",
+  "invalid_response",
+];
+
+export function summarizeSourceHealth(domain, sources = []) {
+  const domainSources = sources.filter((source) => source.domain === domain);
+  const total = domainSources.length;
+  if (total === 0) {
+    return {
+      status: "No source health data",
+      details: "No source registry entries were found for this domain.",
+      counts: { total: 0, fetched: 0, failed: 0, manualReview: 0, other: 0 },
+      failures: {},
+    };
+  }
+
+  const fetched = domainSources.filter((source) => source.status === "fetched").length;
+  const manualReview = domainSources.filter((source) => source.status === "manual_review").length;
+  const failures = Object.fromEntries(SOURCE_FAILURE_STATUSES.map((status) => [
+    status,
+    domainSources.filter((source) => source.status === status).length,
+  ]).filter(([, count]) => count > 0));
+  const failed = Object.values(failures).reduce((sum, count) => sum + count, 0);
+  const other = total - fetched - manualReview - failed;
+
+  const details = [
+    `${fetched}/${total} sources fetched`,
+    ...Object.entries(failures).map(([status, count]) => `${count} ${status.replaceAll("_", " ")}`),
+    ...(other ? [`${other} with unrecognised status`] : []),
+    ...(manualReview ? [`${manualReview} needs manual review`] : []),
+  ].join("; ") + ".";
+
+  let status;
+  if (failed > 0 || other > 0) status = fetched > 0 || manualReview > 0 ? "Partial" : "Source failures";
+  else if (manualReview > 0) status = "Review required";
+  else if (fetched === total) status = "Updated successfully";
+  else status = "Incomplete";
+
+  return {
+    status,
+    details,
+    counts: { total, fetched, failed, manualReview, other },
+    failures,
+  };
+}
+
 export function formatRefreshSummary(results) {
   const lines = [
     "## Data refresh report",
