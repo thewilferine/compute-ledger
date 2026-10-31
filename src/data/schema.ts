@@ -73,6 +73,7 @@ export const benchmarkResultSchema = z.object({
   modelName: z.string().min(1),
   catalogueModelId: z.string().min(1).nullable().optional(),
   score: z.number().finite(),
+  rank: z.number().int().positive().optional(),
   scoreUnit: z.string().min(1),
   higherIsBetter: z.boolean().optional(),
   evaluationDate: z.string().date().nullable().optional(),
