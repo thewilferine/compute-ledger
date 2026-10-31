@@ -8,8 +8,8 @@ describe("refresh source extraction", () => {
   });
 
   it("extracts currency mentions with surrounding context", () => {
-    const mentions = extractPriceMentions("Plus costs $20/month. Pro costs £100 per month.");
-    expect(mentions.map((item) => item.text)).toEqual(["$20", "£100"]);
+    const mentions = extractPriceMentions("Plus costs $20/month. Pro costs £100 per month. Enterprise costs $1,200/month.");
+    expect(mentions.map((item) => item.text)).toEqual(["$20", "£100", "$1,200"]);
     expect(mentions[0].context).toContain("Plus costs");
     expect(mentions[1].context).toContain("Pro costs");
   });
