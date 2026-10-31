@@ -23,6 +23,14 @@ describe("Compute Ledger app", () => {
     expect(html).toContain("Get more AI for your money");
     expect(html).toContain("Everyday use");
     expect(html).toContain("Available plans");
+    expect(html).toContain("All currencies");
+    expect(html).toContain("OpenAI");
+    expect(html).toContain("Anthropic");
+    expect(html).toContain("Google");
+    expect(html).toContain("xAI");
+    expect(html).toContain("ChatGPT Plus");
+    expect(html).toContain("Claude Pro");
+    expect(html).toContain("SuperGrok");
     expect(html).toContain("There is no defensible universal value score yet");
     expect(html).toContain("Highest published tier for this provider");
   });
