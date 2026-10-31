@@ -1,8 +1,9 @@
 import { readFile } from "node:fs/promises";
 import {
   extractPriceMentions,
-  fetchJson,
-  fetchPage,
+  fetchJsonObserved,
+  fetchPageObserved,
+  recordManualSource,
   htmlToText,
   writeJsonAtomic,
 } from "./lib/refresh-io.mjs";
@@ -19,7 +20,13 @@ for (const sourceId of pricingSourceIds) {
   const source = sourceById.get(sourceId);
   if (!source) throw new Error(`API pricing source "${sourceId}" is missing from the catalogue.`);
   if (source.url.toLowerCase().endsWith(".pdf")) {
+    await recordManualSource({
+      id: sourceId, url: source.url, publisher: source.publisher,
+      domain: "api-pricing", strategy: "pdf-manual-review",
+      automationSuitability: "manual-review",
+    });
     officialSources.push({
+      status: "manual_review",
       sourceId,
       title: source.title,
       publisher: source.publisher,
@@ -33,10 +40,26 @@ for (const sourceId of pricingSourceIds) {
     });
     continue;
   }
-  const { body, contentType } = await fetchPage(source.url);
+  const fetched = await fetchPageObserved({
+    id: sourceId, url: source.url, publisher: source.publisher,
+    domain: "api-pricing", strategy: "official-html-page",
+    automationSuitability: "human-review-required",
+  });
+  if (fetched.status !== "fetched") {
+    officialSources.push({
+      sourceId, title: source.title, publisher: source.publisher,
+      sourceUrl: source.url, observedAt, status: fetched.status,
+      contentType: null, pageCharacters: null, priceMentions: [],
+      error: fetched.error, reviewRequired: true,
+      reviewReason: "Source retrieval failed. No pricing conclusions can be drawn; existing catalogue values remain unchanged.",
+    });
+    continue;
+  }
+  const { body, contentType } = fetched;
   const text = htmlToText(body);
   officialSources.push({
     sourceId,
+    status: "fetched",
     title: source.title,
     publisher: source.publisher,
     sourceUrl: source.url,
@@ -51,10 +74,20 @@ for (const sourceId of pricingSourceIds) {
 
 // OpenRouter's public catalogue provides machine-readable per-model rates.
 // Keep these in a separate dataset: aggregator rates are not provider list prices.
-const payload = await fetchJson("https://openrouter.ai/api/v1/models");
-if (!Array.isArray(payload.data) || payload.data.length === 0) {
-  throw new Error("OpenRouter pricing catalogue returned no models.");
+const previousOutput = await readFile("public/data/refresh-candidates/api-pricing.json", "utf8")
+  .then((value) => JSON.parse(value))
+  .catch((error) => error.code === "ENOENT" ? null : Promise.reject(error));
+const aggregatorSource = {
+  id: "openrouter-model-pricing", url: "https://openrouter.ai/api/v1/models",
+  publisher: "OpenRouter", domain: "api-pricing", strategy: "official-json-api",
+  automationSuitability: "aggregator-data-review-required",
+};
+const aggregatorResult = await fetchJsonObserved(aggregatorSource);
+const payload = aggregatorResult.status === "fetched" ? aggregatorResult.data : null;
+if (payload && (!Array.isArray(payload.data) || payload.data.length === 0)) {
+  await recordManualSource({ ...aggregatorSource, strategy: "json-api-schema-review" });
 }
+
 const providerMap = {
   openai: "openai",
   anthropic: "anthropic",
@@ -73,7 +106,7 @@ const providerMap = {
   "z-ai": "zai",
   nvidia: "nvidia",
 };
-const aggregatorQuotes = payload.data.flatMap((model) => {
+const aggregatorQuotes = payload?.data?.flatMap((model) => {
   const providerSlug = model.id?.split("/")[0]?.toLowerCase();
   const providerId = providerMap[providerSlug];
   const input = Number(model.pricing?.prompt);
@@ -97,19 +130,23 @@ const aggregatorQuotes = payload.data.flatMap((model) => {
   }];
 });
 
-if (officialSources.length === 0 || aggregatorQuotes.length === 0) {
-  throw new Error("API pricing collector returned incomplete source coverage.");
-}
+const retainedAggregatorQuotes = aggregatorResult.status === "fetched"
+  ? aggregatorQuotes
+  : (previousOutput?.aggregatorQuotes ?? []);
 
 await writeJsonAtomic("public/data/refresh-candidates/api-pricing.json", {
   schemaVersion: 1,
   observedAt,
   officialSources,
-  aggregatorQuotes,
+  aggregatorQuotes: retainedAggregatorQuotes,
+  aggregatorStatus: aggregatorResult.status,
+  aggregatorError: aggregatorResult.error ?? null,
   limitations: [
     "Official source price mentions are evidence only and are not automatically mapped to catalogue pricing records.",
     "OpenRouter rates are aggregator-specific and must not be presented as direct provider list prices.",
     "All rates are retained as USD per million tokens only where the source provides per-token prompt/completion rates.",
   ],
 });
-console.log(`Captured ${officialSources.length} official pricing pages and ${aggregatorQuotes.length} aggregator price observations.`);
+const fetchedPages = officialSources.filter((source) => source.status === "fetched").length;
+const unavailablePages = officialSources.length - fetchedPages;
+console.log(`Captured ${fetchedPages}/${officialSources.length} official pricing pages; ${unavailablePages} need review. OpenRouter status: ${aggregatorResult.status}; ${retainedAggregatorQuotes.length} aggregator observations retained.`);
