@@ -4,6 +4,7 @@ import {
   fetchJsonObserved,
   fetchPageObserved,
   recordManualSource,
+  recordSourceHealth,
   htmlToText,
   writeJsonAtomic,
 } from "./lib/refresh-io.mjs";
@@ -84,8 +85,12 @@ const aggregatorSource = {
 };
 const aggregatorResult = await fetchJsonObserved(aggregatorSource);
 const payload = aggregatorResult.status === "fetched" ? aggregatorResult.data : null;
-if (payload && (!Array.isArray(payload.data) || payload.data.length === 0)) {
-  await recordManualSource({ ...aggregatorSource, strategy: "json-api-schema-review" });
+const aggregatorValid = Array.isArray(payload?.data) && payload.data.length > 0;
+if (aggregatorResult.status === "fetched" && !aggregatorValid) {
+  await recordSourceHealth({
+    ...aggregatorSource, status: "invalid_response",
+    error: "OpenRouter response did not contain a non-empty data array.",
+  });
 }
 
 const providerMap = {
@@ -130,7 +135,7 @@ const aggregatorQuotes = payload?.data?.flatMap((model) => {
   }];
 });
 
-const retainedAggregatorQuotes = aggregatorResult.status === "fetched"
+const retainedAggregatorQuotes = aggregatorValid
   ? aggregatorQuotes
   : (previousOutput?.aggregatorQuotes ?? []);
 
@@ -139,8 +144,8 @@ await writeJsonAtomic("public/data/refresh-candidates/api-pricing.json", {
   observedAt,
   officialSources,
   aggregatorQuotes: retainedAggregatorQuotes,
-  aggregatorStatus: aggregatorResult.status,
-  aggregatorError: aggregatorResult.error ?? null,
+  aggregatorStatus: aggregatorValid ? "fetched" : (aggregatorResult.status === "fetched" ? "invalid_response" : aggregatorResult.status),
+  aggregatorError: aggregatorResult.error ?? (aggregatorValid ? null : "OpenRouter response did not contain a non-empty data array."),
   limitations: [
     "Official source price mentions are evidence only and are not automatically mapped to catalogue pricing records.",
     "OpenRouter rates are aggregator-specific and must not be presented as direct provider list prices.",
