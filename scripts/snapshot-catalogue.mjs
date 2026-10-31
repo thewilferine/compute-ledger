@@ -36,9 +36,12 @@ async function listSnapshots() {
 }
 
 const rawCatalogue = await readJson(cataloguePath);
-const catalogue = datasetSchema.parse(rawCatalogue);
-validateCatalogueRelationships(catalogue);
+const validatedCatalogue = datasetSchema.parse(rawCatalogue);
+validateCatalogueRelationships(validatedCatalogue);
 
+// Keep the original payload in history so fields added ahead of the app schema
+// are not silently stripped from an otherwise valid snapshot.
+const catalogue = rawCatalogue;
 const contentHash = hashCatalogue(catalogue);
 const existingSnapshots = await listSnapshots();
 const previousEntry = existingSnapshots.at(-1);
