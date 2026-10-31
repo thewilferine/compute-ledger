@@ -47,3 +47,12 @@ API price records represent a specific published tier and effective period. The 
 For Anthropic, cache writes, cache reads, batch discounts and data-residency multipliers can stack. For xAI, long-context rates apply to all prompt tokens once the request crosses the published threshold. For Google, introductory prices can have a scheduled end date. For DeepSeek, peak and off-peak periods are provider-defined UTC windows. These modifiers should be applied only when the workload and endpoint meet the provider's published conditions.
 
 A historical observation is never overwritten when a rate changes. The previous record should be closed with an effective-to date and a new observation added with its own source and observation date. API list prices remain commercial prices, not estimates of internal serving cost.
+
+
+## Consumer subscription observations
+
+Subscription records are retail price observations, not recognised revenue or inference budgets. Each observation preserves the advertised currency, region, billing period and date. An annual plan records the amount billed for the year; any monthly equivalent is a simple division by twelve and does not imply monthly billing. Regional taxes, app-store pricing, promotions and exchange rates can change the checkout amount.
+
+Usage policy is recorded separately from price and model access. The catalogue distinguishes dynamic limits, published relative tier multipliers, shared usage pools and cases where a limit has not been published. A multiplier such as 5× Pro is not a token quota. A shared pool is not a count of equivalent requests: compute-intensive features can consume more capacity than simple chat. Where a provider does not publish a fixed allowance, the project must not invent one. Model access summaries are deliberately high-level and retain provider caveats about availability, rollout and account-specific eligibility.
+
+The current subscription snapshot covers selected individual plans from OpenAI, Anthropic, Google and xAI. It is not a complete list of every region, promotion, legacy plan or consumer AI service. Prices and policies should be rechecked against the linked primary source before being used in a current commercial comparison.
