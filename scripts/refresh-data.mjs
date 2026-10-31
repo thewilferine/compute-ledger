@@ -1,4 +1,5 @@
-import { appendFile, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
+import { appendFile } from "node:fs/promises";
 import { spawnSync } from "node:child_process";
 import { datasetSchema } from "../src/data/schema.ts";
 import { validateCatalogueRelationships } from "./lib/catalogue-history.mjs";
@@ -55,8 +56,11 @@ if (process.env.GITHUB_STEP_SUMMARY) {
   await appendFile(process.env.GITHUB_STEP_SUMMARY, `${summary}\n`);
 }
 if (process.env.GITHUB_OUTPUT) {
+  const diff = spawnSync("git", ["diff", "--quiet", "--", "public/data"], { stdio: "ignore" });
+  if (diff.error) throw diff.error;
+  const hasChanges = diff.status === 1;
   await appendFile(
     process.env.GITHUB_OUTPUT,
-    `summary<<COMPUTE_LEDGER_SUMMARY\n${summary}\nCOMPUTE_LEDGER_SUMMARY\n`,
+    `has-changes=${hasChanges}\nsummary<<COMPUTE_LEDGER_SUMMARY\n${summary}\nCOMPUTE_LEDGER_SUMMARY\n`,
   );
 }
