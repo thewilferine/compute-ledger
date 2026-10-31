@@ -7,6 +7,7 @@ import {
   REFRESH_DOMAINS,
   formatRefreshSummary,
   selectRefreshDomains,
+  summarizeSourceHealth,
 } from "./lib/data-refresh.mjs";
 
 function validateCatalogue() {
@@ -20,6 +21,7 @@ const domains = selectRefreshDomains(selection);
 validateCatalogue();
 
 const results = [];
+const collectorFailures = [];
 for (const domain of domains) {
   const definition = REFRESH_DOMAINS[domain];
   if (definition.status === "manual-review") {
@@ -41,19 +43,30 @@ for (const domain of domains) {
     encoding: "utf8",
     stdio: "inherit",
   });
-  if (run.error) throw run.error;
-  if (run.status !== 0) {
-    throw new Error(`${definition.label} collector failed with exit code ${run.status ?? "unknown"}.`);
+  if (run.error || run.status !== 0) {
+    const reason = run.error?.message ?? `exit code ${run.status ?? "unknown"}`;
+    const details = `Collector failed (${reason}). Source registry entries, if present, reflect the last recorded source attempts and may not represent this run.`;
+    results.push({ label: definition.label, status: "Collector failed", details });
+    collectorFailures.push(`${definition.label}: ${reason}`);
+    continue;
   }
-  let details = `Source: ${definition.source}. Output: ${definition.output.join(", ")}.`;
+
+  const registry = JSON.parse(readFileSync("public/data/refresh-candidates/source-registry.json", "utf8"));
+  const sourceHealth = summarizeSourceHealth(domain, registry.sources);
+  let details = `${sourceHealth.details} Source: ${definition.source}. Output: ${definition.output.join(", ")}.`;
   if (domain === "exchange-rates") {
     const current = JSON.parse(readFileSync(definition.output[0], "utf8"));
     const currencies = Object.keys(current.rates).filter((currency) =>
       previousOutput?.rates?.[currency] !== current.rates[currency],
     );
-    details = `${current.source} (${current.sourceUrl}); reference date: ${previousOutput?.date ?? "initial"} → ${current.date}; changed currencies: ${currencies.length ? currencies.join(", ") : "none"}.`;
+    details += ` Reference date: ${previousOutput?.date ?? "initial"} → ${current.date}; changed currencies: ${currencies.length ? currencies.join(", ") : "none"}.`;
   }
-  results.push({ label: definition.label, status: "Updated successfully", details });
+  results.push({
+    label: definition.label,
+    status: sourceHealth.status,
+    details,
+    sourceHealth,
+  });
 }
 
 validateCatalogue();
@@ -73,4 +86,8 @@ if (process.env.GITHUB_OUTPUT) {
     process.env.GITHUB_OUTPUT,
     `has-changes=${hasChanges}\nsummary<<COMPUTE_LEDGER_SUMMARY\n${summary}\nCOMPUTE_LEDGER_SUMMARY\n`,
   );
+}
+
+if (collectorFailures.length > 0) {
+  throw new Error(`One or more data collectors failed: ${collectorFailures.join("; ")}`);
 }
