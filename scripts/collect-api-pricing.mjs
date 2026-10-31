@@ -13,6 +13,10 @@ const catalogue = JSON.parse(await readFile("public/data/catalogue.json", "utf8"
 const sourceById = new Map(catalogue.sources.map((source) => [source.id, source]));
 const pricingSourceIds = [...new Set(catalogue.apiPricing.map((price) => price.sourceId))];
 const observedAt = new Date().toISOString().slice(0, 10);
+const previousOutput = await readFile("public/data/refresh-candidates/api-pricing.json", "utf8")
+  .then((value) => JSON.parse(value))
+  .catch((error) => error.code === "ENOENT" ? null : Promise.reject(error));
+const previousOfficialBySourceId = new Map((previousOutput?.officialSources ?? []).map((item) => [item.sourceId, item]));
 
 // Capture the official pricing documentation as source evidence. Generic
 // currency extraction is deliberately not treated as a model/price mapping.
@@ -52,7 +56,13 @@ for (const sourceId of pricingSourceIds) {
       sourceUrl: source.url, observedAt, status: fetched.status,
       contentType: null, pageCharacters: null, priceMentions: [],
       error: fetched.error, reviewRequired: true,
-      reviewReason: "Source retrieval failed. No pricing conclusions can be drawn; existing catalogue values remain unchanged.",
+      lastKnownGoodObservation: previousOfficialBySourceId.get(sourceId) ? {
+        observedAt: previousOfficialBySourceId.get(sourceId).observedAt,
+        contentType: previousOfficialBySourceId.get(sourceId).contentType,
+        pageCharacters: previousOfficialBySourceId.get(sourceId).pageCharacters,
+        priceMentions: previousOfficialBySourceId.get(sourceId).priceMentions,
+      } : null,
+      reviewReason: "Source retrieval failed. No pricing conclusions can be drawn; the last successful observation is retained separately for context.",
     });
     continue;
   }
@@ -75,9 +85,6 @@ for (const sourceId of pricingSourceIds) {
 
 // OpenRouter's public catalogue provides machine-readable per-model rates.
 // Keep these in a separate dataset: aggregator rates are not provider list prices.
-const previousOutput = await readFile("public/data/refresh-candidates/api-pricing.json", "utf8")
-  .then((value) => JSON.parse(value))
-  .catch((error) => error.code === "ENOENT" ? null : Promise.reject(error));
 const aggregatorSource = {
   id: "openrouter-model-pricing", url: "https://openrouter.ai/api/v1/models",
   publisher: "OpenRouter", domain: "api-pricing", strategy: "official-json-api",
