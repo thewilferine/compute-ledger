@@ -40,6 +40,11 @@ export const subscriptionPlanSchema = z.object({
   observedAt: z.string().date(),
   sources: z.array(z.string()).min(1),
   notes: z.string().optional(),
+  usageLimitType: z.enum(["dynamic", "tier-multiplier", "shared-pool", "not-published"]).optional(),
+  usageMultiplier: z.number().positive().optional(),
+  usageLimitSummary: z.string().optional(),
+  usageResetCadence: z.string().optional(),
+  accessSummary: z.string().optional(),
 });
 
 export const apiPricingSchema = z.object({
