@@ -96,7 +96,7 @@ export async function recordSourceHealth({
     lastSuccessfulAt: status === "fetched" ? checkedAt : (previous?.lastSuccessfulAt ?? null),
     status,
     lastError: error,
-    consecutiveFailures: status === "fetched" ? 0 : (previous?.consecutiveFailures ?? 0) + 1,
+    consecutiveFailures: status === "fetched" ? 0 : status === "manual_review" ? (previous?.consecutiveFailures ?? 0) : (previous?.consecutiveFailures ?? 0) + 1,
   };
   const sources = registry.sources.filter((item) => item.id !== id);
   sources.push(entry);
