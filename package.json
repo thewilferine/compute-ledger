@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "typecheck": "tsc -b --pretty",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "history:snapshot": "node --experimental-strip-types scripts/snapshot-catalogue.mjs"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
