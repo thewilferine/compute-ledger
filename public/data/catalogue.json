@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-31T23:00:00.000Z",
+  "updatedAt": "2026-10-31T23:30:00.000Z",
   "sources": [
     {
       "id": "openai-plus",
@@ -23,8 +23,8 @@
       "title": "Google AI Pro subscriptions",
       "publisher": "Google",
       "url": "https://gemini.google/gi/subscriptions/?hl=en-GB",
-      "accessedAt": "2026-10-30",
-      "notes": "UK pricing page lists Google AI Pro at GBP £15.49/month at time of access."
+      "accessedAt": "2026-10-31",
+      "notes": "UK subscription page lists Google AI Plus at £4.49/month, AI Pro at £15.49/month, and AI Ultra at £78.99 or £154.99/month. Ultra offers 5x or 20x AI Pro usage limits; regional and offer conditions apply."
     },
     {
       "id": "deepseek-api",
@@ -686,7 +686,11 @@
       "sources": [
         "openai-plus"
       ],
-      "notes": "Web price stated by OpenAI; taxes, local currency and app-store pricing may differ. API usage is billed separately."
+      "notes": "Web price stated by OpenAI; taxes, local currency and app-store pricing may differ. API usage is billed separately.",
+      "usageLimitType": "dynamic",
+      "usageLimitSummary": "Higher model and tool limits than Free, but message caps can vary with demand and model. No fixed monthly token quota is published.",
+      "usageResetCadence": "Model-specific caps and reset timing are shown in ChatGPT when applicable.",
+      "accessSummary": "Advanced reasoning models, expanded uploads, image generation and Deep Research; model availability can vary by account and rollout."
     },
     {
       "id": "claude-pro-usd",
@@ -698,9 +702,14 @@
       "region": "United States",
       "observedAt": "2026-10-30",
       "sources": [
-        "claude-pro"
+        "claude-pro",
+        "anthropic-subscription-plans"
       ],
-      "notes": "US list price. Local pricing varies. API usage is separate."
+      "notes": "US list price. Local pricing varies. API usage is separate.",
+      "usageLimitType": "dynamic",
+      "usageLimitSummary": "Five-hour session limits plus a weekly limit across models. Capacity varies with prompt length, context, model and features.",
+      "usageResetCadence": "Five-hour session reset and fixed weekly reset.",
+      "accessSummary": "More Claude models, Claude Code and expanded feature access; exact message capacity varies by workload."
     },
     {
       "id": "google-ai-pro-gbp",
@@ -712,9 +721,15 @@
       "region": "United Kingdom",
       "observedAt": "2026-10-30",
       "sources": [
-        "google-ai-pro"
+        "google-ai-pro",
+        "google-gemini-usage"
       ],
-      "notes": "UK price displayed on Google's subscriptions page at time of access."
+      "notes": "UK price displayed on Google's subscriptions page at time of access.",
+      "usageLimitType": "tier-multiplier",
+      "usageMultiplier": 4,
+      "usageLimitSummary": "Google states 4× higher Gemini usage access than the free tier. Limits are compute-based, not a fixed prompt count.",
+      "usageResetCadence": "Refreshes every five hours until the weekly cap is reached.",
+      "accessSummary": "Gemini 4 Argon, Pro and Flash models, Deep Research, video features and Google app integrations."
     },
     {
       "id": "chatgpt-pro-100-usd",
