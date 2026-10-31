@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ArrowUpRight, Info, SlidersHorizontal } from "lucide-react";
 import type { Dataset, SubscriptionPlan } from "./data/schema";
 import exchangeRateSnapshot from "../public/data/exchange-rates.json";
@@ -27,6 +27,23 @@ function monthlyPrice(plan: SubscriptionPlan) {
   return plan.billingPeriod === "annual" ? plan.price / 12 : plan.price;
 }
 
+const EURO_REGIONS = new Set([
+  "AT", "BE", "CY", "DE", "EE", "ES", "FI", "FR", "GR", "HR",
+  "IE", "IT", "LT", "LU", "LV", "MT", "NL", "PT", "SI", "SK",
+]);
+
+export function defaultCurrencyForLocale(locale: string): "GBP" | "USD" | "EUR" {
+  try {
+    const region = new Intl.Locale(locale).maximize().region;
+    if (region === "GB") return "GBP";
+    if (region === "US") return "USD";
+    if (region && EURO_REGIONS.has(region)) return "EUR";
+  } catch {
+    // Invalid or unavailable browser locale: use the site's UK-friendly fallback.
+  }
+  return "GBP";
+}
+
 function formatMoney(value: number, currency: string) {
   return new Intl.NumberFormat("en-GB", { style: "currency", currency, maximumFractionDigits: 2 }).format(value);
 }
@@ -42,6 +59,10 @@ function convertCurrency(value: number, from: string, to: string) {
 export default function ValueExplorer({ dataset }: { dataset: Dataset }) {
   const currencies = [...new Set(["GBP", "USD", "EUR", ...dataset.subscriptionPlans.map((plan) => plan.currency)])].filter((code) => exchangeRateSnapshot.rates[code as keyof typeof exchangeRateSnapshot.rates] !== undefined).sort();
   const [currency, setCurrency] = useState("GBP");
+
+  useEffect(() => {
+    if (typeof navigator !== "undefined") setCurrency(defaultCurrencyForLocale(navigator.language));
+  }, []);
   const [profile, setProfile] = useState<Profile>("everyday");
   const [budget, setBudget] = useState(30);
   const [budgetOnly, setBudgetOnly] = useState(false);
