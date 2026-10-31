@@ -23,7 +23,13 @@ describe("Compute Ledger app", () => {
     expect(catalogue.providers.some((provider) => provider.id === "meta")).toBe(true);
     expect(catalogue.providers.some((provider) => provider.id === "moonshot")).toBe(true);
     expect(catalogue.providers.some((provider) => provider.id === "zai")).toBe(true);
-    expect(catalogue.models.length).toBeGreaterThanOrEqual(20);
+    expect(catalogue.models.length).toBeGreaterThanOrEqual(26);
+    expect(catalogue.models.some((model) => model.id === "gpt-6-rosalind" && model.positioning === "specialist")).toBe(true);
+    expect(catalogue.models.some((model) => model.id === "gemini-3-8-flash" && model.apiModelId === "gemini-3.8-flash")).toBe(true);
+    expect(catalogue.models.some((model) => model.id === "glm-5-3-flash" && model.contextWindowTokens === 1048576)).toBe(true);
+    expect(catalogue.models.some((model) => model.id === "muse-wonder")).toBe(true);
+    expect(new Set(catalogue.models.map((model) => model.id)).size).toBe(catalogue.models.length);
+    expect(catalogue.models.filter((model) => model.providerId === "deepseek" && model.name === "DeepSeek-V4.1-Flash-1017")).toHaveLength(1);
     expect(catalogue.apiPricing.length).toBeGreaterThanOrEqual(30);
     expect(catalogue.models.find((model) => model.id === "gpt-6-astra")?.apiModelId).toBe("gpt-6-astra");
     expect(catalogue.models.find((model) => model.id === "grok-4-7")?.contextWindowTokens).toBe(500000);
