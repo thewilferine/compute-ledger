@@ -72,3 +72,50 @@ describe("Compute Ledger app", () => {
     expect(html).toContain("Calculator");
   });
 });
+
+
+describe("API list-price equivalent calculation", () => {
+  it("prices uncached input, cached input and output separately", async () => {
+    const { estimateApiEquivalent } = await import("./calculations/api-equivalent");
+    const result = estimateApiEquivalent({
+      inputTokensPerRequest: 1000,
+      outputTokensPerRequest: 500,
+      requestsPerMonth: 10,
+      cachedInputShare: 0.5,
+      inputPerMillion: 2,
+      cachedInputPerMillion: 0.2,
+      outputPerMillion: 10,
+    });
+    expect(result.totalInputTokens).toBe(10000);
+    expect(result.cachedInputTokens).toBe(5000);
+    expect(result.uncachedInputTokens).toBe(5000);
+    expect(result.totalCost).toBeCloseTo(0.061);
+    expect(result.usedPublishedCacheRate).toBe(true);
+  });
+
+  it("does not invent a cache discount when the provider publishes none", async () => {
+    const { estimateApiEquivalent } = await import("./calculations/api-equivalent");
+    const result = estimateApiEquivalent({
+      inputTokensPerRequest: 1000,
+      outputTokensPerRequest: 0,
+      requestsPerMonth: 1,
+      cachedInputShare: 0.5,
+      inputPerMillion: 2,
+      outputPerMillion: 10,
+    });
+    expect(result.totalCost).toBeCloseTo(0.002);
+    expect(result.usedPublishedCacheRate).toBe(false);
+  });
+
+  it("rejects invalid cache shares", async () => {
+    const { estimateApiEquivalent } = await import("./calculations/api-equivalent");
+    expect(() => estimateApiEquivalent({
+      inputTokensPerRequest: 1000,
+      outputTokensPerRequest: 500,
+      requestsPerMonth: 10,
+      cachedInputShare: 1.2,
+      inputPerMillion: 2,
+      outputPerMillion: 10,
+    })).toThrow("Cached input share must be between zero and one.");
+  });
+});
