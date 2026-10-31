@@ -32,24 +32,28 @@ function formatMoney(value: number, currency: string) {
 
 export default function ValueExplorer({ dataset }: { dataset: Dataset }) {
   const currencies = [...new Set(dataset.subscriptionPlans.map((plan) => plan.currency))].sort();
-  const [currency, setCurrency] = useState(currencies.includes("GBP") ? "GBP" : currencies[0] ?? "USD");
+  const [currency, setCurrency] = useState("ALL");
   const [profile, setProfile] = useState<Profile>("everyday");
   const [budget, setBudget] = useState(30);
   const [budgetOnly, setBudgetOnly] = useState(false);
 
   const plans = useMemo(() => {
     const matching = dataset.subscriptionPlans
-      .filter((plan) => plan.currency === currency)
-      .filter((plan) => !budgetOnly || monthlyPrice(plan) <= budget)
-      .sort((a, b) => monthlyPrice(a) - monthlyPrice(b));
+      .filter((plan) => currency === "ALL" || plan.currency === currency)
+      .filter((plan) => currency === "ALL" || !budgetOnly || monthlyPrice(plan) <= budget)
+      .sort((a, b) => a.currency.localeCompare(b.currency) || monthlyPrice(a) - monthlyPrice(b));
 
     return matching;
   }, [dataset.subscriptionPlans, currency, budget, budgetOnly]);
 
-  const cheapest = plans.length ? Math.min(...plans.map(monthlyPrice)) : undefined;
+  const cheapestByCurrency = new Map<string, number>();
+  for (const plan of plans) {
+    const current = cheapestByCurrency.get(plan.currency);
+    if (current === undefined || monthlyPrice(plan) < current) cheapestByCurrency.set(plan.currency, monthlyPrice(plan));
+  }
   const highestTierByProvider = new Map<string, number>();
   for (const plan of dataset.subscriptionPlans) {
-    if (plan.currency !== currency || plan.usageLimitType !== "tier-multiplier" || plan.usageMultiplier === undefined) continue;
+    if ((currency !== "ALL" && plan.currency !== currency) || plan.usageLimitType !== "tier-multiplier" || plan.usageMultiplier === undefined) continue;
     highestTierByProvider.set(plan.providerId, Math.max(highestTierByProvider.get(plan.providerId) ?? 0, plan.usageMultiplier));
   }
 
@@ -77,14 +81,14 @@ export default function ValueExplorer({ dataset }: { dataset: Dataset }) {
           </div>
           <div className="mt-5">
             <label className="mb-2 block text-xs text-slate-400" htmlFor="value-currency">Price currency</label>
-            <select id="value-currency" value={currency} onChange={(event) => setCurrency(event.target.value)} className="w-full rounded-lg border border-white/10 bg-[#090c12] px-3 py-2.5 text-sm text-white">
-              {currencies.map((item) => <option key={item} value={item}>{item}</option>)}
+            <select id="value-currency" value={currency} onChange={(event) => { setCurrency(event.target.value); if (event.target.value === "ALL") setBudgetOnly(false); }} className="w-full rounded-lg border border-white/10 bg-[#090c12] px-3 py-2.5 text-sm text-white">
+              <option value="ALL">All currencies</option>{currencies.map((item) => <option key={item} value={item}>{item}</option>)}
             </select>
           </div>
           <div className="mt-5">
-            <label className="mb-2 flex items-center justify-between text-xs text-slate-400" htmlFor="value-budget"><span>Monthly budget filter</span><span className="text-slate-200">{formatMoney(budget, currency)}</span></label>
-            <input id="value-budget" type="number" min="0" step="1" value={budget} onChange={(event) => setBudget(Math.max(0, Number(event.target.value)))} className="w-full rounded-lg border border-white/10 bg-[#090c12] px-3 py-2.5 text-sm text-white"/>
-            <label className="mt-3 flex items-center gap-2 text-xs text-slate-400"><input type="checkbox" checked={budgetOnly} onChange={(event) => setBudgetOnly(event.target.checked)} className="accent-teal-300"/> Only show plans within this budget</label>
+            <label className="mb-2 flex items-center justify-between text-xs text-slate-400" htmlFor="value-budget"><span>Monthly budget filter</span><span className="text-slate-200">{currency === "ALL" ? "Select one currency" : formatMoney(budget, currency)}</span></label>
+            <input id="value-budget" type="number" min="0" step="1" disabled={currency === "ALL"} value={budget} onChange={(event) => setBudget(Math.max(0, Number(event.target.value)))} className="w-full rounded-lg border border-white/10 bg-[#090c12] px-3 py-2.5 text-sm text-white"/>
+            <label className="mt-3 flex items-center gap-2 text-xs text-slate-400"><input type="checkbox" checked={budgetOnly} disabled={currency === "ALL"} onChange={(event) => setBudgetOnly(event.target.checked)} className="accent-teal-300"/> Only show plans within this budget</label>
           </div>
           <div className="mt-6 rounded-xl border border-white/[0.07] bg-white/[0.025] p-4">
             <h3 className="text-sm font-medium text-white">{profileCopy[profile].title}</h3>
@@ -95,7 +99,7 @@ export default function ValueExplorer({ dataset }: { dataset: Dataset }) {
 
         <section>
           <div className="mb-4 flex flex-wrap items-end justify-between gap-2">
-            <div><h2 className="text-sm font-semibold text-white">Available plans</h2><p className="mt-1 text-xs text-slate-500">Sorted by monthly-equivalent price · {currency}</p></div>
+            <div><h2 className="text-sm font-semibold text-white">Available plans</h2><p className="mt-1 text-xs text-slate-500">{currency === "ALL" ? "Grouped by currency, then sorted by monthly-equivalent price" : `Sorted by monthly-equivalent price · ${currency}`}</p></div>
             <span className="text-xs text-slate-500">{plans.length} matching {plans.length === 1 ? "plan" : "plans"}</span>
           </div>
           {plans.length === 0 ? <div className="rounded-2xl border border-white/[0.08] bg-white/[0.025] p-8 text-center text-sm text-slate-400">No plans match this currency and budget. Increase the budget or choose another currency.</div> : <div className="space-y-3">
@@ -103,14 +107,14 @@ export default function ValueExplorer({ dataset }: { dataset: Dataset }) {
               const provider = dataset.providers.find((item) => item.id === plan.providerId);
               const source = dataset.sources.find((item) => item.id === plan.sources[0]);
               const monthly = monthlyPrice(plan);
-              const isCheapest = monthly === cheapest;
+              const isCheapest = monthly === cheapestByCurrency.get(plan.currency);
               const isHighestTier = plan.usageLimitType === "tier-multiplier" && plan.usageMultiplier !== undefined && plan.usageMultiplier === highestTierByProvider.get(plan.providerId);
               const usageLabel = plan.usageLimitType === "tier-multiplier" && plan.usageMultiplier ? `${plan.usageMultiplier}× provider tier` : plan.usageLimitType === "shared-pool" ? "Shared usage pool" : plan.usageLimitType === "dynamic" ? "Dynamic limits" : "Limit not published";
               return (
                 <article key={plan.id} className="rounded-2xl border border-white/[0.08] bg-white/[0.025] p-5">
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div><p className="text-xs text-slate-500">{provider?.name ?? "Provider"}</p><h3 className="mt-1 text-base font-semibold text-white">{plan.name}</h3><p className="mt-1 text-xs text-slate-500">{plan.region} · observed {plan.observedAt}</p></div>
-                    <div className="text-right"><p className="text-xl font-semibold text-white">{formatMoney(monthly, currency)}<span className="text-xs font-normal text-slate-500"> / mo</span></p>{plan.billingPeriod === "annual" && <p className="mt-1 text-[10px] text-slate-500">Billed {formatMoney(plan.price, currency)} annually</p>}</div>
+                    <div className="text-right"><p className="text-xl font-semibold text-white">{formatMoney(monthly, plan.currency)}<span className="text-xs font-normal text-slate-500"> / mo</span></p>{plan.billingPeriod === "annual" && <p className="mt-1 text-[10px] text-slate-500">Billed {formatMoney(plan.price, plan.currency)} annually</p>}</div>
                   </div>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {isCheapest && <span className="rounded-full border border-teal-300/20 bg-teal-300/[0.07] px-2.5 py-1 text-[10px] text-teal-200">Lowest-priced in this view</span>}
@@ -131,7 +135,7 @@ export default function ValueExplorer({ dataset }: { dataset: Dataset }) {
           </div>}
           <div className="mt-4 flex gap-2 rounded-xl border border-amber-300/15 bg-amber-300/[0.04] p-4 text-xs leading-5 text-slate-400">
             <Info size={15} className="mt-0.5 shrink-0 text-amber-200"/>
-            <p>There is no defensible universal value score yet. Providers publish different kinds of limits, and a 5× tier at one provider cannot be compared directly with another provider's 5× tier. This view compares prices in one currency and exposes the plan terms so you can make an informed choice. Check source links before subscribing; prices and limits change.</p>
+            <p>There is no defensible universal value score yet. Providers publish different kinds of limits, and a 5× tier at one provider cannot be compared directly with another provider's 5× tier. All currencies are shown by default and are grouped separately, not converted or compared as if they were equivalent. Select one currency to use the monthly budget filter. Check source links before subscribing; prices and limits change.</p>
           </div>
         </section>
       </div>
