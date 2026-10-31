@@ -38,6 +38,10 @@ describe("Compute Ledger app", () => {
       expect(sourceIds.has(price.sourceId)).toBe(true);
       expect(price.inputPerMillion).toBeGreaterThanOrEqual(0);
       expect(price.outputPerMillion).toBeGreaterThanOrEqual(0);
+      if (price.cachedInputPerMillion !== undefined) expect(price.cachedInputPerMillion).toBeGreaterThanOrEqual(0);
+      if (price.cacheWrite5mPerMillion !== undefined) expect(price.cacheWrite5mPerMillion).toBeGreaterThanOrEqual(0);
+      if (price.cacheWrite1hPerMillion !== undefined) expect(price.cacheWrite1hPerMillion).toBeGreaterThanOrEqual(0);
+      if (price.effectiveFrom && price.effectiveTo) expect(price.effectiveFrom <= price.effectiveTo).toBe(true);
     }
     for (const plan of catalogue.subscriptionPlans) {
       expect(providerIds.has(plan.providerId)).toBe(true);
