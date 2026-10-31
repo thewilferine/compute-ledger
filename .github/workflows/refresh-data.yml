@@ -56,13 +56,14 @@ jobs:
       - name: Build
         run: npm run build
       - name: Create or update data refresh pull request
+        if: steps.refresh.outputs.has-changes == 'true'
         uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676
         with:
           token: ${{ github.token }}
           branch: automation/data-refresh
           delete-branch: true
           add-paths: |
-            public/data/exchange-rates.json
+            public/data/**
           commit-message: "chore(data): refresh verified source data"
           title: "chore(data): refresh verified catalogue data"
           body: |
