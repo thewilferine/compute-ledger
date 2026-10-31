@@ -1,5 +1,5 @@
 import { readFile } from "node:fs/promises";
-import { benchmarkResultSchema } from "../src/data/schema.ts";
+import { benchmarkDatasetSchema, benchmarkResultSchema } from "../src/data/schema.ts";
 import { fetchJson, writeJsonAtomic } from "./lib/refresh-io.mjs";
 
 const catalogue = JSON.parse(await readFile("public/data/catalogue.json", "utf8"));
@@ -47,7 +47,7 @@ for (const benchmark of benchmarkSources) {
       catalogueModelId: mappedModelId,
       score: row.value,
       scoreUnit: "percent",
-      higherIsBetter: row.lower_is_better === false,
+      ...(typeof row.lower_is_better === "boolean" ? { higherIsBetter: !row.lower_is_better } : {}),
       evaluationDate: null,
       observedAt,
       sourceUrl: row.source?.url ?? `https://huggingface.co/${row.modelId}`,
@@ -65,11 +65,12 @@ for (const benchmark of benchmarkSources) {
 
 if (results.length === 0) throw new Error("No benchmark result rows were returned by the configured public leaderboards.");
 
-await writeJsonAtomic("public/data/benchmarks.json", {
+const dataset = benchmarkDatasetSchema.parse({
   schemaVersion: 1,
   observedAt,
   source: "Hugging Face public benchmark leaderboard API",
   methodology: "Each benchmark is kept separate. Scores are not combined into an overall model rating. Evaluation dates are left unknown when the source does not provide them.",
   results,
 });
+await writeJsonAtomic("public/data/benchmarks.json", dataset);
 console.log(`Collected ${results.length} benchmark observations across ${benchmarkSources.length} leaderboards.`);
