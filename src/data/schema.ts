@@ -65,6 +65,36 @@ export const apiPricingSchema = z.object({
   effectiveTo: z.string().date().optional(),
 });
 
+export const benchmarkResultSchema = z.object({
+  id: z.string().min(1),
+  benchmarkId: z.string().min(1),
+  benchmarkName: z.string().min(1),
+  modelId: z.string().min(1),
+  modelName: z.string().min(1),
+  catalogueModelId: z.string().min(1).nullable().optional(),
+  score: z.number().finite(),
+  scoreUnit: z.string().min(1),
+  higherIsBetter: z.boolean().optional(),
+  evaluationDate: z.string().date().nullable().optional(),
+  observedAt: z.string().date(),
+  sourceUrl: z.string().url(),
+  leaderboardUrl: z.string().url(),
+  methodologyUrl: z.string().url().optional(),
+  verified: z.boolean(),
+  resultStatus: z.enum(["verified", "unverified"]),
+  notes: z.string().nullable().optional(),
+  submissionFile: z.string().nullable().optional(),
+  sourceDatasetId: z.string().min(1),
+});
+
+export const benchmarkDatasetSchema = z.object({
+  schemaVersion: z.literal(1),
+  observedAt: z.string().date(),
+  source: z.string().min(1),
+  methodology: z.string().min(1),
+  results: z.array(benchmarkResultSchema),
+});
+
 export const datasetSchema = z.object({
   schemaVersion: z.literal(1),
   updatedAt: z.string().datetime(),
