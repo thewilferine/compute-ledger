@@ -20,7 +20,7 @@ These categories must remain distinguishable in the UI and data model.
 
 The Value Explorer is intentionally evidence-led rather than score-led:
 
-1. Plans are compared only within the selected currency. A currency conversion must not be implied without a dated, cited exchange rate.
+1. All subscription prices are converted into the selected display currency using the latest committed European Central Bank reference-rate snapshot, distributed through Frankfurter. The rate date and source are disclosed in the Value Explorer, and the provider's original advertised price remains visible. Converted prices are estimates, not checkout quotes or regional prices.
 2. Annual plans are displayed using the arithmetic monthly equivalent (annual price divided by twelve), while the actual annual amount billed remains visible.
 3. Plans are ordered by monthly-equivalent price. A budget filter can narrow the list.
 4. Usage-limit descriptions are shown as published: dynamic limits, provider-relative tier multipliers, shared pools and unpublished limits remain distinct.
@@ -45,7 +45,7 @@ The API-equivalent calculator uses a user-defined monthly workload and a selecte
 - Uncached input tokens = total input tokens − cached input tokens
 - API-equivalent price = (uncached input × input rate + cached input × cache-read rate + output input × output rate) ÷ 1,000,000
 
-If a provider has not published a separate cache-read rate for the selected tier, cached input is priced at the standard input rate rather than assuming an undocumented discount. Cache writes, tools and non-token modalities are excluded unless explicitly represented. The calculator only offers price observations effective on the catalogue snapshot date. It compares plan prices only in the same currency; annual plan fees are divided by twelve for a monthly equivalent.
+If a provider has not published a separate cache-read rate for the selected tier, cached input is priced at the standard input rate rather than assuming an undocumented discount. Cache writes, tools and non-token modalities are excluded unless explicitly represented. The calculator only offers price observations effective on the catalogue snapshot date. It compares API and subscription prices only in the same currency; annual plan fees are divided by twelve for a monthly equivalent. The Value Explorer's cross-currency conversion is separate and uses dated ECB reference rates.
 
 API list prices are customer-facing commercial prices, not estimates of internal GPU, memory, power or fleet costs. They can help users compare API and subscription purchasing options, but they do not establish provider cost or profitability.
 
