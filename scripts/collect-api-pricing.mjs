@@ -3,7 +3,6 @@ import {
   extractPriceMentions,
   fetchJsonObserved,
   fetchPageObserved,
-  recordManualSource,
   recordSourceHealth,
   htmlToText,
   writeJsonAtomic,
