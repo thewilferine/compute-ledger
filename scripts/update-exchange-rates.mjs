@@ -3,7 +3,7 @@ import { readFile, writeFile } from "node:fs/promises";
 const catalogue = JSON.parse(await readFile("public/data/catalogue.json", "utf8"));
 const currencies = [...new Set(catalogue.subscriptionPlans.map((plan) => plan.currency))];
 const quotes = [...new Set(["EUR", ...currencies])].join(",");
-const response = await fetch(`https://api.frankfurter.dev/v2/rates?base=EUR&quotes=${quotes}&providers=ECB`);
+const response = await fetch(`https://api.frankfurter.dev/v2/rates?base=EUR&quotes=${quotes.toLowerCase()}&providers=ecb`);
 if (!response.ok) throw new Error(`Exchange-rate request failed: ${response.status} ${response.statusText}`);
 const rows = await response.json();
 if (!Array.isArray(rows) || rows.length === 0) throw new Error("Exchange-rate API returned no rates");
