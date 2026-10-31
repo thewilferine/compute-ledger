@@ -61,11 +61,16 @@ const providerMap = {
   google: "google",
   deepseek: "deepseek",
   xai: "xai",
+  "x-ai": "xai",
   meta: "meta",
+  "meta-llama": "meta",
   mistral: "mistral",
+  mistralai: "mistral",
   qwen: "alibaba",
   moonshotai: "moonshot",
+  "moonshot-ai": "moonshot",
   zai: "zai",
+  "z-ai": "zai",
   nvidia: "nvidia",
 };
 const aggregatorQuotes = payload.data.flatMap((model) => {
