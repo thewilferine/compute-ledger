@@ -114,6 +114,25 @@ export function formatRefreshSummary(results) {
 
   lines.push(
     "",
+    "### Source health",
+    "",
+    "| Domain | Fetched | Source failures | Manual review |",
+    "| --- | ---: | ---: | ---: |",
+  );
+
+  for (const result of results) {
+    if (!result.sourceHealth) continue;
+    const { counts, failures } = result.sourceHealth;
+    const failureSummary = Object.entries(failures).map(([status, count]) =>
+      `${count} ${status.replaceAll("_", " ")}`,
+    ).join(", ") || "none";
+    lines.push(`| ${result.label} | ${counts.fetched}/${counts.total} | ${failureSummary} | ${counts.manualReview} |`);
+  }
+
+  lines.push(
+    "",
+    "Source counts describe the latest recorded retrieval status, not whether extracted commercial data has been independently verified.",
+    "",
     "Collectors only write after successful retrieval and validation. Candidate observations remain separate from canonical catalogue records until reviewed.",
   );
   return lines.join("\n");
