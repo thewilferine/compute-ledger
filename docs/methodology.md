@@ -56,3 +56,12 @@ Subscription records are retail price observations, not recognised revenue or in
 Usage policy is recorded separately from price and model access. The catalogue distinguishes dynamic limits, published relative tier multipliers, shared usage pools and cases where a limit has not been published. A multiplier such as 5× Pro is not a token quota. A shared pool is not a count of equivalent requests: compute-intensive features can consume more capacity than simple chat. Where a provider does not publish a fixed allowance, the project must not invent one. Model access summaries are deliberately high-level and retain provider caveats about availability, rollout and account-specific eligibility.
 
 The current subscription snapshot covers selected individual plans from OpenAI, Anthropic, Google and xAI. It is not a complete list of every region, promotion, legacy plan or consumer AI service. Prices and policies should be rechecked against the linked primary source before being used in a current commercial comparison.
+
+
+## Frontier model catalogue and grouping
+
+The model catalogue is a curated snapshot of publicly announced frontier families and selected adjacent models, not a claim to list every endpoint, checkpoint, modality-specific service or deployment alias. Model entries are linked to provider primary sources wherever available. API model IDs and context windows are only recorded when verified; "not verified" or "not listed" is intentionally preferable to inference or guesswork.
+
+The Compute Ledger's grouping labels—flagship, balanced, efficient, specialist and previous-generation—are editorial categories used to make the catalogue easier to compare. They are not provider-defined tiers, benchmark rankings or claims of equivalent capability. A specialist model may be limited to approved customers or a narrow task domain. Preview and restricted availability must remain visible and must not be treated as general consumer access.
+
+When two provider aliases route to the same underlying model version, the catalogue should retain one canonical model record and document the alias in its notes rather than count the same model twice. API price records must continue to reference that canonical model ID.
