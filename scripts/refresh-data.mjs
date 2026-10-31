@@ -32,6 +32,10 @@ for (const domain of domains) {
   }
 
   const [script, ...args] = definition.command;
+  const previousOutput = definition.output[0] && (() => {
+    try { return JSON.parse(readFileSync(definition.output[0], "utf8")); }
+    catch (error) { if (error.code === "ENOENT") return null; throw error; }
+  })();
   console.log(`Refreshing ${definition.label}...`);
   const run = spawnSync(process.execPath, [script, ...args], {
     encoding: "utf8",
@@ -41,11 +45,15 @@ for (const domain of domains) {
   if (run.status !== 0) {
     throw new Error(`${definition.label} collector failed with exit code ${run.status ?? "unknown"}.`);
   }
-  results.push({
-    label: definition.label,
-    status: "Updated successfully",
-    details: `Source: ${definition.source}. Output: ${definition.output.join(", ")}.`,
-  });
+  let details = `Source: ${definition.source}. Output: ${definition.output.join(", ")}.`;
+  if (domain === "exchange-rates") {
+    const current = JSON.parse(readFileSync(definition.output[0], "utf8"));
+    const currencies = Object.keys(current.rates).filter((currency) =>
+      previousOutput?.rates?.[currency] !== current.rates[currency],
+    );
+    details = `${current.source} (${current.sourceUrl}); reference date: ${previousOutput?.date ?? "initial"} → ${current.date}; changed currencies: ${currencies.length ? currencies.join(", ") : "none"}.`;
+  }
+  results.push({ label: definition.label, status: "Updated successfully", details });
 }
 
 validateCatalogue();
