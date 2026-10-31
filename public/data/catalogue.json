@@ -329,6 +329,14 @@
       "url": "https://help.poe.com/hc/en-us/articles/19945140063636-Poe-Purchases-FAQs",
       "accessedAt": "2026-10-31",
       "notes": "Explains subscription benefits and points, monthly/annual billing, and states paid Poe subscriptions start at USD $4.99/month. Actual plans and points vary by selected tier and platform."
+    },
+    {
+      "id": "perplexity-pricing",
+      "title": "Perplexity plans and pricing",
+      "publisher": "Perplexity",
+      "url": "https://www.perplexity.ai/en-GB/hub",
+      "accessedAt": "2026-10-31",
+      "notes": "Official Perplexity product hub lists Pro at USD $20/month or $200/year; prices and promotions may vary by region and platform."
     }
   ],
   "providers": [
@@ -376,7 +384,8 @@
       "website": "https://www.deepseek.com",
       "sources": [
         "deepseek-api",
-        "deepseek-v41"
+        "deepseek-v41",
+        "deepseek-consumer-app"
       ]
     },
     {
@@ -395,7 +404,8 @@
       "name": "Meta",
       "website": "https://ai.meta.com",
       "sources": [
-        "meta-muse"
+        "meta-muse",
+        "meta-one-consumer"
       ]
     },
     {
@@ -404,7 +414,8 @@
       "website": "https://mistral.ai",
       "sources": [
         "mistral-large-4",
-        "mistral-large-4-docs"
+        "mistral-large-4-docs",
+        "mistral-le-chat-pro"
       ]
     },
     {
@@ -455,7 +466,8 @@
       "website": "https://www.perplexity.ai",
       "sources": [
         "perplexity-consumer-plans",
-        "perplexity-max-billing"
+        "perplexity-max-billing",
+        "perplexity-pricing"
       ]
     },
     {
@@ -1312,7 +1324,8 @@
       "observedAt": "2026-10-31",
       "sources": [
         "perplexity-consumer-plans",
-        "perplexity-max-billing"
+        "perplexity-max-billing",
+        "perplexity-pricing"
       ],
       "usageLimitType": "dynamic",
       "usageLimitSummary": "Expanded access to Pro Search, research, file analysis and advanced models. Usage is governed by plan limits rather than a published token quota.",
@@ -1331,7 +1344,8 @@
       "observedAt": "2026-10-31",
       "sources": [
         "perplexity-consumer-plans",
-        "perplexity-max-billing"
+        "perplexity-max-billing",
+        "perplexity-pricing"
       ],
       "usageLimitType": "dynamic",
       "usageLimitSummary": "Same Pro entitlement tier as monthly billing; feature-specific usage limits apply.",
