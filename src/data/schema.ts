@@ -22,6 +22,7 @@ export const modelSchema = z.object({
   name: z.string().min(1),
   modality: z.array(z.enum(["text", "image", "audio", "video"])),
   contextWindowTokens: z.number().int().positive().optional(),
+  apiModelId: z.string().min(1).optional(),
   sources: z.array(z.string()),
   availability: z.enum(["current", "preview", "previous-generation", "retired"]).optional(),
   releaseDate: z.string().date().optional(),
