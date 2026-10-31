@@ -65,3 +65,17 @@ The model catalogue is a curated snapshot of publicly announced frontier familie
 The Compute Ledger's grouping labels—flagship, balanced, efficient, specialist and previous-generation—are editorial categories used to make the catalogue easier to compare. They are not provider-defined tiers, benchmark rankings or claims of equivalent capability. A specialist model may be limited to approved customers or a narrow task domain. Preview and restricted availability must remain visible and must not be treated as general consumer access.
 
 When two provider aliases route to the same underlying model version, the catalogue should retain one canonical model record and document the alias in its notes rather than count the same model twice. API price records must continue to reference that canonical model ID.
+
+
+## API list-price workload comparison
+
+The API-equivalent calculator uses a user-defined monthly workload and a selected published API price tier. It calculates:
+
+- Total input tokens = input tokens per request × requests per month
+- Cached input tokens = total input tokens × assumed cache-hit share
+- Uncached input tokens = total input tokens − cached input tokens
+- API-equivalent cost = (uncached input × input rate + cached input × cache-read rate + output input × output rate) ÷ 1,000,000
+
+If a provider has not published a separate cache-read rate for the selected tier, cached input is priced at the standard input rate rather than assuming an undocumented discount. Cache writes are excluded from this first version and are explicitly disclosed in the interface. The calculator only offers price observations effective on the catalogue snapshot date. It compares plan prices only in the same currency; annual plan fees are divided by twelve for a monthly equivalent.
+
+This result is a customer-facing API list-price equivalent, not the provider's internal cost. API pricing includes commercial pricing decisions and is not a proxy for GPU, memory, power or fleet cost. The calculator also excludes tools, multimodal charges, taxes, app-store fees, payment processing and any other bundled subscription benefits. It must not be interpreted as subscriber profitability or a measured loss.
