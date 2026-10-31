@@ -25,23 +25,43 @@ for (const [sourceId, linkedPlanIds] of planIdsBySource) {
   const source = sourceById.get(sourceId);
   if (!source) throw new Error(`Subscription source "${sourceId}" is missing from the catalogue.`);
 
-  const { body, contentType } = await fetchPage(source.url);
-  const text = htmlToText(body);
-  const mentions = extractPriceMentions(text);
-
-  observations.push({
+  const baseObservation = {
     sourceId,
     title: source.title,
     publisher: source.publisher,
     sourceUrl: source.url,
     observedAt,
     linkedPlanIds: [...new Set(linkedPlanIds)],
-    contentType,
-    pageCharacters: body.length,
-    priceMentions: mentions,
     reviewRequired: true,
-    reviewReason: "Page text is evidence for human review only; price mentions are not assigned to plans, regions or billing periods automatically.",
-  });
+  };
+
+  try {
+    const { body, contentType } = await fetchPage(source.url);
+    const text = htmlToText(body);
+    const mentions = extractPriceMentions(text);
+
+    observations.push({
+      ...baseObservation,
+      status: "fetched",
+      contentType,
+      pageCharacters: body.length,
+      priceMentions: mentions,
+      reviewReason: "Page text is evidence for human review only; price mentions are not assigned to plans, regions or billing periods automatically.",
+    });
+    console.log(`Fetched subscription source ${sourceId} (${source.url}).`);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    observations.push({
+      ...baseObservation,
+      status: "unavailable",
+      contentType: null,
+      pageCharacters: null,
+      priceMentions: [],
+      error: message,
+      reviewReason: "Source could not be retrieved. No pricing conclusions can be drawn; retry or review the source manually.",
+    });
+    console.warn(`Unable to fetch subscription source ${sourceId}: ${message}`);
+  }
 }
 
 if (observations.length === 0) {
@@ -54,4 +74,6 @@ await writeJsonAtomic("public/data/refresh-candidates/subscriptions.json", {
   source: "Official provider subscription and help pages",
   observations,
 });
-console.log(`Collected ${observations.length} subscription source observations; canonical plan records were not changed.`);
+const fetched = observations.filter((item) => item.status === "fetched").length;
+const unavailable = observations.length - fetched;
+console.log(`Collected ${observations.length} subscription source observations: ${fetched} fetched, ${unavailable} unavailable. Canonical plan records were not changed.`);
