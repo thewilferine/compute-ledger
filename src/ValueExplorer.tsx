@@ -58,7 +58,7 @@ export default function ValueExplorer({ dataset }: { dataset: Dataset }) {
   const cheapestPrice = plans.length ? convertCurrency(monthlyPrice(plans[0]), plans[0].currency, currency) : undefined;
   const highestTierByProvider = new Map<string, number>();
   for (const plan of dataset.subscriptionPlans) {
-    if ((currency !== "ALL" && plan.currency !== currency) || plan.usageLimitType !== "tier-multiplier" || plan.usageMultiplier === undefined) continue;
+    if (plan.usageLimitType !== "tier-multiplier" || plan.usageMultiplier === undefined) continue;
     highestTierByProvider.set(plan.providerId, Math.max(highestTierByProvider.get(plan.providerId) ?? 0, plan.usageMultiplier));
   }
 
