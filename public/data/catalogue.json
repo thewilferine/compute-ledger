@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-31T23:30:00.000Z",
+  "updatedAt": "2026-10-31T23:45:00.000Z",
   "sources": [
     {
       "id": "openai-plus",
       "title": "What is ChatGPT Plus?",
       "publisher": "OpenAI Help Center",
       "url": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
-      "accessedAt": "2026-10-30",
+      "accessedAt": "2026-10-31",
       "notes": "States ChatGPT Plus is USD $20/month. Local app-store and regional prices may differ."
     },
     {
@@ -47,7 +47,7 @@
       "title": "What is the Pro plan?",
       "publisher": "Anthropic Support",
       "url": "https://support.claude.com/en/articles/8325606-what-is-the-pro-plan",
-      "accessedAt": "2026-10-30",
+      "accessedAt": "2026-10-31",
       "notes": "Explains Claude Pro pricing is USD $20/month in the US, local prices vary; API usage is separate."
     },
     {
@@ -244,7 +244,8 @@
         "openai-plus",
         "openai-api",
         "openai-models",
-        "openai-pricing-current"
+        "openai-pricing-current",
+        "openai-pro-tiers"
       ]
     },
     {
@@ -256,7 +257,8 @@
         "claude-pro",
         "anthropic-models",
         "anthropic-system-cards",
-        "anthropic-pricing-current"
+        "anthropic-pricing-current",
+        "anthropic-subscription-plans"
       ]
     },
     {
@@ -266,7 +268,8 @@
       "sources": [
         "google-ai-pro",
         "google-gemini-argon",
-        "google-gemini-api-pricing"
+        "google-gemini-api-pricing",
+        "google-gemini-usage"
       ]
     },
     {
@@ -284,7 +287,9 @@
       "website": "https://x.ai",
       "sources": [
         "xai-grok-docs",
-        "xai-api-pricing"
+        "xai-api-pricing",
+        "xai-subscription-pricing",
+        "xai-subscription-usage"
       ]
     },
     {
