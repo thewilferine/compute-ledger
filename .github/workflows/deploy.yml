@@ -22,12 +22,20 @@ jobs:
       - name: Check out source
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
 
+      # actions/setup-node v4.4.0, pinned to its verified release commit
+      - name: Set up Node.js from package.json
+        id: setup-node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: package.json
+          package-manager-cache: false
+
       # pnpm/setup v3, verified release commit
-      - name: Set up pnpm and Node.js
+      - name: Set up pnpm
         uses: pnpm/setup@fa36a5ef7dcdefc3a7cb25655c122e00cf6e636e
         with:
           version: 12.16.1
-          runtime: node@22.16.0
+          runtime: node@${{ steps.setup-node.outputs.node-version }}
           require-lockfile: true
 
       - name: Type-check and test
