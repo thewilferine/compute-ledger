@@ -8,7 +8,8 @@ describe("Compute Ledger app", () => {
   it("renders the dashboard and project navigation", () => {
     const html = renderToStaticMarkup(<App />);
     expect(html).toContain("Compute Ledger");
-    expect(html).toContain("What does AI really cost to serve?");
+    expect(html).toContain("Which AI subscription gives you the most value?");
+    expect(html).toContain("Value explorer");
     expect(html).toContain("Providers");
     expect(html).toContain("Subscriptions");
     expect(html).toContain("Methodology");
