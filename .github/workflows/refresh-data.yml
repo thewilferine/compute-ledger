@@ -5,6 +5,8 @@ on:
     # ECB reference rates are published on working days. Keep this refresh
     # separate from the less frequent, human-reviewed catalogue domains.
     - cron: "30 16 * * 1-5"
+    # Weekly catalogue discovery and source-observation refresh.
+    - cron: "15 07 * * 1"
   workflow_dispatch:
     inputs:
       domain:
@@ -43,8 +45,10 @@ jobs:
       - name: Refresh selected data domains
         id: refresh
         run: |
-          if [ "${{ github.event_name }}" = "schedule" ]; then
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "${{ github.event.schedule }}" = "30 16 * * 1-5" ]; then
             DOMAIN="exchange-rates"
+          elif [ "${{ github.event_name }}" = "schedule" ]; then
+            DOMAIN="all"
           else
             DOMAIN="${{ inputs.domain || 'all' }}"
           fi

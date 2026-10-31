@@ -84,4 +84,4 @@ Not yet selected.
 
 ## Data refresh automation
 
-Data refreshes run through a reviewed GitHub Actions pipeline. The weekday schedule updates ECB reference exchange rates; other catalogue domains can be selected manually and remain marked for human review until reliable source-specific collectors are available. See [the data refresh documentation](docs/data-refresh.md).
+Data refreshes run through a reviewed GitHub Actions pipeline. ECB rates update on weekdays; subscription source observations, model discovery, API pricing evidence and independent benchmark leaderboards refresh weekly. Machine-collected evidence remains separate from canonical commercial catalogue records until reviewed. See [the data refresh documentation](docs/data-refresh.md).

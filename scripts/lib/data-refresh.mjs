@@ -9,27 +9,35 @@ export const REFRESH_DOMAINS = {
   },
   subscriptions: {
     label: "Consumer subscriptions",
-    cadence: "Manual review until reliable source adapters exist",
-    status: "manual-review",
-    reason: "Regional prices, promotions and usage terms are not consistently available as machine-readable data.",
+    cadence: "Weekly source observation",
+    status: "automated",
+    command: ["scripts/collect-subscriptions.mjs"],
+    output: ["public/data/refresh-candidates/subscriptions.json"],
+    source: "Official provider subscription and help pages",
   },
   models: {
     label: "Model catalogue",
-    cadence: "Manual review until reliable source adapters exist",
-    status: "manual-review",
-    reason: "Provider model directories and lifecycle announcements require source-specific interpretation.",
+    cadence: "Weekly discovery refresh",
+    status: "automated",
+    command: ["scripts/collect-models.mjs"],
+    output: ["public/data/refresh-candidates/models.json"],
+    source: "OpenRouter public model catalogue (discovery only)",
   },
   "api-pricing": {
     label: "API pricing",
-    cadence: "Manual review until reliable source adapters exist",
-    status: "manual-review",
-    reason: "Pricing pages vary by modality, tier, cache policy, region and effective date.",
+    cadence: "Weekly source observation",
+    status: "automated",
+    command: ["scripts/collect-api-pricing.mjs"],
+    output: ["public/data/refresh-candidates/api-pricing.json"],
+    source: "Official provider pricing pages and OpenRouter routed rates",
   },
   benchmarks: {
     label: "Independent benchmarks",
-    cadence: "Manual review",
-    status: "manual-review",
-    reason: "Benchmark results need provenance, methodology and licensing review before inclusion.",
+    cadence: "Weekly leaderboard refresh",
+    status: "automated",
+    command: ["scripts/collect-benchmarks.mjs"],
+    output: ["public/data/benchmarks.json"],
+    source: "Hugging Face public leaderboard API for SWE-bench Verified and GSM8K",
   },
 };
 
@@ -55,7 +63,7 @@ export function formatRefreshSummary(results) {
 
   lines.push(
     "",
-    "Automated collectors only update data after successful retrieval and validation. Manual-review domains are intentionally left unchanged.",
+    "Collectors only write after successful retrieval and validation. Candidate observations remain separate from canonical catalogue records until reviewed.",
   );
   return lines.join("\n");
 }

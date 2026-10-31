@@ -37,7 +37,7 @@ for (const domain of domains) {
     catch (error) { if (error.code === "ENOENT") return null; throw error; }
   })();
   console.log(`Refreshing ${definition.label}...`);
-  const run = spawnSync(process.execPath, [script, ...args], {
+  const run = spawnSync(process.execPath, ["--experimental-strip-types", script, ...args], {
     encoding: "utf8",
     stdio: "inherit",
   });
@@ -64,9 +64,11 @@ if (process.env.GITHUB_STEP_SUMMARY) {
   await appendFile(process.env.GITHUB_STEP_SUMMARY, `${summary}\n`);
 }
 if (process.env.GITHUB_OUTPUT) {
-  const diff = spawnSync("git", ["diff", "--quiet", "--", "public/data"], { stdio: "ignore" });
-  if (diff.error) throw diff.error;
-  const hasChanges = diff.status === 1;
+  // git diff does not include untracked collector outputs; status --porcelain does.
+  const status = spawnSync("git", ["status", "--porcelain", "--", "public/data"], { encoding: "utf8" });
+  if (status.error) throw status.error;
+  if (status.status !== 0) throw new Error("Unable to inspect generated data changes.");
+  const hasChanges = status.stdout.trim().length > 0;
   await appendFile(
     process.env.GITHUB_OUTPUT,
     `has-changes=${hasChanges}\nsummary<<COMPUTE_LEDGER_SUMMARY\n${summary}\nCOMPUTE_LEDGER_SUMMARY\n`,
