@@ -13,7 +13,25 @@ The `.github/workflows/refresh-data.yml` workflow:
 5. Opens or updates a pull request only when files under `public/data/` have changed.
 6. Adds a human-readable report to the Actions run summary and pull request.
 
-Each collector writes to a temporary file and atomically replaces its output only after the complete response has been retrieved and validated. A failed request or invalid response stops the workflow; the previous committed data remains the last-known-good version. An unavailable source is never treated as evidence that a model or plan has been removed.
+Collector outputs are written atomically. Retrieval failures are isolated at source level wherever partial collection is meaningful; malformed catalogue data or failed validation still fails the workflow. A failed source never becomes an empty catalogue and never implies that a model, plan or price has been removed. Last-known-good candidate observations are retained when a whole upstream feed is unavailable.
+
+## Source registry and failure handling
+
+Every attempted automated source is recorded in `public/data/refresh-candidates/source-registry.json`. Each entry includes its stable source ID, URL, publisher, domain, collection strategy, automation suitability, first-seen time, last attempt, last successful retrieval, current status, most recent error and consecutive failure count.
+
+Statuses are deliberately distinct:
+
+- `fetched`: the endpoint returned a usable response.
+- `blocked`: the source explicitly returned HTTP 403. This is an access decision, not evidence that the source content changed.
+- `rate_limited`: HTTP 429. The collector does not hammer the endpoint with retries.
+- `transient_failure`: server-side 5xx, timeout or network failure.
+- `unavailable`: other unsuccessful HTTP responses.
+- `invalid_response`: response parsing or format failure.
+- `manual_review`: a source such as a PDF that is retained for a human rather than automatically parsed.
+
+A failed attempt updates the latest status and error but preserves `lastSuccessfulAt`. Per-source failures in subscription pages, official pricing pages and benchmark leaderboards do not stop unrelated sources from being collected. If a complete upstream feed (for example the model discovery API) is unavailable, its previous candidate file is left untouched. The source registry itself still records the failed attempt.
+
+The registry describes collection health, not source truth or commercial facts. It does not infer that a provider is blocking Compute Ledger specifically: HTTP 403 only establishes that the request was forbidden. Do not disguise the workflow as a browser, rotate addresses to evade controls or bypass access restrictions. Prefer documented APIs, public feeds and provider-supported data access; otherwise retain the source as manual review.
 
 ## Schedules
 
@@ -60,10 +78,10 @@ This separation is intentional: automated retrieval can reliably identify change
 ## Adding a collector
 
 1. Add a dedicated script under `scripts/`; keep provider-specific parsing out of the orchestrator.
-2. Use `scripts/lib/refresh-io.mjs` for bounded HTTP requests and atomic JSON writes.
+2. Use `scripts/lib/refresh-io.mjs` for bounded HTTP requests, source status classification, registry updates and atomic JSON writes.
 3. Validate complete responses before writing. Reject missing fields, unexpected units, invalid dates and incomplete records.
 4. Preserve source URLs, publishers, observation dates and effective dates where provided.
-5. Never delete or downgrade a last-known-good record because a source is unavailable.
+5. Never delete or downgrade a last-known-good record because a source is unavailable; preserve the last successful timestamp in the source registry.
 6. Register the command and output paths in `scripts/lib/data-refresh.mjs`.
 7. Add tests for parsing, valid/invalid responses, provenance and failure behaviour.
 8. Update this document and the candidate-data README.
