@@ -202,7 +202,9 @@
       "website": "https://openai.com",
       "sources": [
         "openai-plus",
-        "openai-api"
+        "openai-api",
+        "openai-models",
+        "openai-pricing-current"
       ]
     },
     {
@@ -211,7 +213,10 @@
       "website": "https://www.anthropic.com",
       "sources": [
         "claude-plans",
-        "claude-pro"
+        "claude-pro",
+        "anthropic-models",
+        "anthropic-system-cards",
+        "anthropic-pricing-current"
       ]
     },
     {
@@ -219,7 +224,9 @@
       "name": "Google",
       "website": "https://ai.google",
       "sources": [
-        "google-ai-pro"
+        "google-ai-pro",
+        "google-gemini-argon",
+        "google-gemini-api-pricing"
       ]
     },
     {
@@ -227,14 +234,18 @@
       "name": "DeepSeek",
       "website": "https://www.deepseek.com",
       "sources": [
-        "deepseek-api"
+        "deepseek-api",
+        "deepseek-v41"
       ]
     },
     {
       "id": "xai",
       "name": "xAI",
       "website": "https://x.ai",
-      "sources": []
+      "sources": [
+        "xai-grok-docs",
+        "xai-api-pricing"
+      ]
     },
     {
       "id": "meta",
@@ -249,7 +260,8 @@
       "name": "Mistral AI",
       "website": "https://mistral.ai",
       "sources": [
-        "mistral-large-4"
+        "mistral-large-4",
+        "mistral-large-4-docs"
       ]
     },
     {
@@ -299,7 +311,8 @@
         "deepseek-api"
       ],
       "availability": "current",
-      "notes": "Official API model version exposed as deepseek-flash; legacy deepseek-v4-flash aliases route here."
+      "notes": "Official API model version exposed as deepseek-flash; legacy deepseek-v4-flash aliases route here.",
+      "apiModelId": "deepseek-flash"
     },
     {
       "id": "deepseek-v4-pro",
@@ -313,7 +326,8 @@
         "deepseek-api"
       ],
       "availability": "current",
-      "notes": "Current DeepSeek API model version. The official API pricing page still lists deepseek-v4-pro; legacy deepseek-v4-flash aliases route to DeepSeek-V4.1-Flash-1017."
+      "notes": "Current DeepSeek API model version. The official API pricing page still lists deepseek-v4-pro; legacy deepseek-v4-flash aliases route to DeepSeek-V4.1-Flash-1017.",
+      "apiModelId": "deepseek-v4-pro"
     },
     {
       "id": "gpt-6-astra",
@@ -324,7 +338,8 @@
       ],
       "sources": [
         "openai-api"
-      ]
+      ],
+      "apiModelId": "gpt-6-astra"
     },
     {
       "id": "claude-opus-4-8",
@@ -353,7 +368,8 @@
       "availability": "current",
       "releaseDate": "2026-09-29",
       "notes": "Near-Astra performance for complex work at a lower price, per OpenAI.",
-      "contextWindowTokens": 1050000
+      "contextWindowTokens": 1050000,
+      "apiModelId": "gpt-6.1-sol"
     },
     {
       "id": "gpt-6-1-terra",
@@ -369,7 +385,8 @@
       "availability": "current",
       "releaseDate": "2026-10-26",
       "notes": "Fast model for visual reasoning, computer use and writing, per OpenAI.",
-      "contextWindowTokens": 1050000
+      "contextWindowTokens": 1050000,
+      "apiModelId": "gpt-6.1-terra"
     },
     {
       "id": "gpt-6-luna",
@@ -385,7 +402,8 @@
       "availability": "current",
       "releaseDate": "2026-09-22",
       "notes": "Efficiency-oriented GPT-6 family model.",
-      "contextWindowTokens": 1050000
+      "contextWindowTokens": 1050000,
+      "apiModelId": "gpt-6-luna"
     },
     {
       "id": "claude-opus-5-5",
@@ -397,11 +415,13 @@
       ],
       "sources": [
         "anthropic-models",
-        "anthropic-system-cards"
+        "anthropic-system-cards",
+        "anthropic-pricing-current"
       ],
       "availability": "current",
       "releaseDate": "2026-09-22",
-      "notes": "Current Opus-tier frontier model."
+      "notes": "Current Opus-tier frontier model.",
+      "apiModelId": "claude-opus-5-5"
     },
     {
       "id": "claude-sonnet-5-5",
@@ -413,11 +433,13 @@
       ],
       "sources": [
         "anthropic-models",
-        "anthropic-system-cards"
+        "anthropic-system-cards",
+        "anthropic-pricing-current"
       ],
       "availability": "current",
       "releaseDate": "2026-09-28",
-      "notes": "Current Sonnet-tier model."
+      "notes": "Current Sonnet-tier model.",
+      "apiModelId": "claude-sonnet-5-5"
     },
     {
       "id": "claude-haiku-5-5",
@@ -429,11 +451,13 @@
       ],
       "sources": [
         "anthropic-models",
-        "anthropic-system-cards"
+        "anthropic-system-cards",
+        "anthropic-pricing-current"
       ],
       "availability": "current",
       "releaseDate": "2026-10-07",
-      "notes": "Fast, high-volume Haiku-tier model."
+      "notes": "Fast, high-volume Haiku-tier model.",
+      "apiModelId": "claude-haiku-5-5"
     },
     {
       "id": "gemini-4-argon",
@@ -449,7 +473,8 @@
       "availability": "current",
       "releaseDate": "2026-10-13",
       "notes": "Google states a 1M-token unified input/output limit.",
-      "contextWindowTokens": 1000000
+      "contextWindowTokens": 1000000,
+      "apiModelId": "gemini-4-argon"
     },
     {
       "id": "grok-4-7",
@@ -464,7 +489,9 @@
       ],
       "availability": "current",
       "releaseDate": "2026-09-21",
-      "notes": "Listed in xAI's official Grok documentation."
+      "notes": "Listed in xAI's official Grok documentation.",
+      "apiModelId": "grok-4.7",
+      "contextWindowTokens": 500000
     },
     {
       "id": "deepseek-v41-flash-1017",
@@ -505,11 +532,14 @@
         "image"
       ],
       "sources": [
-        "mistral-large-4"
+        "mistral-large-4",
+        "mistral-large-4-docs"
       ],
       "availability": "preview",
       "releaseDate": "2026-10-06",
-      "notes": "Public preview at observation date; official model page lists $0.70 input, $2.10 output and $0.07 cached input per million tokens."
+      "notes": "Public preview at observation date; official model page lists $0.70 input, $2.10 output and $0.07 cached input per million tokens.",
+      "apiModelId": "mistral-large-4",
+      "contextWindowTokens": 1000000
     },
     {
       "id": "qwen-3-8-max",
@@ -571,6 +601,36 @@
       "availability": "current",
       "releaseDate": "2026-10-15",
       "notes": "NVIDIA describes a 120B open multimodal model for specialized agent workloads."
+    },
+    {
+      "id": "claude-fable-5-1",
+      "providerId": "anthropic",
+      "name": "Claude Fable 5.1",
+      "apiModelId": "claude-fable-5-1",
+      "modality": [
+        "text",
+        "image"
+      ],
+      "sources": [
+        "anthropic-pricing-current"
+      ],
+      "availability": "preview",
+      "notes": "Additional frontier model listed in Anthropic's official pricing documentation; access may be restricted."
+    },
+    {
+      "id": "claude-mythos-5-1",
+      "providerId": "anthropic",
+      "name": "Claude Mythos 5.1",
+      "apiModelId": "claude-mythos-5-1",
+      "modality": [
+        "text",
+        "image"
+      ],
+      "sources": [
+        "anthropic-pricing-current"
+      ],
+      "availability": "preview",
+      "notes": "Additional frontier model listed in Anthropic's official pricing documentation; access is restricted."
     }
   ],
   "subscriptionPlans": [
@@ -713,11 +773,11 @@
     {
       "id": "openai-gpt-6-astra-standard",
       "modelId": "gpt-6-astra",
-      "inputPerMillion": 5,
-      "outputPerMillion": 25,
-      "cachedInputPerMillion": 0.5,
-      "cacheWrite5mPerMillion": 6.25,
-      "cacheWrite1hPerMillion": 12.5,
+      "inputPerMillion": 10,
+      "outputPerMillion": 50,
+      "cachedInputPerMillion": 1,
+      "cacheWrite5mPerMillion": 12.5,
+      "cacheWrite1hPerMillion": 25,
       "currency": "USD",
       "tier": "Standard",
       "observedAt": "2026-10-31",
@@ -728,11 +788,11 @@
     {
       "id": "openai-gpt-6-astra-flex-batch",
       "modelId": "gpt-6-astra",
-      "inputPerMillion": 10,
-      "outputPerMillion": 50,
-      "cachedInputPerMillion": 1,
-      "cacheWrite5mPerMillion": 12.5,
-      "cacheWrite1hPerMillion": 25,
+      "inputPerMillion": 5,
+      "outputPerMillion": 25,
+      "cachedInputPerMillion": 0.5,
+      "cacheWrite5mPerMillion": 6.25,
+      "cacheWrite1hPerMillion": 12.5,
       "currency": "USD",
       "tier": "Flex/Batch",
       "observedAt": "2026-10-31",
@@ -773,11 +833,11 @@
     {
       "id": "openai-gpt-6-1-sol-standard",
       "modelId": "gpt-6-1-sol",
-      "inputPerMillion": 1,
-      "outputPerMillion": 5,
-      "cachedInputPerMillion": 0.05,
-      "cacheWrite5mPerMillion": 1.25,
-      "cacheWrite1hPerMillion": 2.5,
+      "inputPerMillion": 2,
+      "outputPerMillion": 10,
+      "cachedInputPerMillion": 0.1,
+      "cacheWrite5mPerMillion": 2.5,
+      "cacheWrite1hPerMillion": 5,
       "currency": "USD",
       "tier": "Standard",
       "observedAt": "2026-10-31",
@@ -788,11 +848,11 @@
     {
       "id": "openai-gpt-6-1-sol-flex-batch",
       "modelId": "gpt-6-1-sol",
-      "inputPerMillion": 2,
-      "outputPerMillion": 10,
-      "cachedInputPerMillion": 0.1,
-      "cacheWrite5mPerMillion": 2.5,
-      "cacheWrite1hPerMillion": 5,
+      "inputPerMillion": 1,
+      "outputPerMillion": 5,
+      "cachedInputPerMillion": 0.05,
+      "cacheWrite5mPerMillion": 1.25,
+      "cacheWrite1hPerMillion": 2.5,
       "currency": "USD",
       "tier": "Flex/Batch",
       "observedAt": "2026-10-31",
@@ -833,11 +893,11 @@
     {
       "id": "openai-gpt-6-1-terra-standard",
       "modelId": "gpt-6-1-terra",
-      "inputPerMillion": 0.5,
-      "outputPerMillion": 2.5,
-      "cachedInputPerMillion": 0.025,
-      "cacheWrite5mPerMillion": 0.625,
-      "cacheWrite1hPerMillion": 1.25,
+      "inputPerMillion": 1,
+      "outputPerMillion": 5,
+      "cachedInputPerMillion": 0.05,
+      "cacheWrite5mPerMillion": 1.25,
+      "cacheWrite1hPerMillion": 2.5,
       "currency": "USD",
       "tier": "Standard",
       "observedAt": "2026-10-31",
@@ -848,11 +908,11 @@
     {
       "id": "openai-gpt-6-1-terra-flex-batch",
       "modelId": "gpt-6-1-terra",
-      "inputPerMillion": 1,
-      "outputPerMillion": 5,
-      "cachedInputPerMillion": 0.05,
-      "cacheWrite5mPerMillion": 1.25,
-      "cacheWrite1hPerMillion": 2.5,
+      "inputPerMillion": 0.5,
+      "outputPerMillion": 2.5,
+      "cachedInputPerMillion": 0.025,
+      "cacheWrite5mPerMillion": 0.625,
+      "cacheWrite1hPerMillion": 1.25,
       "currency": "USD",
       "tier": "Flex/Batch",
       "observedAt": "2026-10-31",
@@ -878,11 +938,11 @@
     {
       "id": "openai-gpt-6-luna-standard",
       "modelId": "gpt-6-luna",
-      "inputPerMillion": 0.05,
-      "outputPerMillion": 0.25,
-      "cachedInputPerMillion": 0.005,
-      "cacheWrite5mPerMillion": 0.0625,
-      "cacheWrite1hPerMillion": 0.125,
+      "inputPerMillion": 0.1,
+      "outputPerMillion": 0.5,
+      "cachedInputPerMillion": 0.01,
+      "cacheWrite5mPerMillion": 0.125,
+      "cacheWrite1hPerMillion": 0.25,
       "currency": "USD",
       "tier": "Standard",
       "observedAt": "2026-10-31",
@@ -893,11 +953,11 @@
     {
       "id": "openai-gpt-6-luna-flex-batch",
       "modelId": "gpt-6-luna",
-      "inputPerMillion": 0.1,
-      "outputPerMillion": 0.5,
-      "cachedInputPerMillion": 0.01,
-      "cacheWrite5mPerMillion": 0.125,
-      "cacheWrite1hPerMillion": 0.25,
+      "inputPerMillion": 0.05,
+      "outputPerMillion": 0.25,
+      "cachedInputPerMillion": 0.005,
+      "cacheWrite5mPerMillion": 0.0625,
+      "cacheWrite1hPerMillion": 0.125,
       "currency": "USD",
       "tier": "Flex/Batch",
       "observedAt": "2026-10-31",
@@ -1063,6 +1123,66 @@
       "effectiveFrom": "2026-10-31",
       "sourceId": "xai-api-pricing",
       "notes": "Global endpoint list price. Once a prompt reaches 200k tokens, long-context rates apply to all tokens in that request."
+    },
+    {
+      "id": "anthropic-claude-fable-5-1-standard",
+      "modelId": "claude-fable-5-1",
+      "inputPerMillion": 10,
+      "outputPerMillion": 50,
+      "cachedInputPerMillion": 0.25,
+      "cacheWrite5mPerMillion": 12.5,
+      "cacheWrite1hPerMillion": 20,
+      "currency": "USD",
+      "tier": "Standard",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "anthropic-pricing-current",
+      "notes": "Official published model list price; access may be restricted."
+    },
+    {
+      "id": "anthropic-claude-fable-5-1-batch",
+      "modelId": "claude-fable-5-1",
+      "inputPerMillion": 5,
+      "outputPerMillion": 25,
+      "cachedInputPerMillion": 0.125,
+      "cacheWrite5mPerMillion": 6.25,
+      "cacheWrite1hPerMillion": 10,
+      "currency": "USD",
+      "tier": "Batch",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "anthropic-pricing-current",
+      "notes": "Batch API applies a 50% discount to input and output; cache modifiers stack with batch pricing."
+    },
+    {
+      "id": "anthropic-claude-mythos-5-1-standard",
+      "modelId": "claude-mythos-5-1",
+      "inputPerMillion": 10,
+      "outputPerMillion": 50,
+      "cachedInputPerMillion": 0.25,
+      "cacheWrite5mPerMillion": 12.5,
+      "cacheWrite1hPerMillion": 20,
+      "currency": "USD",
+      "tier": "Standard",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "anthropic-pricing-current",
+      "notes": "Official published model list price; access may be restricted."
+    },
+    {
+      "id": "anthropic-claude-mythos-5-1-batch",
+      "modelId": "claude-mythos-5-1",
+      "inputPerMillion": 5,
+      "outputPerMillion": 25,
+      "cachedInputPerMillion": 0.125,
+      "cacheWrite5mPerMillion": 6.25,
+      "cacheWrite1hPerMillion": 10,
+      "currency": "USD",
+      "tier": "Batch",
+      "observedAt": "2026-10-31",
+      "effectiveFrom": "2026-10-31",
+      "sourceId": "anthropic-pricing-current",
+      "notes": "Batch API applies a 50% discount to input and output; cache modifiers stack with batch pricing."
     }
   ]
 }
