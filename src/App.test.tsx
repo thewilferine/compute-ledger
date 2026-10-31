@@ -12,6 +12,7 @@ describe("Compute Ledger app", () => {
     expect(html).toContain("Providers");
     expect(html).toContain("Subscriptions");
     expect(html).toContain("Methodology");
+    expect(html).toContain("API price observations");
   });
 
   it("validates the published catalogue and all source relationships", () => {
