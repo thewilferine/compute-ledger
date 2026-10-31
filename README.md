@@ -56,7 +56,7 @@ See [the methodology notes](docs/methodology.md) for the modelling boundaries, d
 
 ## Current data coverage
 
-The catalogue currently includes a small, source-backed sample of provider records, consumer subscription observations, and API token rates. API rates are customer-facing list prices, not internal inference costs. The dataset records source URLs and observation dates and is validated at runtime with Zod. Coverage is intentionally incomplete: do not interpret missing providers or models as having no API price or no serving cost.
+The catalogue tracks major AI model labs and platform providers: OpenAI, Anthropic, Google, DeepSeek, xAI, Meta, Mistral, Alibaba/Qwen, Moonshot AI, Z.ai, and NVIDIA. It includes frontier model entries with official source links, selected consumer subscription observations, and published API token rates where verified. This is a curated frontier catalogue, not an exhaustive inventory of every model or variant. API rates are customer-facing list prices, not internal inference costs. Missing prices, specifications or plans mean they have not yet been verified; they do not mean the provider has none. Model status and release dates are recorded where supported by official sources.
 
 ## Deployment
 
