@@ -49,6 +49,10 @@ The weekly run also refreshes exchange rates because `all` includes every domain
 
 `scripts/collect-subscriptions.mjs` fetches the official subscription/help pages already linked to catalogue subscription plans. It records source URL, publisher, retrieval date, linked plan IDs, page metadata and nearby currency/price mentions.
 
+The current curated plan set adds Microsoft 365 Personal, Family, Premium and Pro (Copilot is a bundled benefit, and Family AI access is restricted to the subscription owner); Perplexity Pro and Max; Mistral Le Chat Pro; DeepSeek Free; Meta One Core and Premium; and Poe Free and a starting-price subscription entry. These records are linked to primary provider pages so the weekly collector observes their evidence alongside existing plans. Poe's model access is represented as a shared compute-point pool: point cost varies by bot and request, and unused daily free points expire. Meta One and Microsoft 365 prices are bundle prices, not estimates of the AI component's standalone value. The Mistral Pro price comes from its dated February 2025 launch announcement and is explicitly marked as a price to recheck at checkout.
+
+Poe's FAQ describes paid subscriptions as starting at USD $4.99/month, but does not establish a single universal point allowance. The catalogue therefore records a starting price and does not imply that all paid tiers provide the same points. Plans and prices may vary by region and app-store billing. Where no sufficiently clear consumer price is available, the project should leave the paid plan out rather than invent one.
+
 This is source evidence, not an automatic price parser. A price mention is not assigned to a plan, region, billing period or usage entitlement without review. Subscription pages often localise prices or describe limits dynamically; those facts must be checked in context before changing canonical plan records.
 
 ### Models
