@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import {
   extractPriceMentions,
-  fetchPage,
+  fetchPageObserved,
   htmlToText,
   writeJsonAtomic,
 } from "./lib/refresh-io.mjs";
@@ -36,7 +36,13 @@ for (const [sourceId, linkedPlanIds] of planIdsBySource) {
   };
 
   try {
-    const { body, contentType } = await fetchPage(source.url);
+    const result = await fetchPageObserved({
+      id: sourceId, url: source.url, publisher: source.publisher,
+      domain: "subscriptions", strategy: "official-html-page",
+      automationSuitability: "human-review-required",
+    });
+    if (result.status !== "fetched") throw new Error(result.error);
+    const { body, contentType } = result;
     const text = htmlToText(body);
     const mentions = extractPriceMentions(text);
 
@@ -53,7 +59,7 @@ for (const [sourceId, linkedPlanIds] of planIdsBySource) {
     const message = error instanceof Error ? error.message : String(error);
     observations.push({
       ...baseObservation,
-      status: "unavailable",
+      status: error?.message?.match(/HTTP 403/) ? "blocked" : error?.message?.match(/HTTP 429/) ? "rate_limited" : "unavailable",
       contentType: null,
       pageCharacters: null,
       priceMentions: [],
