@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "observedAt": "2026-10-31",
+  "observedAt": "2026-11-02",
   "source": "Official provider subscription and help pages",
   "observations": [
     {
@@ -8,7 +8,7 @@
       "title": "What is ChatGPT Plus?",
       "publisher": "OpenAI Help Center",
       "sourceUrl": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
-      "observedAt": "2026-10-31",
+      "observedAt": "2026-11-02",
       "linkedPlanIds": [
         "chatgpt-plus-usd"
       ],
@@ -18,7 +18,12 @@
       "pageCharacters": null,
       "priceMentions": [],
       "error": "Source page failed for https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus: HTTP 403 Forbidden",
-      "lastKnownGoodObservation": null,
+      "lastKnownGoodObservation": {
+        "observedAt": "2026-10-31",
+        "contentType": null,
+        "pageCharacters": null,
+        "priceMentions": []
+      },
       "reviewReason": "Source could not be retrieved. No pricing conclusions can be drawn; the last successful observation is retained separately for context."
     },
     {
@@ -26,14 +31,14 @@
       "title": "What is the Pro plan?",
       "publisher": "Anthropic Support",
       "sourceUrl": "https://support.claude.com/en/articles/8325606-what-is-the-pro-plan",
-      "observedAt": "2026-10-31",
+      "observedAt": "2026-11-02",
       "linkedPlanIds": [
         "claude-pro-usd"
       ],
       "reviewRequired": true,
       "status": "fetched",
       "contentType": "text/html; charset=utf-8",
-      "pageCharacters": 209041,
+      "pageCharacters": 209035,
       "priceMentions": [
         {
           "text": "$20",
@@ -47,7 +52,7 @@
       "title": "Choose a Claude plan",
       "publisher": "Anthropic Support",
       "sourceUrl": "https://support.claude.com/en/articles/11049762-choose-a-claude-plan",
-      "observedAt": "2026-10-31",
+      "observedAt": "2026-11-02",
       "linkedPlanIds": [
         "claude-pro-usd",
         "claude-pro-annual-usd",
@@ -60,7 +65,12 @@
       "pageCharacters": null,
       "priceMentions": [],
       "error": "Source page failed for https://support.claude.com/en/articles/11049762-choose-a-claude-plan: HTTP 404 Not Found",
-      "lastKnownGoodObservation": null,
+      "lastKnownGoodObservation": {
+        "observedAt": "2026-10-31",
+        "contentType": null,
+        "pageCharacters": null,
+        "priceMentions": []
+      },
       "reviewReason": "Source could not be retrieved. No pricing conclusions can be drawn; the last successful observation is retained separately for context."
     },
     {
@@ -68,7 +78,7 @@
       "title": "Google AI Pro subscriptions",
       "publisher": "Google",
       "sourceUrl": "https://gemini.google/gi/subscriptions/?hl=en-GB",
-      "observedAt": "2026-10-31",
+      "observedAt": "2026-11-02",
       "linkedPlanIds": [
         "google-ai-pro-gbp",
         "google-ai-plus-gbp",
@@ -120,7 +130,7 @@
       "title": "Gemini Apps limits & feature availability",
       "publisher": "Google Support",
       "sourceUrl": "https://support.google.com/gemini/answer/16275805?hl=en-GB",
-      "observedAt": "2026-10-31",
+      "observedAt": "2026-11-02",
       "linkedPlanIds": [
         "google-ai-pro-gbp",
         "google-ai-plus-gbp",
@@ -130,7 +140,7 @@
       "reviewRequired": true,
       "status": "fetched",
       "contentType": "text/html; charset=UTF-8",
-      "pageCharacters": 1663451,
+      "pageCharacters": 1663449,
       "priceMentions": [],
       "reviewReason": "Page text is evidence for human review only; price mentions are not assigned to plans, regions or billing periods automatically."
     },
@@ -139,7 +149,7 @@
       "title": "About ChatGPT Pro tiers",
       "publisher": "OpenAI Help Center",
       "sourceUrl": "https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers",
-      "observedAt": "2026-10-31",
+      "observedAt": "2026-11-02",
       "linkedPlanIds": [
         "chatgpt-pro-100-usd",
         "chatgpt-pro-200-usd",
@@ -151,7 +161,12 @@
       "pageCharacters": null,
       "priceMentions": [],
       "error": "Source page failed for https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers: HTTP 403 Forbidden",
-      "lastKnownGoodObservation": null,
+      "lastKnownGoodObservation": {
+        "observedAt": "2026-10-31",
+        "contentType": null,
+        "pageCharacters": null,
+        "priceMentions": []
+      },
       "reviewReason": "Source could not be retrieved. No pricing conclusions can be drawn; the last successful observation is retained separately for context."
     },
     {
@@ -159,7 +174,7 @@
       "title": "Grok subscription pricing",
       "publisher": "xAI",
       "sourceUrl": "https://x.ai/pricing",
-      "observedAt": "2026-10-31",
+      "observedAt": "2026-11-02",
       "linkedPlanIds": [
         "xai-supergrok-usd",
         "xai-supergrok-plus-usd"
@@ -170,7 +185,12 @@
       "pageCharacters": null,
       "priceMentions": [],
       "error": "Source page failed for https://x.ai/pricing: HTTP 403 Forbidden",
-      "lastKnownGoodObservation": null,
+      "lastKnownGoodObservation": {
+        "observedAt": "2026-10-31",
+        "contentType": null,
+        "pageCharacters": null,
+        "priceMentions": []
+      },
       "reviewReason": "Source could not be retrieved. No pricing conclusions can be drawn; the last successful observation is retained separately for context."
     },
     {
@@ -178,7 +198,7 @@
       "title": "Grok weekly usage limits",
       "publisher": "xAI Documentation",
       "sourceUrl": "https://docs.x.ai/grok/faq",
-      "observedAt": "2026-10-31",
+      "observedAt": "2026-11-02",
       "linkedPlanIds": [
         "xai-supergrok-usd",
         "xai-supergrok-plus-usd"

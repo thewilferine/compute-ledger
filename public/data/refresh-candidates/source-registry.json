@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-31T20:39:46.108Z",
+  "updatedAt": "2026-11-02T07:21:19.083Z",
   "sources": [
     {
       "id": "anthropic-pricing-current",
@@ -10,8 +10,8 @@
       "strategy": "official-html-page",
       "automationSuitability": "human-review-required",
       "firstSeenAt": "2026-10-31T20:39:45.178Z",
-      "lastAttemptAt": "2026-10-31T20:39:45.178Z",
-      "lastSuccessfulAt": "2026-10-31T20:39:45.178Z",
+      "lastAttemptAt": "2026-11-02T07:21:18.275Z",
+      "lastSuccessfulAt": "2026-11-02T07:21:18.275Z",
       "status": "fetched",
       "lastError": null,
       "consecutiveFailures": 0
@@ -24,7 +24,7 @@
       "strategy": "pdf-manual-review",
       "automationSuitability": "manual-review",
       "firstSeenAt": "2026-10-31T20:39:44.361Z",
-      "lastAttemptAt": "2026-10-31T20:39:44.361Z",
+      "lastAttemptAt": "2026-11-02T07:21:17.093Z",
       "lastSuccessfulAt": null,
       "status": "manual_review",
       "lastError": null,
@@ -38,8 +38,8 @@
       "strategy": "official-html-page",
       "automationSuitability": "human-review-required",
       "firstSeenAt": "2026-10-31T20:39:43.978Z",
-      "lastAttemptAt": "2026-10-31T20:39:43.978Z",
-      "lastSuccessfulAt": "2026-10-31T20:39:43.978Z",
+      "lastAttemptAt": "2026-11-02T07:21:16.382Z",
+      "lastSuccessfulAt": "2026-11-02T07:21:16.382Z",
       "status": "fetched",
       "lastError": null,
       "consecutiveFailures": 0
@@ -52,8 +52,8 @@
       "strategy": "official-html-page",
       "automationSuitability": "human-review-required",
       "firstSeenAt": "2026-10-31T20:39:44.362Z",
-      "lastAttemptAt": "2026-10-31T20:39:44.362Z",
-      "lastSuccessfulAt": "2026-10-31T20:39:44.362Z",
+      "lastAttemptAt": "2026-11-02T07:21:17.094Z",
+      "lastSuccessfulAt": "2026-11-02T07:21:17.094Z",
       "status": "fetched",
       "lastError": null,
       "consecutiveFailures": 0
@@ -66,8 +66,8 @@
       "strategy": "official-html-page",
       "automationSuitability": "human-review-required",
       "firstSeenAt": "2026-10-31T20:39:44.703Z",
-      "lastAttemptAt": "2026-10-31T20:39:44.703Z",
-      "lastSuccessfulAt": "2026-10-31T20:39:44.703Z",
+      "lastAttemptAt": "2026-11-02T07:21:17.897Z",
+      "lastSuccessfulAt": "2026-11-02T07:21:17.897Z",
       "status": "fetched",
       "lastError": null,
       "consecutiveFailures": 0
@@ -80,8 +80,8 @@
       "strategy": "official-html-page",
       "automationSuitability": "human-review-required",
       "firstSeenAt": "2026-10-31T20:39:44.967Z",
-      "lastAttemptAt": "2026-10-31T20:39:44.967Z",
-      "lastSuccessfulAt": "2026-10-31T20:39:44.967Z",
+      "lastAttemptAt": "2026-11-02T07:21:18.157Z",
+      "lastSuccessfulAt": "2026-11-02T07:21:18.157Z",
       "status": "fetched",
       "lastError": null,
       "consecutiveFailures": 0
@@ -94,8 +94,8 @@
       "strategy": "official-json-api",
       "automationSuitability": "aggregator-data-review-required",
       "firstSeenAt": "2026-10-31T20:39:45.679Z",
-      "lastAttemptAt": "2026-10-31T20:39:45.679Z",
-      "lastSuccessfulAt": "2026-10-31T20:39:45.679Z",
+      "lastAttemptAt": "2026-11-02T07:21:18.713Z",
+      "lastSuccessfulAt": "2026-11-02T07:21:18.713Z",
       "status": "fetched",
       "lastError": null,
       "consecutiveFailures": 0
@@ -108,8 +108,8 @@
       "strategy": "official-html-page",
       "automationSuitability": "human-review-required",
       "firstSeenAt": "2026-10-31T20:39:45.536Z",
-      "lastAttemptAt": "2026-10-31T20:39:45.536Z",
-      "lastSuccessfulAt": "2026-10-31T20:39:45.536Z",
+      "lastAttemptAt": "2026-11-02T07:21:18.593Z",
+      "lastSuccessfulAt": "2026-11-02T07:21:18.593Z",
       "status": "fetched",
       "lastError": null,
       "consecutiveFailures": 0
@@ -122,8 +122,8 @@
       "strategy": "public-leaderboard-json-api",
       "automationSuitability": "independent-results-review-required",
       "firstSeenAt": "2026-10-31T20:39:46.108Z",
-      "lastAttemptAt": "2026-10-31T20:39:46.108Z",
-      "lastSuccessfulAt": "2026-10-31T20:39:46.108Z",
+      "lastAttemptAt": "2026-11-02T07:21:19.083Z",
+      "lastSuccessfulAt": "2026-11-02T07:21:19.083Z",
       "status": "fetched",
       "lastError": null,
       "consecutiveFailures": 0
@@ -136,8 +136,8 @@
       "strategy": "public-leaderboard-json-api",
       "automationSuitability": "independent-results-review-required",
       "firstSeenAt": "2026-10-31T20:39:45.876Z",
-      "lastAttemptAt": "2026-10-31T20:39:45.876Z",
-      "lastSuccessfulAt": "2026-10-31T20:39:45.876Z",
+      "lastAttemptAt": "2026-11-02T07:21:18.892Z",
+      "lastSuccessfulAt": "2026-11-02T07:21:18.892Z",
       "status": "fetched",
       "lastError": null,
       "consecutiveFailures": 0
@@ -150,8 +150,8 @@
       "strategy": "ecb-reference-rates-json-api",
       "automationSuitability": "automated-reference-data",
       "firstSeenAt": "2026-10-31T20:39:42.053Z",
-      "lastAttemptAt": "2026-10-31T20:39:42.053Z",
-      "lastSuccessfulAt": "2026-10-31T20:39:42.053Z",
+      "lastAttemptAt": "2026-11-02T07:21:13.557Z",
+      "lastSuccessfulAt": "2026-11-02T07:21:13.557Z",
       "status": "fetched",
       "lastError": null,
       "consecutiveFailures": 0
@@ -164,8 +164,8 @@
       "strategy": "official-json-api",
       "automationSuitability": "aggregator-discovery-review-required",
       "firstSeenAt": "2026-10-31T20:39:43.780Z",
-      "lastAttemptAt": "2026-10-31T20:39:43.780Z",
-      "lastSuccessfulAt": "2026-10-31T20:39:43.780Z",
+      "lastAttemptAt": "2026-11-02T07:21:16.195Z",
+      "lastSuccessfulAt": "2026-11-02T07:21:16.195Z",
       "status": "fetched",
       "lastError": null,
       "consecutiveFailures": 0
@@ -178,11 +178,11 @@
       "strategy": "official-html-page",
       "automationSuitability": "human-review-required",
       "firstSeenAt": "2026-10-31T20:39:42.584Z",
-      "lastAttemptAt": "2026-10-31T20:39:42.584Z",
+      "lastAttemptAt": "2026-11-02T07:21:14.620Z",
       "lastSuccessfulAt": null,
       "status": "unavailable",
       "lastError": "Source page failed for https://support.claude.com/en/articles/11049762-choose-a-claude-plan: HTTP 404 Not Found",
-      "consecutiveFailures": 1
+      "consecutiveFailures": 2
     },
     {
       "id": "claude-pro",
@@ -192,8 +192,8 @@
       "strategy": "official-html-page",
       "automationSuitability": "human-review-required",
       "firstSeenAt": "2026-10-31T20:39:42.263Z",
-      "lastAttemptAt": "2026-10-31T20:39:42.263Z",
-      "lastSuccessfulAt": "2026-10-31T20:39:42.263Z",
+      "lastAttemptAt": "2026-11-02T07:21:14.220Z",
+      "lastSuccessfulAt": "2026-11-02T07:21:14.220Z",
       "status": "fetched",
       "lastError": null,
       "consecutiveFailures": 0
@@ -206,8 +206,8 @@
       "strategy": "official-html-page",
       "automationSuitability": "human-review-required",
       "firstSeenAt": "2026-10-31T20:39:42.871Z",
-      "lastAttemptAt": "2026-10-31T20:39:42.871Z",
-      "lastSuccessfulAt": "2026-10-31T20:39:42.871Z",
+      "lastAttemptAt": "2026-11-02T07:21:14.903Z",
+      "lastSuccessfulAt": "2026-11-02T07:21:14.903Z",
       "status": "fetched",
       "lastError": null,
       "consecutiveFailures": 0
@@ -220,8 +220,8 @@
       "strategy": "official-html-page",
       "automationSuitability": "human-review-required",
       "firstSeenAt": "2026-10-31T20:39:43.110Z",
-      "lastAttemptAt": "2026-10-31T20:39:43.110Z",
-      "lastSuccessfulAt": "2026-10-31T20:39:43.110Z",
+      "lastAttemptAt": "2026-11-02T07:21:15.101Z",
+      "lastSuccessfulAt": "2026-11-02T07:21:15.101Z",
       "status": "fetched",
       "lastError": null,
       "consecutiveFailures": 0
@@ -234,11 +234,11 @@
       "strategy": "official-html-page",
       "automationSuitability": "human-review-required",
       "firstSeenAt": "2026-10-31T20:39:42.174Z",
-      "lastAttemptAt": "2026-10-31T20:39:42.174Z",
+      "lastAttemptAt": "2026-11-02T07:21:14.110Z",
       "lastSuccessfulAt": null,
       "status": "blocked",
       "lastError": "Source page failed for https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus: HTTP 403 Forbidden",
-      "consecutiveFailures": 1
+      "consecutiveFailures": 2
     },
     {
       "id": "openai-pro-tiers",
@@ -248,11 +248,11 @@
       "strategy": "official-html-page",
       "automationSuitability": "human-review-required",
       "firstSeenAt": "2026-10-31T20:39:43.507Z",
-      "lastAttemptAt": "2026-10-31T20:39:43.507Z",
+      "lastAttemptAt": "2026-11-02T07:21:15.774Z",
       "lastSuccessfulAt": null,
       "status": "blocked",
       "lastError": "Source page failed for https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers: HTTP 403 Forbidden",
-      "consecutiveFailures": 1
+      "consecutiveFailures": 2
     },
     {
       "id": "xai-subscription-pricing",
@@ -262,11 +262,11 @@
       "strategy": "official-html-page",
       "automationSuitability": "human-review-required",
       "firstSeenAt": "2026-10-31T20:39:43.540Z",
-      "lastAttemptAt": "2026-10-31T20:39:43.540Z",
+      "lastAttemptAt": "2026-11-02T07:21:15.828Z",
       "lastSuccessfulAt": null,
       "status": "blocked",
       "lastError": "Source page failed for https://x.ai/pricing: HTTP 403 Forbidden",
-      "consecutiveFailures": 1
+      "consecutiveFailures": 2
     },
     {
       "id": "xai-subscription-usage",
@@ -276,8 +276,8 @@
       "strategy": "official-html-page",
       "automationSuitability": "human-review-required",
       "firstSeenAt": "2026-10-31T20:39:43.567Z",
-      "lastAttemptAt": "2026-10-31T20:39:43.567Z",
-      "lastSuccessfulAt": "2026-10-31T20:39:43.567Z",
+      "lastAttemptAt": "2026-11-02T07:21:15.916Z",
+      "lastSuccessfulAt": "2026-11-02T07:21:15.916Z",
       "status": "fetched",
       "lastError": null,
       "consecutiveFailures": 0
